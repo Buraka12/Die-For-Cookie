@@ -1,5 +1,4 @@
 extends Node2D
 
-func _ready() -> void:
-	print("sad")
+func  _ready() -> void:
 	$AnimationPlayer.play("fade_out")
