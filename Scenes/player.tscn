@@ -186,7 +186,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_asskw")
 }],
 "loop": true,
-"name": &"jumps",
+"name": &"jump",
 "speed": 10.0
 }, {
 "frames": [{
@@ -257,11 +257,14 @@ script = ExtResource("1_3y4p7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cwv63")
-animation = &"jumps"
-frame_progress = 0.940172
+animation = &"jump"
+frame_progress = 0.625861
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_h1nu7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
