@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwb2kk0kdchcm"
+path="res://.godot/imported/[No Copyright Background Music] Cool Fast Electronic Dynamic D&B _ OSAKA by tubebackr & Tetuano [hoa76tZaGwY].mp3-da8845e809f68435b0d0af9c74f4af71.mp3str"
+
+[deps]
+
+source_file="res://müzik/[No Copyright Background Music] Cool Fast Electronic Dynamic D&B _ OSAKA by tubebackr & Tetuano [hoa76tZaGwY].mp3"
+dest_files=["res://.godot/imported/[No Copyright Background Music] Cool Fast Electronic Dynamic D&B _ OSAKA by tubebackr & Tetuano [hoa76tZaGwY].mp3-da8845e809f68435b0d0af9c74f4af71.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
