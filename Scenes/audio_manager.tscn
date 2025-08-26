@@ -11,4 +11,5 @@ clips = NodePath("Clips")
 
 [node name="Main" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("2_wctjt")
-volume_db = -25.13
+volume_db = -10.0
+bus = &"Music"

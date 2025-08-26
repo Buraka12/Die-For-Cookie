@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=19 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://cexjt65jub06a" path="res://icon.svg" id="2_duk7v"]
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="3_2x58b"]
 [ext_resource type="FontFile" uid="uid://nbm826r7lfx7" path="res://Assets/Fonts/BirchLeaf.ttf" id="3_q57cy"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
 
 [sub_resource type="Animation" id="Animation_66o4w"]
 length = 0.001
@@ -44,6 +46,16 @@ _data = {
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdvvt"]
 texture = ExtResource("2_duk7v")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x5jp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6dc8y"]
+color = Color(0.0880691, 0.110076, 0.335149, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jxtvm"]
+color = Color(0.28785, 0.2622, 0.57, 1)
+thickness = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nswc5"]
 
@@ -101,7 +113,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_kdvvt")
 
 [node name="SettingsMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,6 +136,71 @@ current_tab = 0
 [node name="sounds" type="TabBar" parent="SettingsMenu/Tabs"]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Tabs/sounds"]
+layout_mode = 0
+offset_left = -0.5
+offset_right = 67.5
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Tabs/sounds/MarginContainer"]
+layout_mode = 2
+
+[node name="Music_container" type="HBoxContainer" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 15
+text = "Music"
+
+[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0x5jp")
+
+[node name="Music" type="HSlider" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container"]
+custom_minimum_size = Vector2(140, 5)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_6dc8y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_jxtvm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jxtvm")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_ya1pm")
+bus_name = "Music"
+
+[node name="Sfx_container" type="HBoxContainer" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 15
+text = "Sfx"
+
+[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+layout_mode = 2
+theme_override_constants/separation = 65
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0x5jp")
+
+[node name="Sfx" type="HSlider" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+custom_minimum_size = Vector2(140, 5)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_6dc8y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_jxtvm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jxtvm")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_rip41")
+bus_name = "Sfx"
 
 [node name="graph" type="TabBar" parent="SettingsMenu/Tabs"]
 visible = false
@@ -221,6 +297,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vhj80")
 text = "Quit"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
 [connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Buttons&Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons&Label/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

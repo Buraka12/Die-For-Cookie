@@ -59,7 +59,7 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("3_glplb")]
-position = Vector2(230, 191)
+position = Vector2(231, 116)
 
 [node name="fade" type="Panel" parent="."]
 visible = false

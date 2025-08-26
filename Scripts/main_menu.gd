@@ -2,8 +2,8 @@ extends Control
 
 func _ready() -> void:
 	$SettingsMenu.visible = false
-	
-
+	AudioManager.play("Main")
+#Buttons
 func _on_start_pressed() -> void:
 	$AnimationPlayer.play("fade_in")
 	
@@ -18,7 +18,9 @@ func _on_back_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 	
-	
+#Playe fade animation
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="fade_in":
 		get_tree().change_scene_to_file("res://Scenes/main_area.tscn")
+		
+#Settings Menu
