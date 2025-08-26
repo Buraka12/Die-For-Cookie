@@ -11,6 +11,7 @@ func _ready() -> void:
 #Buttons
 func _on_start_pressed() -> void:
 	$AnimationPlayer.play("opening")
+	$AnimatedSprite2D.play("opening")
 	
 func _on_settings_pressed() -> void:
 	$"Buttons&Label".visible = false

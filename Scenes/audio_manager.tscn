@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dwb2kk0kdchcm" path="res://müzik/[No Copyright Background Music] Cool Fast Electronic Dynamic D&B _ OSAKA by tubebackr & Tetuano [hoa76tZaGwY].mp3" id="2_wctjt"]
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("clips")]
+process_mode = 3
 script = ExtResource("1_n5a8c")
 clips = NodePath("Clips")
 
