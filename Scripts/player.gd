@@ -30,19 +30,19 @@ func _physics_process(delta: float) -> void:
 
 	#moving
 	if direction:
-		current_state = states.RUN
 		velocity.x = direction * SPEED
 		
 	elif not direction and current_state != states.FALL:
-		current_state = states.IDLE
 		velocity.x = move_toward(velocity.x, 0, 12)
 		
 		
 	#animations
 	if is_on_floor():
-		if direction == 0:
+		if direction == 0 and current_state != states.FALL:
+			current_state = states.IDLE
 			$AnimatedSprite2D.play("idle")
 		else:
+			current_state = states.RUN
 			$AnimatedSprite2D.play("move")
 	
 	

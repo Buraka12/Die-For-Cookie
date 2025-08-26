@@ -318,10 +318,10 @@ script = ExtResource("1_3y4p7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cwv63")
-animation = &"fall"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_h1nu7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
