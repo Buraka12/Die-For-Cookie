@@ -43,7 +43,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtuag"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3kv6u"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lk13i"]
 
 [node name="MainArea" type="Node2D"]
 script = ExtResource("1_52wci")
@@ -70,7 +70,7 @@ offset_bottom = 368.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(340, 252)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(291, 243)
-shape = SubResource("WorldBoundaryShape2D_3kv6u")
+shape = SubResource("WorldBoundaryShape2D_lk13i")
