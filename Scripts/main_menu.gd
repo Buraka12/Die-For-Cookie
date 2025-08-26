@@ -9,21 +9,23 @@ func _ready() -> void:
 	set_scaling(scaling_default)
 	$SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton.selected = scaling_default
 #Buttons
-func _on_start_pressed() -> void:
+func _on_new_game_pressed() -> void:
 	$AnimationPlayer.play("opening")
 	$AnimatedSprite2D.play("opening")
+
+	
 	
 func _on_settings_pressed() -> void:
-	$"Buttons&Label".visible = false
+	$Buttons.visible = false
 	$SettingsMenu.visible = true
 	
 func _on_back_pressed() -> void:
-	$"Buttons&Label".visible = true
+	$Buttons.visible = true
 	$SettingsMenu.visible = false
 
-func _on_quit_pressed() -> void:
+func _on_exit_pressed() -> void:
 	get_tree().quit()
-	
+
 #Playe fade animation
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="opening":

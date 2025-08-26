@@ -114,7 +114,7 @@ layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 55
+theme_override_constants/separation = 45
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
 
 [node name="Resume" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -128,25 +128,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
 shortcut = SubResource("Shortcut_8dj7e")
 text = "  Resume  "
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 45
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
-
-[node name="save" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4xr1l")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
-text = "    Save    "
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,9 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=51 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://d124r07tn8xcp" path="res://Assets/MainManuBakcground.png" id="2_p7xvr"]
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="3_2x58b"]
-[ext_resource type="FontFile" uid="uid://nbm826r7lfx7" path="res://Assets/Fonts/BirchLeaf.ttf" id="3_q57cy"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
@@ -25,38 +24,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons&Label:modulate")
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/path = NodePath("AnimatedSprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(320, 180)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:position")
+tracks/3/path = NodePath("Buttons:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(320, 180)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uigbl"]
@@ -80,38 +79,38 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons&Label:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(1, 1), Vector2(1.7, 1.7), Vector2(3.5, 3.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/path = NodePath("AnimatedSprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.6, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.7, 1.7), Vector2(3.5, 3.5)]
+"values": [Vector2(320, 180), Vector2(544, 254), Vector2(883, 212)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/path = NodePath("Buttons:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(320, 180), Vector2(544, 254), Vector2(883, 212)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yflxl"]
@@ -255,6 +254,13 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5tnd"]
+bg_color = Color(0.21, 0.21, 0.21, 0.670588)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x5jp"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_6dc8y"]
@@ -298,14 +304,64 @@ border_width_bottom = 1
 corner_radius_top_left = 5
 corner_radius_bottom_right = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhj80"]
-bg_color = Color(0.163884, 0.388107, 0.362258, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imc2l"]
+bg_color = Color(0.0579071, 0.164983, 0.265162, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
 corner_radius_top_left = 5
 corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_votjp"]
+bg_color = Color(0.0687982, 0.0687983, 0.0687982, 0.490196)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.244776, 0.244776, 0.244776, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m57te"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gjtv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smh1s"]
+bg_color = Color(0.104488, 0.25393, 0.39394, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylnfg"]
+bg_color = Color(0.0312974, 0.112433, 0.188798, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to106"]
+bg_color = Color(0.0579071, 0.164983, 0.265162, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="InputEventKey" id="InputEventKey_71u8d"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_aqj6g"]
+events = [SubResource("InputEventKey_71u8d")]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -330,7 +386,6 @@ sprite_frames = SubResource("SpriteFrames_k7vi1")
 animation = &"opening"
 
 [node name="SettingsMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -349,6 +404,7 @@ layout_mode = 2
 offset_right = 263.0
 offset_bottom = 186.0
 theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d5tnd")
 current_tab = 0
 
 [node name="sounds" type="TabBar" parent="SettingsMenu/Tabs"]
@@ -489,10 +545,10 @@ metadata/_tab_index = 2
 
 [node name="Back" type="Button" parent="SettingsMenu"]
 layout_mode = 2
-offset_left = 190.0
-offset_top = 183.0
-offset_right = 264.0
-offset_bottom = 206.0
+offset_left = 188.5
+offset_top = 163.0
+offset_right = 262.5
+offset_bottom = 186.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/outline_size = 2
@@ -501,75 +557,144 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nswc5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lmhud")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7qpcv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vhj80")
+theme_override_styles/normal = SubResource("StyleBoxFlat_imc2l")
 text = "Back
 "
 
-[node name="Buttons&Label" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 444.0
-offset_top = 153.0
-offset_right = 634.0
-offset_bottom = 335.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[node name="Buttons" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 482.0
+offset_top = -76.0
+offset_right = 4.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.174533
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_votjp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Buttons&Label"]
-layout_mode = 2
-theme_override_constants/separation = 5
+[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.647
+offset_top = -123.358
+offset_right = 96.3526
+offset_bottom = 146.642
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.174533
 
-[node name="Game_Name" type="Label" parent="Buttons&Label/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_q57cy")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
+
+[node name="Continue" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(130, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hg1ii")
 theme_override_font_sizes/font_size = 25
-text = "Game Name
-(sonra değiştir)"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5gjtv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smh1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
+shortcut = SubResource("Shortcut_aqj6g")
+text = "Contunue"
 
-[node name="Start" type="Button" parent="Buttons&Label/VBoxContainer"]
-custom_minimum_size = Vector2(100, 28)
+[node name="HBoxContainer2" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("4_hg1ii")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nswc5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lmhud")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7qpcv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vhj80")
-text = "Start"
 
-[node name="Settings" type="Button" parent="Buttons&Label/VBoxContainer"]
-custom_minimum_size = Vector2(100, 28)
+[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/outline_size = 2
+theme_override_constants/separation = 45
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
+
+[node name="New Game" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(130, 38)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nswc5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lmhud")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7qpcv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vhj80")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5gjtv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smh1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
+text = " New Game
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
+
+[node name="Settings" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(130, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5gjtv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smh1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
 text = "Settings"
 
-[node name="Quit" type="Button" parent="Buttons&Label/VBoxContainer"]
-custom_minimum_size = Vector2(100, 28)
+[node name="HBoxContainer5" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/outline_size = 2
+
+[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
+
+[node name="Credits" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(130, 38)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nswc5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lmhud")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7qpcv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vhj80")
-text = "Quit"
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5gjtv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smh1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
+text = "Credits
+"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
+
+[node name="Exit" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(130, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5gjtv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smh1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
+text = "Exit"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
@@ -577,6 +702,6 @@ text = "Quit"
 [connection signal="toggled" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="item_selected" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Buttons&Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Buttons&Label/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Buttons&Label/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer4/Exit" to="." method="_on_exit_pressed"]
