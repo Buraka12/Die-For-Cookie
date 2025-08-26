@@ -149,6 +149,7 @@ current_tab = 1
 [node name="sounds" type="TabBar" parent="SettingsMenu/Tabs"]
 visible = false
 layout_mode = 2
+focus_mode = 0
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Tabs/sounds"]
@@ -218,9 +219,11 @@ bus_name = "Sfx"
 
 [node name="graph" type="TabBar" parent="SettingsMenu/Tabs"]
 layout_mode = 2
+focus_mode = 0
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Tabs/graph"]
+layout_mode = 0
 offset_left = -0.5
 offset_right = 67.5
 offset_bottom = 40.0
@@ -276,6 +279,7 @@ popup/item_3/id = 3
 [node name="controls" type="TabBar" parent="SettingsMenu/Tabs"]
 visible = false
 layout_mode = 2
+focus_mode = 0
 metadata/_tab_index = 2
 
 [node name="Back" type="Button" parent="SettingsMenu"]
