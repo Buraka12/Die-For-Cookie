@@ -10,7 +10,7 @@ func _ready() -> void:
 	$SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton.selected = scaling_default
 #Buttons
 func _on_start_pressed() -> void:
-	$AnimationPlayer.play("fade_in")
+	$AnimationPlayer.play("opening")
 	
 func _on_settings_pressed() -> void:
 	$"Buttons&Label".visible = false
@@ -25,7 +25,7 @@ func _on_quit_pressed() -> void:
 	
 #Playe fade animation
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name=="fade_in":
+	if anim_name=="opening":
 		get_tree().change_scene_to_file("res://Scenes/main_area.tscn")
 		
 #Settings Menu

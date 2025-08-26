@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://b0pehd5u70by"]
+[gd_scene load_steps=12 format=4 uid="uid://b0pehd5u70by"]
 
 [ext_resource type="Script" path="res://Scripts/main_area.gd" id="1_52wci"]
-[ext_resource type="Texture2D" uid="uid://cexjt65jub06a" path="res://icon.svg" id="1_mp8gc"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="3_glplb"]
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/back.png" id="4_11j5d"]
 [ext_resource type="Texture2D" uid="uid://bm2grmerqveas" path="res://Assets/tile-set.png" id="4_p8h7y"]
@@ -42,9 +41,6 @@ _data = {
 "RESET": SubResource("Animation_xcp3s"),
 "fade_out": SubResource("Animation_vgauw")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtuag"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6y3uj"]
 texture = ExtResource("4_p8h7y")
@@ -290,14 +286,11 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_6y3uj")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtuag"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="MainArea" type="Node2D"]
 script = ExtResource("1_52wci")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(322, 177)
-scale = Vector2(5.03125, 2.90625)
-texture = ExtResource("1_mp8gc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -307,45 +300,44 @@ libraries = {
 [node name="Player" parent="." instance=ExtResource("3_glplb")]
 position = Vector2(187, 199)
 
-[node name="fade" type="Panel" parent="."]
+[node name="background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(321, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_11j5d")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="background/ParallaxBackground"]
 visible = false
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(231.5, 116)
+scale = Vector2(1.33438, 1)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="background/ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(640, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(286, 172)
+scale = Vector2(2, 1.508)
+texture = ExtResource("6_jj2w6")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="background"]
+position = Vector2(0, 124)
+tile_map_data = PackedByteArray("AAAWAAsAAAACAAIAAAAWAAoAAAACAAEAAAAWAAkAAAACAAEAAAAVAAsAAAABAAIAAAAVAAoAAAABAAEAAAAVAAkAAAABAAEAAAAUAAsAAAABAAIAAAAUAAoAAAABAAEAAAAUAAkAAAADAAAAAAATAAsAAAABAAIAAAATAAoAAAABAAEAAAATAAkAAAABAAAAAAASAAsAAAABAAIAAAASAAoAAAABAAEAAAASAAkAAAABAAAAAAARAAsAAAABAAIAAAARAAoAAAABAAEAAAARAAkAAAABAAAAAAAQAAsAAAABAAIAAAAQAAoAAAABAAEAAAAQAAkAAAABAAAAAAAPAAsAAAABAAIAAAAPAAoAAAABAAEAAAAPAAkAAAABAAAAAAAOAAsAAAABAAIAAAAOAAoAAAABAAEAAAAOAAkAAAABAAAAAAANAAsAAAABAAIAAAANAAoAAAABAAEAAAANAAkAAAABAAAAAAAMAAsAAAABAAIAAAAMAAoAAAABAAEAAAAMAAkAAAABAAAAAAALAAsAAAABAAIAAAALAAoAAAABAAEAAAALAAkAAAABAAAAAAAKAAsAAAABAAIAAAAKAAoAAAABAAEAAAAKAAkAAAABAAAAAAAJAAsAAAABAAIAAAAJAAoAAAABAAEAAAAJAAkAAAABAAAAAAAIAAsAAAABAAIAAAAIAAoAAAABAAEAAAAIAAkAAAABAAAAAAAHAAsAAAABAAIAAAAHAAoAAAABAAEAAAAHAAkAAAABAAAAAAAGAAsAAAABAAIAAAAGAAoAAAABAAEAAAAGAAkAAAABAAAAAAAFAAsAAAABAAIAAAAFAAoAAAABAAEAAAAFAAkAAAABAAAAAAAEAAsAAAAAAAIAAAAEAAoAAAAAAAEAAAAEAAkAAAAAAAAAAAAWAAgAAAACAAEAAAAWAAcAAAACAAAAAAAVAAgAAAABAAEAAAAVAAcAAAABAAAAAAAUAAgAAAAAAAEAAAAUAAcAAAAAAAAAAAAfAAkAAAACAAIAAAAfAAgAAAACAAEAAAAfAAcAAAACAAEAAAAeAAkAAAABAAIAAAAeAAgAAAABAAEAAAAeAAcAAAABAAEAAAAdAAkAAAABAAIAAAAdAAgAAAABAAEAAAAdAAcAAAADAAAAAAAcAAkAAAABAAIAAAAcAAgAAAABAAEAAAAcAAcAAAABAAAAAAAbAAkAAAABAAIAAAAbAAgAAAABAAEAAAAbAAcAAAABAAAAAAAaAAkAAAABAAIAAAAaAAgAAAABAAEAAAAaAAcAAAABAAAAAAAZAAkAAAAAAAIAAAAZAAgAAAAAAAEAAAAZAAcAAAAAAAAAAAAfAAYAAAACAAEAAAAfAAUAAAACAAEAAAAfAAQAAAACAAAAAAAeAAYAAAABAAEAAAAeAAUAAAABAAEAAAAeAAQAAAABAAAAAAAdAAYAAAAAAAEAAAAdAAUAAAAAAAEAAAAdAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_wbq66")
+
+[node name="fade" type="Panel" parent="."]
 offset_left = -1.0
 offset_top = 3.0
 offset_right = 642.0
 offset_bottom = 368.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Node2D"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Node2D/ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(640, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/ParallaxBackground/ParallaxLayer"]
-position = Vector2(321, 235)
-scale = Vector2(2, 2)
-texture = ExtResource("4_11j5d")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Node2D/ParallaxBackground"]
-visible = false
-motion_mirroring = Vector2(640, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(231.5, 116)
-scale = Vector2(1.33438, 1)
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Node2D/ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(640, 360)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(286, 172)
-scale = Vector2(2, 1.508)
-texture = ExtResource("6_jj2w6")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
-position = Vector2(0, 124)
-tile_map_data = PackedByteArray("AAAWAAsAAAACAAIAAAAWAAoAAAACAAEAAAAWAAkAAAACAAEAAAAVAAsAAAABAAIAAAAVAAoAAAABAAEAAAAVAAkAAAABAAEAAAAUAAsAAAABAAIAAAAUAAoAAAABAAEAAAAUAAkAAAADAAAAAAATAAsAAAABAAIAAAATAAoAAAABAAEAAAATAAkAAAABAAAAAAASAAsAAAABAAIAAAASAAoAAAABAAEAAAASAAkAAAABAAAAAAARAAsAAAABAAIAAAARAAoAAAABAAEAAAARAAkAAAABAAAAAAAQAAsAAAABAAIAAAAQAAoAAAABAAEAAAAQAAkAAAABAAAAAAAPAAsAAAABAAIAAAAPAAoAAAABAAEAAAAPAAkAAAABAAAAAAAOAAsAAAABAAIAAAAOAAoAAAABAAEAAAAOAAkAAAABAAAAAAANAAsAAAABAAIAAAANAAoAAAABAAEAAAANAAkAAAABAAAAAAAMAAsAAAABAAIAAAAMAAoAAAABAAEAAAAMAAkAAAABAAAAAAALAAsAAAABAAIAAAALAAoAAAABAAEAAAALAAkAAAABAAAAAAAKAAsAAAABAAIAAAAKAAoAAAABAAEAAAAKAAkAAAABAAAAAAAJAAsAAAABAAIAAAAJAAoAAAABAAEAAAAJAAkAAAABAAAAAAAIAAsAAAABAAIAAAAIAAoAAAABAAEAAAAIAAkAAAABAAAAAAAHAAsAAAABAAIAAAAHAAoAAAABAAEAAAAHAAkAAAABAAAAAAAGAAsAAAABAAIAAAAGAAoAAAABAAEAAAAGAAkAAAABAAAAAAAFAAsAAAABAAIAAAAFAAoAAAABAAEAAAAFAAkAAAABAAAAAAAEAAsAAAAAAAIAAAAEAAoAAAAAAAEAAAAEAAkAAAAAAAAAAAAWAAgAAAACAAEAAAAWAAcAAAACAAAAAAAVAAgAAAABAAEAAAAVAAcAAAABAAAAAAAUAAgAAAAAAAEAAAAUAAcAAAAAAAAAAAAfAAkAAAACAAIAAAAfAAgAAAACAAEAAAAfAAcAAAACAAEAAAAeAAkAAAABAAIAAAAeAAgAAAABAAEAAAAeAAcAAAABAAEAAAAdAAkAAAABAAIAAAAdAAgAAAABAAEAAAAdAAcAAAADAAAAAAAcAAkAAAABAAIAAAAcAAgAAAABAAEAAAAcAAcAAAABAAAAAAAbAAkAAAABAAIAAAAbAAgAAAABAAEAAAAbAAcAAAABAAAAAAAaAAkAAAABAAIAAAAaAAgAAAABAAEAAAAaAAcAAAABAAAAAAAZAAkAAAAAAAIAAAAZAAgAAAAAAAEAAAAZAAcAAAAAAAAAAAAfAAYAAAACAAEAAAAfAAUAAAACAAEAAAAfAAQAAAACAAAAAAAeAAYAAAABAAEAAAAeAAUAAAABAAEAAAAeAAQAAAABAAAAAAAdAAYAAAAAAAEAAAAdAAUAAAAAAAEAAAAdAAQAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_wbq66")
