@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://Scenes/audio_manager.tscn"
 Global="*res://Scripts/Global.gd"
+SaveLoad="*res://Scripts/SaveLoad.gd"
 
 [display]
 

@@ -1,20 +1,28 @@
 extends Control
 
 const scaling_default : int = 0
+var level
 
 func _ready() -> void:
+	var dict : Dictionary = SaveLoad.load_game()
+	level = dict["level"]
+	
 	$SettingsMenu.visible = false
 	AudioManager.play("Main")
-	
 	set_scaling(scaling_default)
 	$SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton.selected = scaling_default
 #Buttons
+
+func _on_continue_pressed() -> void:
+	$AnimationPlayer.play("opening")
+	$AnimatedSprite2D.play("opening")
+	print(level)
+	
+
 func _on_new_game_pressed() -> void:
 	$AnimationPlayer.play("opening")
 	$AnimatedSprite2D.play("opening")
 
-	
-	
 func _on_settings_pressed() -> void:
 	$Buttons.visible = false
 	$SettingsMenu.visible = true
@@ -54,4 +62,5 @@ func set_scaling(new_scaling : int) -> void:
 		
 func _on_option_button_item_selected(new_scaling: int) -> void:
 	set_scaling(new_scaling)
+	
 	

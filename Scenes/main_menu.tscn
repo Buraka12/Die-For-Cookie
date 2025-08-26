@@ -386,6 +386,7 @@ sprite_frames = SubResource("SpriteFrames_k7vi1")
 animation = &"opening"
 
 [node name="SettingsMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -702,6 +703,7 @@ text = "Exit"
 [connection signal="toggled" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="item_selected" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer4/Exit" to="." method="_on_exit_pressed"]
