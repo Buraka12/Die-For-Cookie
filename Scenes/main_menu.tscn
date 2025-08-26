@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=24 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://cexjt65jub06a" path="res://icon.svg" id="2_duk7v"]
@@ -56,6 +56,19 @@ thickness = 3
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_jxtvm"]
 color = Color(0.28785, 0.2622, 0.57, 1)
 thickness = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gxm4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okkgv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_k34f5"]
+device = -1
+keycode = 4194342
+
+[sub_resource type="Shortcut" id="Shortcut_5bq6q"]
+events = [SubResource("InputEventKey_k34f5")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5unt0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nswc5"]
 
@@ -131,9 +144,10 @@ layout_mode = 2
 offset_right = 263.0
 offset_bottom = 186.0
 theme_override_fonts/font = ExtResource("3_2x58b")
-current_tab = 0
+current_tab = 1
 
 [node name="sounds" type="TabBar" parent="SettingsMenu/Tabs"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -203,9 +217,61 @@ script = ExtResource("5_rip41")
 bus_name = "Sfx"
 
 [node name="graph" type="TabBar" parent="SettingsMenu/Tabs"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Tabs/graph"]
+offset_left = -0.5
+offset_right = 67.5
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Tabs/graph/MarginContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="HBoxContainer" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_constants/separation = 120
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6gxm4")
+
+[node name="CheckButton" type="CheckButton" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_okkgv")
+shortcut = SubResource("Shortcut_5bq6q")
+
+[node name="Antialising" type="HBoxContainer" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+text = "Scaling"
+
+[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+theme_override_constants/separation = 70
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5unt0")
+
+[node name="OptionButton" type="OptionButton" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Disabled"
+popup/item_1/text = "MSAA_2X"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA_4X"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA_8X"
+popup/item_3/id = 3
 
 [node name="controls" type="TabBar" parent="SettingsMenu/Tabs"]
 visible = false
@@ -299,6 +365,8 @@ text = "Quit"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
 [connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
+[connection signal="toggled" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="item_selected" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Buttons&Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons&Label/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
