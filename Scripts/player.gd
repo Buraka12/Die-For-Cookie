@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 200
 const JUMP_VELOCITY = -300
 
+var acceleration = 0.1
+var deceleration = 0.09
+
 enum states {IDLE,RUN,FALL,PUSH}
 var current_state : states
 
@@ -30,10 +33,10 @@ func _physics_process(delta: float) -> void:
 
 	#moving
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
 		
 	elif not direction and current_state != states.FALL:
-		velocity.x = move_toward(velocity.x, 0, 12)
+		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
 		
 		
 	#animations
