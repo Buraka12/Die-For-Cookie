@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="yeni"
 
+[global_group]
+
+player=""
+
 [input]
 
 jump={

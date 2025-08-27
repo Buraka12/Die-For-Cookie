@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b0pehd5u70by"]
+[gd_scene load_steps=15 format=4 uid="uid://b0pehd5u70by"]
 
 [ext_resource type="Script" path="res://Scripts/main_area.gd" id="1_52wci"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="3_glplb"]
@@ -44,8 +44,6 @@ _data = {
 "RESET": SubResource("Animation_xcp3s"),
 "fade_out": SubResource("Animation_vgauw")
 }
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5daoa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6y3uj"]
 texture = ExtResource("4_p8h7y")
@@ -286,8 +284,7 @@ texture = ExtResource("4_p8h7y")
 
 [sub_resource type="TileSet" id="TileSet_wbq66"]
 physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 9
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_5daoa")
+physics_layer_0/collision_mask = 13
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -305,7 +302,7 @@ libraries = {
 }
 
 [node name="spikes" parent="." instance=ExtResource("6_mnrye")]
-position = Vector2(339, 229)
+position = Vector2(295, 262)
 
 [node name="Button" parent="." instance=ExtResource("7_u4uwd")]
 position = Vector2(417, 234)
@@ -360,4 +357,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
 position = Vector2(120, 226)
 
 [node name="cube" parent="." instance=ExtResource("8_inbnj")]
-position = Vector2(218, 255)
+position = Vector2(205, 256)

@@ -406,8 +406,8 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tef6u"]
 shader = ExtResource("3_2yhjk")
-shader_parameter/blur = 0.899
-shader_parameter/brightness = 0.472
+shader_parameter/blur = 1.292
+shader_parameter/brightness = 0.326
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_votjp"]
 bg_color = Color(0.0687982, 0.0687983, 0.0687982, 0.490196)
@@ -696,6 +696,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3jell")
 
 [node name="corner" type="Panel" parent="Buttons&settings/Settings"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = -36.0
 offset_right = 88.0

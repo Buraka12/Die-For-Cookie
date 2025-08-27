@@ -1,8 +1,12 @@
-[gd_scene load_steps=46 format=3 uid="uid://dp1picjxjosr2"]
+[gd_scene load_steps=45 format=3 uid="uid://dp1picjxjosr2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3y4p7"]
 [ext_resource type="Texture2D" uid="uid://cpu8t276rxtw7" path="res://Assets/Player/player-Sheet.png" id="1_dxe1q"]
 [ext_resource type="PackedScene" uid="uid://dd33uady8fso6" path="res://Scenes/pausemenu.tscn" id="3_lpjkf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1nu7"]
+radius = 5.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djwwi"]
 atlas = ExtResource("1_dxe1q")
@@ -310,20 +314,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1nu7"]
-radius = 5.0
-height = 26.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_om8dn"]
-radius = 7.0
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+collision_mask = 26
 script = ExtResource("1_3y4p7")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
-sprite_frames = SubResource("SpriteFrames_cwv63")
-animation = &"push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -338,8 +332,9 @@ position_smoothing_speed = 10.0
 [node name="Pausemenu" parent="." instance=ExtResource("3_lpjkf")]
 visible = false
 
-[node name="GrabArea" type="Area2D" parent="."]
+[node name="Visual" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_om8dn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual"]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_cwv63")
+animation = &"push"
