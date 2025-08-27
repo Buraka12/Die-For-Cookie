@@ -7,12 +7,13 @@
 friction = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbfhi"]
-size = Vector2(28, 28)
+size = Vector2(28, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o62ee"]
 radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig0qu"]
+size = Vector2(22, 22)
 
 [node name="cube" type="RigidBody2D"]
 collision_layer = 8
@@ -27,7 +28,6 @@ texture = ExtResource("1_cqu7q")
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-visible = false
 shape = SubResource("RectangleShape2D_cbfhi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

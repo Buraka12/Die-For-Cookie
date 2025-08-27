@@ -305,7 +305,7 @@ libraries = {
 }
 
 [node name="spikes" parent="." instance=ExtResource("6_mnrye")]
-position = Vector2(339, 229)
+position = Vector2(303, 262)
 
 [node name="Button" parent="." instance=ExtResource("7_u4uwd")]
 position = Vector2(417, 234)
@@ -361,3 +361,6 @@ position = Vector2(120, 226)
 
 [node name="cube" parent="." instance=ExtResource("8_inbnj")]
 position = Vector2(218, 255)
+
+[node name="cube2" parent="." instance=ExtResource("8_inbnj")]
+position = Vector2(165, 255)
