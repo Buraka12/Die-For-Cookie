@@ -6,11 +6,9 @@ var level
 func _ready() -> void:
 	var dict : Dictionary = SaveLoad.load_game()
 	level = dict["level"]
-	
-	$SettingsMenu.visible = false
 	AudioManager.play("Main")
 	set_scaling(scaling_default)
-	$SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton.selected = scaling_default
+	$"Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton".selected = scaling_default
 #Buttons
 
 func _on_continue_pressed() -> void:
@@ -24,12 +22,11 @@ func _on_new_game_pressed() -> void:
 	$AnimatedSprite2D.play("opening")
 
 func _on_settings_pressed() -> void:
-	$Buttons.visible = false
-	$SettingsMenu.visible = true
-	
+	$AnimationPlayer.play("settings")
+
 func _on_back_pressed() -> void:
-	$Buttons.visible = true
-	$SettingsMenu.visible = false
+	$AnimationPlayer.play_backwards("settings")
+
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
@@ -40,6 +37,22 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		get_tree().change_scene_to_file("res://Scenes/main_area.tscn")
 		
 #Settings Menu
+func _on_sounds_pressed() -> void:
+	$"Buttons&settings/Settings/sounds".visible = true
+	$"Buttons&settings/Settings/graph".visible = false
+	$"Buttons&settings/Settings/controls".visible = false
+
+func _on_graphs_pressed() -> void:
+	$"Buttons&settings/Settings/sounds".visible = false
+	$"Buttons&settings/Settings/graph".visible = true
+	$"Buttons&settings/Settings/controls".visible = false
+	
+func _on_controls_pressed() -> void:
+	$"Buttons&settings/Settings/sounds".visible = false
+	$"Buttons&settings/Settings/graph".visible = false
+	$"Buttons&settings/Settings/controls".visible = true
+
+
 #Graphics
 #Fullscreen mode
 func _on_check_button_toggled(toggled_on: bool) -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=57 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://d124r07tn8xcp" path="res://Assets/MainManuBakcground.png" id="2_p7xvr"]
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="3_2x58b"]
+[ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="3_2yhjk"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
@@ -48,7 +49,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Buttons:modulate")
+tracks/3/path = NodePath("Buttons&settings:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -56,6 +57,78 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons&settings/Allbuttons:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Buttons&settings/Allbuttons:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons&settings:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(162, 519)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Buttons&settings:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(482, -76)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Buttons&settings/Settings:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Buttons&settings/Settings:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_uigbl"]
@@ -103,7 +176,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons:modulate")
+tracks/2/path = NodePath("Buttons&settings:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -113,11 +186,88 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_8p550"]
+resource_name = "settings"
+length = 0.633
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons&settings/Allbuttons:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons&settings/Allbuttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons&settings:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.633, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(162, 519), Vector2(306, 519), Vector2(278, 519)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons&settings:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.633, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(482, -76), Vector2(294, -74), Vector2(220, -87), Vector2(224, -76)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons&settings/Settings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Buttons&settings/Settings:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 0.633),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yflxl"]
 _data = {
 "RESET": SubResource("Animation_66o4w"),
 "fade_in": SubResource("Animation_uigbl"),
-"opening": SubResource("Animation_px24m")
+"opening": SubResource("Animation_px24m"),
+"settings": SubResource("Animation_8p550")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1awqt"]
@@ -254,65 +404,10 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5tnd"]
-bg_color = Color(0.21, 0.21, 0.21, 0.670588)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x5jp"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_6dc8y"]
-color = Color(0.0880691, 0.110076, 0.335149, 1)
-thickness = 3
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_jxtvm"]
-color = Color(0.28785, 0.2622, 0.57, 1)
-thickness = 3
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gxm4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okkgv"]
-
-[sub_resource type="InputEventKey" id="InputEventKey_k34f5"]
-device = -1
-keycode = 4194342
-
-[sub_resource type="Shortcut" id="Shortcut_5bq6q"]
-events = [SubResource("InputEventKey_k34f5")]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5unt0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nswc5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmhud"]
-bg_color = Color(0.22433, 0.501555, 0.46937, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 5
-corner_radius_bottom_right = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qpcv"]
-bg_color = Color(0.0782, 0.23, 0.21735, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 5
-corner_radius_bottom_right = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imc2l"]
-bg_color = Color(0.0579071, 0.164983, 0.265162, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.1599, 0.293287, 0.41, 1)
-corner_radius_top_left = 5
-corner_radius_bottom_right = 5
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tef6u"]
+shader = ExtResource("3_2yhjk")
+shader_parameter/blur = 0.899
+shader_parameter/brightness = 0.472
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_votjp"]
 bg_color = Color(0.0687982, 0.0687983, 0.0687982, 0.490196)
@@ -363,6 +458,71 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_aqj6g"]
 events = [SubResource("InputEventKey_71u8d")]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jell"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hkjj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyhaw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g51mn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys0th"]
+bg_color = Color(0.2, 0.2, 0.178, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j7rn"]
+bg_color = Color(0.130515, 0.0683702, 0.0179969, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8fjb"]
+bg_color = Color(0.111197, 0.111197, 0.111197, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x5jp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6dc8y"]
+color = Color(0.0880691, 0.110076, 0.335149, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jxtvm"]
+color = Color(0.28785, 0.2622, 0.57, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gxm4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okkgv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_k34f5"]
+device = -1
+keycode = 4194342
+
+[sub_resource type="Shortcut" id="Shortcut_5bq6q"]
+events = [SubResource("InputEventKey_k34f5")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5unt0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8tk4"]
+
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -385,184 +545,8 @@ position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_k7vi1")
 animation = &"opening"
 
-[node name="SettingsMenu" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -131.5
-offset_top = -93.0
-offset_right = 131.5
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Tabs" type="TabContainer" parent="SettingsMenu"]
-layout_mode = 2
-offset_right = 263.0
-offset_bottom = 186.0
-theme_override_fonts/font = ExtResource("3_2x58b")
-theme_override_styles/panel = SubResource("StyleBoxFlat_d5tnd")
-current_tab = 0
-
-[node name="sounds" type="TabBar" parent="SettingsMenu/Tabs"]
-layout_mode = 2
-focus_mode = 0
-metadata/_tab_index = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Tabs/sounds"]
-layout_mode = 0
-offset_left = -0.5
-offset_right = 67.5
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Tabs/sounds/MarginContainer"]
-layout_mode = 2
-
-[node name="Music_container" type="HBoxContainer" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2x58b")
-theme_override_font_sizes/font_size = 15
-text = "Music"
-
-[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container"]
-layout_mode = 2
-theme_override_constants/separation = 50
-theme_override_styles/separator = SubResource("StyleBoxEmpty_0x5jp")
-
-[node name="Music" type="HSlider" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container"]
-custom_minimum_size = Vector2(140, 5)
-layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_6dc8y")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_jxtvm")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jxtvm")
-max_value = 1.0
-step = 0.05
-value = 1.0
-script = ExtResource("4_ya1pm")
-bus_name = "Music"
-
-[node name="Sfx_container" type="HBoxContainer" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2x58b")
-theme_override_font_sizes/font_size = 15
-text = "Sfx"
-
-[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container"]
-layout_mode = 2
-theme_override_constants/separation = 65
-theme_override_styles/separator = SubResource("StyleBoxEmpty_0x5jp")
-
-[node name="Sfx" type="HSlider" parent="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container"]
-custom_minimum_size = Vector2(140, 5)
-layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_6dc8y")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_jxtvm")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jxtvm")
-max_value = 1.0
-step = 0.05
-value = 1.0
-script = ExtResource("5_rip41")
-bus_name = "Sfx"
-
-[node name="graph" type="TabBar" parent="SettingsMenu/Tabs"]
-visible = false
-layout_mode = 2
-focus_mode = 0
-metadata/_tab_index = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Tabs/graph"]
-layout_mode = 0
-offset_left = -0.5
-offset_right = 67.5
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Tabs/graph/MarginContainer"]
-layout_mode = 2
-
-[node name="Fullscreen" type="HBoxContainer" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen"]
-layout_mode = 2
-text = "Fullscreen"
-
-[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen"]
-layout_mode = 2
-theme_override_constants/separation = 120
-theme_override_styles/separator = SubResource("StyleBoxEmpty_6gxm4")
-
-[node name="CheckButton" type="CheckButton" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen"]
-layout_mode = 2
-theme_override_constants/h_separation = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_okkgv")
-shortcut = SubResource("Shortcut_5bq6q")
-
-[node name="Antialising" type="HBoxContainer" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising"]
-layout_mode = 2
-text = "Scaling"
-
-[node name="VSeparator" type="VSeparator" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising"]
-layout_mode = 2
-theme_override_constants/separation = 70
-theme_override_styles/separator = SubResource("StyleBoxEmpty_5unt0")
-
-[node name="OptionButton" type="OptionButton" parent="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising"]
-layout_mode = 2
-item_count = 4
-popup/item_0/text = "Disabled"
-popup/item_1/text = "MSAA_2X"
-popup/item_1/id = 1
-popup/item_2/text = "MSAA_4X"
-popup/item_2/id = 2
-popup/item_3/text = "MSAA_8X"
-popup/item_3/id = 3
-
-[node name="controls" type="TabBar" parent="SettingsMenu/Tabs"]
-visible = false
-layout_mode = 2
-focus_mode = 0
-metadata/_tab_index = 2
-
-[node name="Back" type="Button" parent="SettingsMenu"]
-layout_mode = 2
-offset_left = 188.5
-offset_top = 163.0
-offset_right = 262.5
-offset_bottom = 186.0
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("3_2x58b")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nswc5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lmhud")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7qpcv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_imc2l")
-text = "Back
-"
-
-[node name="Buttons" type="Panel" parent="."]
+[node name="Buttons&settings" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_tef6u")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -578,7 +562,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_votjp")
 
-[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
+[node name="Allbuttons" type="MarginContainer" parent="Buttons&settings"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -593,21 +577,21 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.174533
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/MarginContainer"]
+[node name="Vbox" type="VBoxContainer" parent="Buttons&settings/Allbuttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons&settings/Allbuttons/Vbox"]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
 
-[node name="Continue" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Continue" type="Button" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer"]
 custom_minimum_size = Vector2(130, 38)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
@@ -619,15 +603,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
 shortcut = SubResource("Shortcut_aqj6g")
 text = "Contunue"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Buttons&settings/Allbuttons/Vbox"]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 45
 theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
 
-[node name="New Game" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="New Game" type="Button" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer2"]
 custom_minimum_size = Vector2(130, 38)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
@@ -639,15 +623,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
 text = " New Game
 "
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Buttons&settings/Allbuttons/Vbox"]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer3"]
 layout_mode = 2
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
 
-[node name="Settings" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Settings" type="Button" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer3"]
 custom_minimum_size = Vector2(130, 38)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
@@ -658,15 +642,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
 text = "Settings"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Buttons&settings/Allbuttons/Vbox"]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer5"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
 
-[node name="Credits" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Credits" type="Button" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer5"]
 custom_minimum_size = Vector2(130, 38)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
@@ -678,15 +662,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
 text = "Credits
 "
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Buttons/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Buttons&settings/Allbuttons/Vbox"]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer4"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_m57te")
 
-[node name="Exit" type="Button" parent="Buttons/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Exit" type="Button" parent="Buttons&settings/Allbuttons/Vbox/HBoxContainer4"]
 custom_minimum_size = Vector2(130, 38)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hg1ii")
@@ -697,13 +681,266 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
 text = "Exit"
 
+[node name="Settings" type="Panel" parent="Buttons&settings"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 93.0
+offset_right = -3.05176e-05
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3jell")
+
+[node name="corner" type="Panel" parent="Buttons&settings/Settings"]
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 88.0
+offset_bottom = 369.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0hkjj")
+
+[node name="tabs" type="Panel" parent="Buttons&settings/Settings"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 88.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oyhaw")
+
+[node name="Back" type="Button" parent="Buttons&settings/Settings/tabs"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+offset_left = 1.52588e-05
+offset_top = 191.0
+offset_right = 80.0
+offset_bottom = 223.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys0th")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0j7rn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8fjb")
+text = "<- Back"
+
+[node name="Controls" type="Button" parent="Buttons&settings/Settings/tabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_top = 155.0
+offset_right = 80.0
+offset_bottom = 187.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys0th")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0j7rn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8fjb")
+text = "Controls"
+
+[node name="Graphs" type="Button" parent="Buttons&settings/Settings/tabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_top = 119.0
+offset_right = 80.0
+offset_bottom = 151.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys0th")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0j7rn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8fjb")
+text = "Graphs"
+
+[node name="Sounds" type="Button" parent="Buttons&settings/Settings/tabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_top = 83.0
+offset_right = 80.0
+offset_bottom = 115.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys0th")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0j7rn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8fjb")
+text = "Sounds"
+
+[node name="sounds" type="TabBar" parent="Buttons&settings/Settings"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.1225
+offset_top = 5.14069
+offset_right = -13.8775
+offset_bottom = 5.14069
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.174533
+focus_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons&settings/Settings/sounds"]
+layout_mode = 2
+offset_left = 13.0
+offset_right = 233.0
+offset_bottom = 52.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons&settings/Settings/sounds/MarginContainer"]
+layout_mode = 2
+
+[node name="Music_container" type="HBoxContainer" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Music_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 15
+text = "Music"
+
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Music_container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0x5jp")
+
+[node name="Music" type="HSlider" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Music_container"]
+custom_minimum_size = Vector2(140, 5)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_6dc8y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_jxtvm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jxtvm")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_ya1pm")
+bus_name = "Music"
+
+[node name="Sfx_container" type="HBoxContainer" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 15
+text = "Sfx"
+
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+layout_mode = 2
+theme_override_constants/separation = 35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0x5jp")
+
+[node name="Sfx" type="HSlider" parent="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+custom_minimum_size = Vector2(140, 5)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_6dc8y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_jxtvm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jxtvm")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_rip41")
+bus_name = "Sfx"
+
+[node name="graph" type="TabBar" parent="Buttons&settings/Settings"]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = 7.0
+rotation = -0.174533
+focus_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons&settings/Settings/graph"]
+layout_mode = 0
+offset_left = -0.5
+offset_right = 67.5
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons&settings/Settings/graph/MarginContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="HBoxContainer" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6gxm4")
+
+[node name="Label" type="Label" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6gxm4")
+
+[node name="CheckButton" type="CheckButton" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_okkgv")
+shortcut = SubResource("Shortcut_5bq6q")
+
+[node name="Antialising" type="HBoxContainer" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+theme_override_constants/separation = 35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5unt0")
+
+[node name="Label" type="Label" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+text = "Scaling"
+
+[node name="VSeparator" type="VSeparator" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+theme_override_constants/separation = 35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5unt0")
+
+[node name="OptionButton" type="OptionButton" parent="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m8tk4")
+item_count = 4
+popup/item_0/text = "Disabled"
+popup/item_1/text = "MSAA_2X"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA_4X"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA_8X"
+popup/item_3/id = 3
+
+[node name="controls" type="TabBar" parent="Buttons&settings/Settings"]
+visible = false
+layout_mode = 2
+offset_left = -0.806641
+offset_top = 83.8265
+offset_right = -0.806641
+offset_bottom = 83.8265
+focus_mode = 0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
-[connection signal="value_changed" from="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="SettingsMenu/Tabs/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
-[connection signal="toggled" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="item_selected" from="SettingsMenu/Tabs/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
-[connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/HBoxContainer4/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer4/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons&settings/Settings/tabs/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Buttons&settings/Settings/tabs/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Buttons&settings/Settings/tabs/Graphs" to="." method="_on_graphs_pressed"]
+[connection signal="pressed" from="Buttons&settings/Settings/tabs/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="value_changed" from="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
+[connection signal="value_changed" from="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
+[connection signal="toggled" from="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="item_selected" from="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
