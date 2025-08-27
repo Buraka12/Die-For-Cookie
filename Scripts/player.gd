@@ -68,8 +68,9 @@ func die():
 		velocity = Vector2.ZERO
 		
 		
-		
+		await get_tree().create_timer(0.01).timeout
 		call_deferred("_spawn_corpse",death_position)
+		
 	#ölüm menüsü yapınca koy
 	else:
 		pass
@@ -77,9 +78,4 @@ func die():
 func _spawn_corpse(pos : Vector2):
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = pos
-	corpse.freeze = true
 	get_parent().add_child(corpse)
-	
-	
-	
-	
