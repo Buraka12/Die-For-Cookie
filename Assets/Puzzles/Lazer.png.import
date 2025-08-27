@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhw4f52gnfjx4"
-path="res://.godot/imported/front.png-ecb07e1567a33b88e6cd56211ec7d4fe.ctex"
+uid="uid://bnh3shmhujl4c"
+path="res://.godot/imported/Lazer.png-098e2b83b3d29968984786be269c6fec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/front.png"
-dest_files=["res://.godot/imported/front.png-ecb07e1567a33b88e6cd56211ec7d4fe.ctex"]
+source_file="res://Assets/Puzzles/Lazer.png"
+dest_files=["res://.godot/imported/Lazer.png-098e2b83b3d29968984786be269c6fec.ctex"]
 
 [params]
 

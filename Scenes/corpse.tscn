@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://4hcg017hfqs2"]
+
+[ext_resource type="Texture2D" uid="uid://cpu8t276rxtw7" path="res://Assets/Player/player-Sheet.png" id="1_3ryli"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_th5vv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aruh"]
+size = Vector2(9, 26)
+
+[node name="corpse" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_th5vv")
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3ryli")
+hframes = 7
+vframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 3)
+shape = SubResource("RectangleShape2D_7aruh")

@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://b0pehd5u70by"]
+[gd_scene load_steps=14 format=4 uid="uid://b0pehd5u70by"]
 
 [ext_resource type="Script" path="res://Scripts/main_area.gd" id="1_52wci"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="3_glplb"]
-[ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/back.png" id="4_11j5d"]
+[ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="4_11j5d"]
 [ext_resource type="Texture2D" uid="uid://bm2grmerqveas" path="res://Assets/tile-set.png" id="4_p8h7y"]
-[ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/front.png" id="6_jj2w6"]
+[ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="6_jj2w6"]
+[ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="6_mnrye"]
+[ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="7_u4uwd"]
 
 [sub_resource type="Animation" id="Animation_xcp3s"]
 length = 0.001
@@ -297,8 +299,14 @@ libraries = {
 "": SubResource("AnimationLibrary_yaqig")
 }
 
+[node name="spikes" parent="." instance=ExtResource("6_mnrye")]
+position = Vector2(197, 262)
+
+[node name="Button" parent="." instance=ExtResource("7_u4uwd")]
+position = Vector2(243, 266)
+
 [node name="Player" parent="." instance=ExtResource("3_glplb")]
-position = Vector2(187, 199)
+position = Vector2(120, 226)
 
 [node name="background" type="Node2D" parent="."]
 
@@ -336,8 +344,12 @@ tile_map_data = PackedByteArray("AAAWAAsAAAACAAIAAAAWAAoAAAACAAEAAAAWAAkAAAACAAE
 tile_set = SubResource("TileSet_wbq66")
 
 [node name="fade" type="Panel" parent="."]
+visible = false
 offset_left = -1.0
 offset_top = 3.0
 offset_right = 642.0
 offset_bottom = 368.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
+
+[node name="respawn_point" type="Marker2D" parent="."]
+position = Vector2(120, 226)

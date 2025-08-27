@@ -1,13 +1,19 @@
+class_name  Player
 extends CharacterBody2D
 
 const SPEED = 170
 const JUMP_VELOCITY = -250
+var health = 9
 
-var acceleration = 0.1
+var acceleration = 0.09
 var deceleration = 0.09
 
 enum states {IDLE,RUN,FALL,PUSH}
 var current_state : states
+
+var corpse_scene = preload("res://Scenes/corpse.tscn")
+
+@onready var respawn_point: Marker2D = $"../respawn_point"
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,5 +54,32 @@ func _physics_process(delta: float) -> void:
 			current_state = states.RUN
 			$AnimatedSprite2D.play("move")
 	
-	
 	move_and_slide()
+	
+	#die
+func die():
+	var death_position = global_position
+	health -=1
+
+	#can kontrolü
+	if health > 0:
+		#await get_tree().process_frame
+		global_position = respawn_point.global_position
+		velocity = Vector2.ZERO
+		
+		
+		
+		call_deferred("_spawn_corpse",death_position)
+	#ölüm menüsü yapınca koy
+	else:
+		pass
+		
+func _spawn_corpse(pos : Vector2):
+	var corpse = corpse_scene.instantiate()
+	corpse.global_position = pos
+	corpse.freeze = true
+	get_parent().add_child(corpse)
+	
+	
+	
+	
