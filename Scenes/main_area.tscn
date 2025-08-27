@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b0pehd5u70by"]
+[gd_scene load_steps=15 format=4 uid="uid://b0pehd5u70by"]
 
 [ext_resource type="Script" path="res://Scripts/main_area.gd" id="1_52wci"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="3_glplb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="6_jj2w6"]
 [ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="6_mnrye"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="7_u4uwd"]
+[ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="8_inbnj"]
 
 [sub_resource type="Animation" id="Animation_xcp3s"]
 length = 0.001
@@ -300,10 +301,10 @@ libraries = {
 }
 
 [node name="spikes" parent="." instance=ExtResource("6_mnrye")]
-position = Vector2(197, 262)
+position = Vector2(295, 262)
 
 [node name="Button" parent="." instance=ExtResource("7_u4uwd")]
-position = Vector2(243, 266)
+position = Vector2(417, 234)
 
 [node name="Player" parent="." instance=ExtResource("3_glplb")]
 position = Vector2(120, 226)
@@ -353,3 +354,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(120, 226)
+
+[node name="cube" parent="." instance=ExtResource("8_inbnj")]
+position = Vector2(205, 256)

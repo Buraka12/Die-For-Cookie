@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkghn3oj6fhe1"]
+
+[ext_resource type="Texture2D" uid="uid://ctixpiq47mpi3" path="res://Assets/Puzzles/Cube.png" id="1_cqu7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtrmf"]
+size = Vector2(24, 24)
+
+[node name="cube" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cqu7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gtrmf")
