@@ -6,9 +6,6 @@ extends Node2D
 var reflection_points: Array = []
 const MAX_REFLECTIONS = 10
 
-func _ready():
-	rotation_degrees = snap_to_45(rotation_degrees)
-
 func _process(_delta):
 	update_laser()
 
@@ -44,6 +41,3 @@ func update_laser():
 			break
 	
 	line.points = reflection_points
-
-func snap_to_45(degrees: float) -> float:
-	return round(degrees / 45.0) * 45.0
