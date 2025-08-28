@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b0pehd5u70by"]
+[gd_scene load_steps=18 format=4 uid="uid://b0pehd5u70by"]
 
 [ext_resource type="Script" path="res://Scripts/main_area.gd" id="1_52wci"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="3_glplb"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="6_mnrye"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="7_u4uwd"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="8_inbnj"]
+[ext_resource type="PackedScene" uid="uid://cvudb2ar1sq5b" path="res://Scenes/laser_launcher.tscn" id="9_rmsnk"]
+[ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/mirror.tscn" id="10_gsjfu"]
 
 [sub_resource type="Animation" id="Animation_xcp3s"]
 length = 0.001
@@ -364,3 +366,11 @@ position = Vector2(218, 255)
 
 [node name="cube2" parent="." instance=ExtResource("8_inbnj")]
 position = Vector2(165, 255)
+
+[node name="LaserLauncher" parent="." instance=ExtResource("9_rmsnk")]
+position = Vector2(90, 251)
+rotation = -0.785398
+
+[node name="Mirror" parent="." instance=ExtResource("10_gsjfu")]
+position = Vector2(202, 140)
+rotation = -1.5708
