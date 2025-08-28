@@ -29,7 +29,6 @@ func update_laser():
 			reflection_points.append(relative_collision)
 			
 			if collider.is_in_group("mirror"):
-				print("Aynada")
 				var normal = ray_cast.get_collision_normal()
 				current_direction = current_direction.bounce(normal)
 				current_ray_position = collision
