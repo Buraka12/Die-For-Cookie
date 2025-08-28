@@ -16,7 +16,6 @@ func _ready() -> void:
 func _on_continue_pressed() -> void:
 	$AnimationPlayer.play("opening")
 	$AnimatedSprite2D.play("opening")
-	print(level)
 	
 
 func _on_new_game_pressed() -> void:

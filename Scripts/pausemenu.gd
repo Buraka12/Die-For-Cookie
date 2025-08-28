@@ -9,13 +9,13 @@ extends CanvasLayer
 func _ready() -> void:
 	$".".visible = false
 	resume.pressed.connect(unpause)
-	#settings.pressed.connect()
 	main_menu.pressed.connect(returnMainMenu)
 	exit.pressed.connect(get_tree().quit)
-	
 
 func returnMainMenu():
-	unpause()
+	$AnimationPlayer.play_backwards("pause")
+	await $AnimationPlayer.animation_finished
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -23,6 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		pause()
 
 func unpause():
+	$AnimationPlayer.play_backwards("pause")
+	await $AnimationPlayer.animation_finished
 	$".".visible = false
 	get_tree().paused = false
 
@@ -30,4 +32,29 @@ func unpause():
 func pause():
 	if !get_tree().paused:
 		$".".visible = true
+		$AnimationPlayer.play("pause")
 		get_tree().paused = true
+		
+#settings
+func _on_settings_pressed() -> void:
+	$AnimationPlayer.play("settings")
+	
+func _on_back_pressed() -> void:
+	$AnimationPlayer.play_backwards("settings")
+	
+
+func _on_sounds_pressed() -> void:
+	$"blur/Panel/Settings/sounds".visible = true
+	$blur/Panel/Settings/graph.visible = false
+	$blur/Panel/Settings/controls.visible = false
+
+func _on_graphs_pressed() -> void:
+	$"blur/Panel/Settings/sounds".visible = false
+	$blur/Panel/Settings/graph.visible = true
+	$blur/Panel/Settings/controls.visible = false
+	
+func _on_controls_pressed() -> void:
+	$"blur/Panel/Settings/sounds".visible = false
+	$blur/Panel/Settings/graph.visible = false
+	$blur/Panel/Settings/controls.visible = true
+	
