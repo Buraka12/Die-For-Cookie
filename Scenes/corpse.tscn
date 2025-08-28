@@ -1,53 +1,62 @@
 [gd_scene load_steps=8 format=3 uid="uid://4hcg017hfqs2"]
 
-[ext_resource type="Texture2D" uid="uid://cpu8t276rxtw7" path="res://Assets/Player/player-Sheet.png" id="1_3ryli"]
 [ext_resource type="Script" path="res://Scripts/cube.gd" id="1_qucsk"]
 [ext_resource type="PackedScene" uid="uid://c58wp21fdm1ms" path="res://Scenes/Components/grab_area.tscn" id="2_pkcgs"]
+[ext_resource type="Texture2D" uid="uid://bb3a0hm2fistx" path="res://Assets/Player/Corpse.png" id="2_wdjeq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_th5vv"]
-friction = 0.2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aruh"]
-size = Vector2(11, 23)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k1cjp"]
-radius = 2.0
+friction = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwrml"]
-size = Vector2(20, 25)
+size = Vector2(40, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qk0nu"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs6k8"]
+size = Vector2(34, 34)
 
 [node name="corpse" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 27
 physics_material_override = SubResource("PhysicsMaterial_th5vv")
-lock_rotation = true
 freeze_mode = 1
 script = ExtResource("1_qucsk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3ryli")
-hframes = 7
-vframes = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -3.5)
-shape = SubResource("RectangleShape2D_7aruh")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 9)
-shape = SubResource("CircleShape2D_k1cjp")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(4, 9)
-shape = SubResource("CircleShape2D_k1cjp")
+texture = ExtResource("2_wdjeq")
 
 [node name="GrabArea" parent="." instance=ExtResource("2_pkcgs")]
 angular_damp_space_override = 1
 angular_damp = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-position = Vector2(0, -2.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hwrml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-12, -12)
+shape = SubResource("CircleShape2D_qk0nu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(12, 12)
+shape = SubResource("CircleShape2D_qk0nu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-12, 12)
+shape = SubResource("CircleShape2D_qk0nu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(12, -12)
+shape = SubResource("CircleShape2D_qk0nu")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_gs6k8")
 
 [connection signal="body_entered" from="GrabArea" to="." method="_on_grab_area_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_grab_area_body_exited"]
