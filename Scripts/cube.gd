@@ -3,9 +3,16 @@ extends RigidBody2D
 var is_player_near = false
 var push_speed = 70
 
-func _process(delta):
+var float_strength = 30
+var current_water_level_y = null  # suya girdiğinde güncellenecek
+
+func _physics_process(delta: float) -> void:
 	$GrabArea.rotation = 0
 	$GrabArea.global_rotation = 0
+	if current_water_level_y:
+		var depth = global_position.y - current_water_level_y
+		if depth > 0:
+			linear_velocity.y = -25
 
 func _on_grab_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and body.grabbed_body == null:
@@ -14,7 +21,6 @@ func _on_grab_area_body_entered(body: Node2D) -> void:
 
 func _on_grab_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player") and body.grabbed_body == $".":
-		print("Nasıl")
 		body.current_state = body.states.IDLE
 		body.grabbed_body = null
 		is_player_near = false

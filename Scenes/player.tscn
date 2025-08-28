@@ -433,6 +433,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Pausemenu" parent="." instance=ExtResource("3_lpjkf")]
+visible = false
 
 [node name="Visual" type="Node2D" parent="."]
 
@@ -441,3 +442,7 @@ position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_cwv63")
 animation = &"push"
 frame_progress = 0.888903
+
+[node name="RayCast2D" type="RayCast2D" parent="Visual"]
+target_position = Vector2(6, 0)
+collision_mask = 2

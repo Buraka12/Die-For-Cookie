@@ -34,6 +34,7 @@ project/assembly_name="yeni"
 [global_group]
 
 player=""
+floatable=""
 
 [input]
 

@@ -369,8 +369,7 @@ position = Vector2(-1, 30)
 shape = SubResource("RectangleShape2D_gpbf1")
 
 [node name="Button" parent="." instance=ExtResource("4_snddp")]
-position = Vector2(19, 204)
-rotation = 1.5708
+position = Vector2(32, 216)
 
 [node name="Button2" parent="." instance=ExtResource("4_snddp")]
 position = Vector2(579, 259)
@@ -383,4 +382,4 @@ position = Vector2(791, 284)
 position = Vector2(114, 205)
 
 [node name="respawn_point" type="Marker2D" parent="."]
-position = Vector2(44, 195)
+position = Vector2(96, 185)

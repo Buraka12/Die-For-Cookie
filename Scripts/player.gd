@@ -1,25 +1,28 @@
 class_name  Player
 extends CharacterBody2D
 
+var direction : float
 const SPEED = 170
 const JUMP_VELOCITY = -250
 const ACCELERATION = 800
 const DECELERATION = 950
 var health = 9
 
-enum states {IDLE,RUN,FALL,PULSH}
+enum states {IDLE,RUN,FALL,PULSH,CLIMB}
 var current_state : states = states.IDLE
 var grabbed_body: RigidBody2D = null
 
 var corpse_scene = preload("res://Scenes/corpse.tscn")
 
 @onready var respawn_point: Marker2D = $"../respawn_point"
+@onready var climb_cast : RayCast2D = $Visual/RayCast2D
 
 func _physics_process(delta: float) -> void:
+	check_climb()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		if current_state != states.FALL:
+		if current_state != states.FALL and current_state != states.CLIMB:
 			current_state = states.FALL
 			$Visual/AnimatedSprite2D.play("fall")
 
@@ -29,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		$Visual/AnimatedSprite2D.play("jump")
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("left", "right")
+	direction = Input.get_axis("left", "right")
 	
 	# Grab logic
 	if Input.is_action_pressed("grab") and grabbed_body and is_facing_object(grabbed_body):
@@ -61,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = target_speed * direction
 		else:
 			velocity.x = 0
-	else:
+	elif current_state != states.CLIMB:
 		if direction:
 			# Acceleration
 			velocity.x = move_toward(velocity.x, target_speed * direction, ACCELERATION * delta)
@@ -70,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
 	
 	#Animations
-	if is_on_floor() and current_state != states.PULSH:
+	if is_on_floor() and current_state != states.PULSH and current_state != states.CLIMB:
 		if direction == 0:
 			current_state = states.IDLE
 			$Visual/AnimatedSprite2D.play("idle")
@@ -85,6 +88,18 @@ func _physics_process(delta: float) -> void:
 			$Visual/AnimatedSprite2D.play("pull")
 	
 	move_and_slide()
+
+func check_climb():
+	if climb_cast.is_colliding() and velocity.y > 0 and direction == $Visual.scale.x and current_state != states.CLIMB:
+		climb()
+
+func climb():
+	current_state = states.CLIMB
+	var tween = create_tween()
+	tween.tween_property(self,"global_position",Vector2(global_position.x+direction*8,global_position.y-24),0.2)
+	tween.finished.connect(func():
+		current_state = states.IDLE
+	)
 
 #Die
 func die():

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://s11yfagbxksl"]
+
+[ext_resource type="Script" path="res://Scripts/water_area.gd" id="1_tl0tn"]
+
+[node name="WaterArea" type="Area2D"]
+position = Vector2(177, 99)
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_tl0tn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

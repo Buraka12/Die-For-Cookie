@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmlqjngxrk78x"]
 
 [ext_resource type="Texture2D" uid="uid://brefaxws7okko" path="res://Assets/Puzzles/Spikes.png" id="1_h8rvu"]
-[ext_resource type="Script" path="res://Scripts/spikes.gd" id="2_mj1k7"]
+[ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="3_qqh6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqxos"]
 size = Vector2(31, 15)
@@ -14,12 +14,10 @@ size = Vector2(29, 14)
 [node name="spikes" type="Sprite2D"]
 position = Vector2(-15, -2)
 texture = ExtResource("1_h8rvu")
-script = ExtResource("2_mj1k7")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
+[node name="DeadArea" parent="." instance=ExtResource("3_qqh6o")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadArea"]
 position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_bqxos")
 
@@ -31,5 +29,3 @@ physics_material_override = SubResource("PhysicsMaterial_0ric8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_20cxu")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

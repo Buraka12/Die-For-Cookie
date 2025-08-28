@@ -16,7 +16,7 @@ radius = 4.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig0qu"]
 size = Vector2(22, 22)
 
-[node name="cube" type="RigidBody2D"]
+[node name="cube" type="RigidBody2D" groups=["floatable"]]
 collision_layer = 8
 collision_mask = 27
 physics_material_override = SubResource("PhysicsMaterial_53cim")
