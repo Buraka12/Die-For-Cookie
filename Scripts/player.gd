@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 170
 const JUMP_VELOCITY = -250
+const ACCELERATION = 800
+const DECELERATION = 950
 var health = 9
 
 enum states {IDLE,RUN,FALL,PULSH}
@@ -30,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	
 	# Grab logic
-	if Input.is_action_pressed("grab") and grabbed_body:
+	if Input.is_action_pressed("grab") and grabbed_body and is_facing_object(grabbed_body):
 		current_state = states.PULSH
 		var offset = global_position.x - grabbed_body.global_position.x
 		var extra_speed : int
@@ -55,11 +57,17 @@ func _physics_process(delta: float) -> void:
 	var target_speed = SPEED
 	if current_state == states.PULSH:
 		target_speed = 70
-	
-	if direction:
-		velocity.x = target_speed*direction
-	elif not direction:
-		velocity.x = 0
+		if direction:
+			velocity.x = target_speed * direction
+		else:
+			velocity.x = 0
+	else:
+		if direction:
+			# Acceleration
+			velocity.x = move_toward(velocity.x, target_speed * direction, ACCELERATION * delta)
+		else:
+			# Deceleration
+			velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
 	
 	#Animations
 	if is_on_floor() and current_state != states.PULSH:
@@ -99,3 +107,12 @@ func _spawn_corpse(pos : Vector2):
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = pos
 	get_parent().add_child(corpse)
+
+func is_facing_object(body: Node2D) -> bool:
+	var is_facing_right = $Visual.scale.x > 0
+	var direction_to_object = body.global_position.x - global_position.x
+	
+	# Karakter sağa bakıyorsa ve nesne sağdaysa, veya
+	# Karakter sola bakıyorsa ve nesne soldaysa true döner
+	return (is_facing_right and direction_to_object > 0) or \
+		   (not is_facing_right and direction_to_object < 0)
