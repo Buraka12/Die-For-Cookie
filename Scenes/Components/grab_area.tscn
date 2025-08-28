@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c58wp21fdm1ms"]
+
+[node name="GrabArea" type="Area2D"]
+collision_layer = 8

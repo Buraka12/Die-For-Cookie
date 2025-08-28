@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkghn3oj6fhe1"]
+[gd_scene load_steps=8 format=3 uid="uid://bkghn3oj6fhe1"]
 
 [ext_resource type="Texture2D" uid="uid://ctixpiq47mpi3" path="res://Assets/Puzzles/Cube.png" id="1_cqu7q"]
 [ext_resource type="Script" path="res://Scripts/cube.gd" id="1_rmc0b"]
+[ext_resource type="PackedScene" uid="uid://c58wp21fdm1ms" path="res://Scenes/Components/grab_area.tscn" id="3_yokxq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_53cim"]
 friction = 0.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbfhi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5grk"]
 size = Vector2(28, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o62ee"]
@@ -24,11 +25,10 @@ script = ExtResource("1_rmc0b")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cqu7q")
 
-[node name="GrabArea" type="Area2D" parent="."]
-collision_layer = 8
+[node name="GrabArea" parent="." instance=ExtResource("3_yokxq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-shape = SubResource("RectangleShape2D_cbfhi")
+shape = SubResource("RectangleShape2D_w5grk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, -8)

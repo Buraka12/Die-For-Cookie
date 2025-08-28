@@ -362,10 +362,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
 position = Vector2(120, 226)
 
 [node name="cube" parent="." instance=ExtResource("8_inbnj")]
-position = Vector2(218, 255)
+position = Vector2(194, 186)
+rotation = 0.865744
 
 [node name="cube2" parent="." instance=ExtResource("8_inbnj")]
-position = Vector2(165, 255)
+position = Vector2(139, 177)
+rotation = -3.12124
 
 [node name="LaserLauncher" parent="." instance=ExtResource("9_rmsnk")]
 position = Vector2(90, 251)
