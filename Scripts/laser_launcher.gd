@@ -15,7 +15,6 @@ func update_laser():
 	
 	var current_direction = Vector2.RIGHT.rotated(global_rotation)
 	var current_ray_position = global_position
-	var total_distance = 0.0
 	
 	for _i in range(MAX_REFLECTIONS):
 		ray_cast.global_position = current_ray_position
@@ -30,6 +29,7 @@ func update_laser():
 			reflection_points.append(relative_collision)
 			
 			if collider.is_in_group("mirror"):
+				print("Aynada")
 				var normal = ray_cast.get_collision_normal()
 				current_direction = current_direction.bounce(normal)
 				current_ray_position = collision
