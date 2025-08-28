@@ -15,7 +15,6 @@ func update_laser():
 	
 	var current_direction = Vector2.RIGHT.rotated(global_rotation)
 	var current_ray_position = global_position
-	var total_distance = 0.0
 	
 	for _i in range(MAX_REFLECTIONS):
 		ray_cast.global_position = current_ray_position

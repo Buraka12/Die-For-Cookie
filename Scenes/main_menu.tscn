@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
-[ext_resource type="PackedScene" uid="uid://cob2to74nrumw" path="res://Scenes/input_button.tscn" id="8_yf2dr"]
+[ext_resource type="PackedScene" path="res://Scenes/input_button.tscn" id="8_yf2dr"]
 
 [sub_resource type="Animation" id="Animation_66o4w"]
 length = 0.001
