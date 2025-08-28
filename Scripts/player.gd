@@ -16,6 +16,7 @@ var corpse_scene = preload("res://Scenes/corpse.tscn")
 
 @onready var respawn_point: Marker2D = $"../respawn_point"
 @onready var climb_cast : RayCast2D = $Visual/RayCast2D
+var climb_tween = null
 
 func _physics_process(delta: float) -> void:
 	check_climb()
@@ -95,14 +96,18 @@ func check_climb():
 
 func climb():
 	current_state = states.CLIMB
-	var tween = create_tween()
-	tween.tween_property(self,"global_position",Vector2(global_position.x+direction*8,global_position.y-24),0.2)
-	tween.finished.connect(func():
+	climb_tween = create_tween()
+	climb_tween.tween_property(self,"global_position",Vector2(global_position.x+direction*8,global_position.y-24),0.2)
+	climb_tween.finished.connect(func():
 		current_state = states.IDLE
 	)
 
 #Die
 func die():
+	if climb_tween:
+		climb_tween.kill()
+		climb_tween = null
+		current_state = states.IDLE
 	var death_position = global_position
 	health -=1
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://s7xx3l3v01dh"]
+[gd_scene load_steps=15 format=4 uid="uid://s7xx3l3v01dh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_24or4"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_odfcn"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="4_e3nu3"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="4_snddp"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="5_1het6"]
-[ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="7_6hmk4"]
 [ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="7_fecdh"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="8_yoy0r"]
 [ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="9_us8v6"]
@@ -376,11 +375,8 @@ rotation = 1.5708
 position = Vector2(579, 259)
 rotation = 1.5708
 
-[node name="Door" parent="." instance=ExtResource("7_6hmk4")]
-position = Vector2(791, 284)
-
 [node name="Player" parent="." instance=ExtResource("8_yoy0r")]
-position = Vector2(114, 205)
+position = Vector2(45, 205)
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(44, 195)
