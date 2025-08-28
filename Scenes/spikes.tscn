@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmlqjngxrk78x"]
 
-[ext_resource type="Texture2D" uid="uid://s8qsx0hgftpx" path="res://Assets/Spikes.png" id="1_5wsk4"]
+[ext_resource type="Texture2D" uid="uid://brefaxws7okko" path="res://Assets/Puzzles/Spikes.png" id="1_h8rvu"]
 [ext_resource type="Script" path="res://Scripts/spikes.gd" id="2_mj1k7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqxos"]
@@ -13,7 +13,7 @@ size = Vector2(29, 14)
 
 [node name="spikes" type="Sprite2D"]
 position = Vector2(-15, -2)
-texture = ExtResource("1_5wsk4")
+texture = ExtResource("1_h8rvu")
 script = ExtResource("2_mj1k7")
 
 [node name="Area2D" type="Area2D" parent="."]
