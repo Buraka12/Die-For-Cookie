@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmhxum0xpsgep"]
 
-[ext_resource type="Texture2D" uid="uid://n4nkitpq35p3" path="res://Assets/Button-Sheet.png" id="1_igm05"]
+[ext_resource type="Texture2D" uid="uid://derqufx766jop" path="res://Assets/Puzzles/Button-Sheet.png" id="1_paply"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="2_8j440"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34gjd"]
@@ -9,7 +9,7 @@ size = Vector2(6, 4)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ed15"]
 
 [node name="Button" type="Sprite2D"]
-texture = ExtResource("1_igm05")
+texture = ExtResource("1_paply")
 hframes = 2
 script = ExtResource("2_8j440")
 
