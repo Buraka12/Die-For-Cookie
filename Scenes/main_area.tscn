@@ -47,9 +47,9 @@ _data = {
 "fade_out": SubResource("Animation_vgauw")
 }
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uimo5"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_roep2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2blg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qw38v"]
 texture = ExtResource("4_p8h7y")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -289,11 +289,11 @@ texture = ExtResource("4_p8h7y")
 [sub_resource type="TileSet" id="TileSet_wbq66"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 9
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_uimo5")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_roep2")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_n2blg")
+sources/0 = SubResource("TileSetAtlasSource_qw38v")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtuag"]
 bg_color = Color(0, 0, 0, 1)
