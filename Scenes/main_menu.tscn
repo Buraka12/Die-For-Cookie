@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=56 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://d124r07tn8xcp" path="res://Assets/MainManuBakcground.png" id="2_p7xvr"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
+[ext_resource type="PackedScene" path="res://Scenes/input_button.tscn" id="8_yf2dr"]
 
 [sub_resource type="Animation" id="Animation_66o4w"]
 length = 0.001
@@ -451,13 +452,6 @@ border_color = Color(0.1599, 0.293287, 0.41, 1)
 corner_radius_top_left = 5
 corner_radius_bottom_right = 5
 
-[sub_resource type="InputEventKey" id="InputEventKey_71u8d"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_aqj6g"]
-events = [SubResource("InputEventKey_71u8d")]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jell"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hkjj"]
@@ -600,7 +594,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5gjtv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_smh1s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ylnfg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_to106")
-shortcut = SubResource("Shortcut_aqj6g")
 text = "Contunue"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Buttons&settings/Allbuttons/Vbox"]
@@ -858,7 +851,7 @@ rotation = -0.174533
 focus_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Buttons&settings/Settings/graph"]
-layout_mode = 0
+layout_mode = 2
 offset_left = -0.5
 offset_right = 67.5
 offset_bottom = 40.0
@@ -923,14 +916,43 @@ popup/item_2/id = 2
 popup/item_3/text = "MSAA_8X"
 popup/item_3/id = 3
 
-[node name="controls" type="TabBar" parent="Buttons&settings/Settings"]
+[node name="controls" type="VBoxContainer" parent="Buttons&settings/Settings"]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -1.0
+offset_right = -7.99997
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InputButton" parent="Buttons&settings/Settings/controls" instance=ExtResource("8_yf2dr")]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-offset_left = -0.806641
-offset_top = 83.8265
-offset_right = -0.806641
-offset_bottom = 83.8265
-focus_mode = 0
+theme_override_font_sizes/font_size = 15
+
+[node name="InputButton2" parent="Buttons&settings/Settings/controls" instance=ExtResource("8_yf2dr")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
+[node name="InputButton3" parent="Buttons&settings/Settings/controls" instance=ExtResource("8_yf2dr")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
+[node name="InputButton4" parent="Buttons&settings/Settings/controls" instance=ExtResource("8_yf2dr")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
+[node name="InputButton5" parent="Buttons&settings/Settings/controls" instance=ExtResource("8_yf2dr")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer/Continue" to="." method="_on_continue_pressed"]

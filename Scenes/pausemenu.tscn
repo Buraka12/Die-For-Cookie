@@ -1,8 +1,233 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd33uady8fso6"]
+[gd_scene load_steps=30 format=3 uid="uid://dd33uady8fso6"]
 
 [ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="1_5emyn"]
 [ext_resource type="Script" path="res://Scripts/pausemenu.gd" id="1_uofnw"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="2_4xr1l"]
+[ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="4_evy7c"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="5_67dci"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="6_pkydm"]
+
+[sub_resource type="Animation" id="Animation_0i4km"]
+resource_name = "pause"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blur/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(366, -49), Vector2(272.5, -65.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blur/Panel:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 491), Vector2(177, 491)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blur/Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("blur/Panel/MarginContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("blur/Panel/MarginContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sboga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blur/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(272.5, -65.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blur/Panel:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(177, 491)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blur/Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("blur/Panel/MarginContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("blur/Panel/Settings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("blur/Panel/Settings:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("blur/Panel/MarginContainer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qqwtj"]
+resource_name = "settings"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blur/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(272.5, -65.5), Vector2(188, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blur/Panel:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(177, 491), Vector2(342, 491)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blur/Panel/MarginContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("blur/Panel/Settings:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("blur/Panel/Settings:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1iirb"]
+_data = {
+"RESET": SubResource("Animation_sboga"),
+"pause": SubResource("Animation_0i4km"),
+"settings": SubResource("Animation_qqwtj")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytwwk"]
 shader = ExtResource("1_5emyn")
@@ -58,9 +283,65 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_8dj7e"]
 events = [SubResource("InputEventKey_71u8d")]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl0og"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7buw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkim3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckgra"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8r7a"]
+bg_color = Color(0.2, 0.2, 0.178, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvhxq"]
+bg_color = Color(0.130515, 0.0683702, 0.0179969, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h404f"]
+bg_color = Color(0.111197, 0.111197, 0.111197, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_stlfd"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hlsum"]
+color = Color(0.0880691, 0.110076, 0.335149, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6ydvd"]
+color = Color(0.28785, 0.2622, 0.57, 1)
+thickness = 3
+
 [node name="Pausemenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_uofnw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_1iirb")
+}
 
 [node name="blur" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_ytwwk")
@@ -71,16 +352,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="blur"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 143.0
-offset_top = -255.0
-offset_right = 320.0
-offset_bottom = 236.0
+offset_left = -47.5
+offset_top = -245.5
+offset_right = 129.5
+offset_bottom = 245.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.174533
@@ -89,6 +371,7 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_8sf5l")
 
 [node name="MarginContainer" type="MarginContainer" parent="blur/Panel"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -185,3 +468,217 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
 text = "     Exit    "
+
+[node name="Settings" type="Panel" parent="blur/Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 93.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tl0og")
+
+[node name="corner" type="Panel" parent="blur/Panel/Settings"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 88.0
+offset_bottom = 369.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f7buw")
+
+[node name="tabs" type="Panel" parent="blur/Panel/Settings"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 88.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bkim3")
+
+[node name="Back" type="Button" parent="blur/Panel/Settings/tabs"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+offset_left = 1.52588e-05
+offset_top = 191.0
+offset_right = 80.0
+offset_bottom = 223.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ckgra")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v8r7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kvhxq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h404f")
+text = "<- Back"
+
+[node name="Controls" type="Button" parent="blur/Panel/Settings/tabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_top = 155.0
+offset_right = 80.0
+offset_bottom = 187.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ckgra")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v8r7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kvhxq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h404f")
+text = "Controls"
+
+[node name="Graphs" type="Button" parent="blur/Panel/Settings/tabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_top = 119.0
+offset_right = 80.0
+offset_bottom = 151.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ckgra")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v8r7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kvhxq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h404f")
+text = "Graphs"
+
+[node name="Sounds" type="Button" parent="blur/Panel/Settings/tabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_top = 83.0
+offset_right = 80.0
+offset_bottom = 115.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ckgra")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v8r7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kvhxq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h404f")
+text = "Sounds"
+
+[node name="sounds" type="TabBar" parent="blur/Panel/Settings"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.1225
+offset_top = 5.14069
+offset_right = -13.8775
+offset_bottom = 5.14069
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.174533
+focus_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="blur/Panel/Settings/sounds"]
+layout_mode = 2
+offset_left = 13.0
+offset_right = 233.0
+offset_bottom = 52.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="blur/Panel/Settings/sounds/MarginContainer"]
+layout_mode = 2
+
+[node name="Music_container" type="HBoxContainer" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_evy7c")
+theme_override_font_sizes/font_size = 15
+text = "Music"
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_stlfd")
+
+[node name="Music" type="HSlider" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container"]
+custom_minimum_size = Vector2(140, 5)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_hlsum")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_6ydvd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_6ydvd")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_67dci")
+bus_name = "Music"
+
+[node name="Sfx_container" type="HBoxContainer" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_evy7c")
+theme_override_font_sizes/font_size = 15
+text = "Sfx"
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+layout_mode = 2
+theme_override_constants/separation = 35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_stlfd")
+
+[node name="Sfx" type="HSlider" parent="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container"]
+custom_minimum_size = Vector2(140, 5)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_hlsum")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_6ydvd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_6ydvd")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("6_pkydm")
+bus_name = "Sfx"
+
+[node name="graph" type="TabBar" parent="blur/Panel/Settings"]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = 7.0
+rotation = -0.174533
+focus_mode = 0
+
+[node name="Label" type="Label" parent="blur/Panel/Settings/graph"]
+offset_left = 52.0333
+offset_top = 0.878704
+offset_right = 290.033
+offset_bottom = 43.8787
+theme_override_fonts/font = ExtResource("4_evy7c")
+text = "Can only be changed
+ in the main menu"
+
+[node name="controls" type="TabBar" parent="blur/Panel/Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -1.0
+offset_right = -7.99997
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="blur/Panel/Settings/controls"]
+layout_mode = 2
+offset_right = 238.0
+offset_bottom = 43.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_evy7c")
+text = "Can only be changed
+ in the main menu"
+
+[connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="blur/Panel/Settings/tabs/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="blur/Panel/Settings/tabs/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="blur/Panel/Settings/tabs/Graphs" to="." method="_on_graphs_pressed"]
+[connection signal="pressed" from="blur/Panel/Settings/tabs/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="value_changed" from="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
+[connection signal="value_changed" from="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
