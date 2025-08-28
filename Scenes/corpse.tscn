@@ -14,7 +14,7 @@ size = Vector2(28, 20)
 radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvus"]
-size = Vector2(22, 22)
+size = Vector2(22, 24)
 
 [node name="corpse" type="RigidBody2D"]
 collision_layer = 8
@@ -34,23 +34,16 @@ angular_damp = 1000.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
 shape = SubResource("RectangleShape2D_hwrml")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, -8)
-shape = SubResource("CircleShape2D_qanf0")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(4, 12)
 shape = SubResource("CircleShape2D_qanf0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 8)
-shape = SubResource("CircleShape2D_qanf0")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(8, -8)
+position = Vector2(-4, 12)
 shape = SubResource("CircleShape2D_qanf0")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ixvus")
 
 [connection signal="body_entered" from="GrabArea" to="." method="_on_grab_area_body_entered"]
