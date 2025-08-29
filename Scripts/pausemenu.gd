@@ -9,13 +9,14 @@ extends CanvasLayer
 func _ready() -> void:
 	$".".visible = false
 	resume.pressed.connect(unpause)
-	main_menu.pressed.connect(returnMainMenu)
 	exit.pressed.connect(get_tree().quit)
-
-func returnMainMenu():
-	$AnimationPlayer.play_backwards("pause")
-	await $AnimationPlayer.animation_finished
+	
+	#die menü bozulmaması için
 	get_tree().paused = false
+
+
+func _on_main_menu_pressed() -> void:
+
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:

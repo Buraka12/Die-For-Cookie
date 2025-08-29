@@ -6,7 +6,7 @@ const SPEED = 170
 const JUMP_VELOCITY = -300
 const ACCELERATION = 800
 const DECELERATION = 950
-var health = 9
+var health = 2
 
 enum states {IDLE,RUN,FALL,PULSH,INTERACT}
 var current_state : states = states.IDLE
@@ -31,6 +31,9 @@ func _ready() -> void:
 	$Camera2D.limit_left = camera_limit_left
 	$Camera2D.limit_right= camera_limit_right
 	$Camera2D.limit_top = camera_limit_up
+	
+	#healh'ı yükle
+	$ui/Playerui/Sprite2D.frame = health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -125,10 +128,12 @@ func interact():
 #Die
 func die():
 	if can_die:
-		print("Öldü")
+		
 		can_die = false
 		death_position = global_position
 		health -=1
+		$ui/Playerui/Sprite2D.frame = health
+		
 
 		if health > 0:
 			#await get_tree().process_frame
@@ -141,7 +146,9 @@ func die():
 		
 		#ölüm menüsü yapınca koy
 		else:
-			pass
+			print("Öldü")
+			get_tree().paused = true
+			$ui/Die_Menu/AnimationPlayer.play("die")
 
 func _spawn_corpse(pos : Vector2):
 	var corpse = corpse_scene.instantiate()
