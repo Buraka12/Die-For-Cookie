@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var direction : float
 const SPEED = 170
-const JUMP_VELOCITY = -250
+const JUMP_VELOCITY = -300
 const ACCELERATION = 800
 const DECELERATION = 950
 var health = 9
