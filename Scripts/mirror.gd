@@ -23,8 +23,8 @@ func check_laser():
 		print("Yeni")
 		crated = true
 		var new_laser = laser_scene.instantiate()
-		new_laser.position = $LaserPoint.position
-		add_child(new_laser)
+		new_laser.position = $CollisionShape2D/LaserPoint.position
+		$CollisionShape2D.add_child(new_laser)
 		new_laser.rotation = 0
 		laser = new_laser
 	elif !lasered and crated:

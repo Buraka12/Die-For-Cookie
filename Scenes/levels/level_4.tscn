@@ -321,13 +321,6 @@ position = Vector2(341, 203)
 position = Vector2(341, 88)
 rotation = 4.71239
 
-[node name="Mirror2" parent="." instance=ExtResource("6_m3g0h")]
-position = Vector2(574, 88)
-
-[node name="Mirror3" parent="." instance=ExtResource("6_m3g0h")]
-position = Vector2(417, 332)
-rotation = 1.5708
-
 [node name="Panel" parent="." node_paths=PackedStringArray("object") instance=ExtResource("8_xekiy")]
 position = Vector2(573, 217)
 object = NodePath("../Door")
