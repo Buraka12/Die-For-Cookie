@@ -295,7 +295,7 @@ tile_map_data = PackedByteArray("AAACAPr/AAAEAAEAAAACAPv/AAACAAEAAAACAPz/AAACAAE
 tile_set = SubResource("TileSet_ijej1")
 
 [node name="Player" parent="." instance=ExtResource("7_fgeoy")]
-position = Vector2(247, 117)
+position = Vector2(73, 120)
 camera_limit_left = 0
 camera_limit_right = 560
 camera_limit_down = 350

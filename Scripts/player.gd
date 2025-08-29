@@ -146,7 +146,7 @@ func die():
 func _spawn_corpse(pos : Vector2):
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = death_position
-	corpse.global_position.y -= 20
+	corpse.global_position.y -= 10
 	corpse.linear_velocity = Vector2.ZERO
 	corpse.angular_velocity = 0
 	get_parent().add_child(corpse)
