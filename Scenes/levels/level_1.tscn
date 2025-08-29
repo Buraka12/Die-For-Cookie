@@ -310,7 +310,7 @@ position = Vector2(591, 294)
 position = Vector2(622, 294)
 
 [node name="spikes6" parent="." instance=ExtResource("4_e3nu3")]
-position = Vector2(653, 246)
+position = Vector2(655, 246)
 
 [node name="spikes7" parent="." instance=ExtResource("4_e3nu3")]
 position = Vector2(384, 230)
@@ -387,6 +387,9 @@ object = NodePath("../Door")
 
 [node name="Player" parent="." instance=ExtResource("8_yoy0r")]
 position = Vector2(44, 201)
+camera_limit_left = 0
+camera_limit_right = 880
+camera_limit_down = 339
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(44, 195)

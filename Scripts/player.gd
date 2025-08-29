@@ -19,6 +19,18 @@ var corpse_scene = preload("res://Scenes/corpse.tscn")
 
 @onready var respawn_point = $"../respawn_point"
 
+@export var camera_limit_left : int = -100000
+@export var camera_limit_right : int = 100000
+@export var camera_limit_up : int = -100000
+@export var camera_limit_down : int = 100000
+
+
+func _ready() -> void:
+	$Camera2D.limit_bottom = camera_limit_down
+	$Camera2D.limit_left = camera_limit_left
+	$Camera2D.limit_right= camera_limit_right
+	$Camera2D.limit_top = camera_limit_up
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
