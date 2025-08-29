@@ -37,6 +37,15 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="opening":
 		get_tree().change_scene_to_file("res://Scenes/main_area.tscn")
 		
+#credits
+func _on_credits_pressed() -> void:
+	$AnimationPlayer.play("credits")
+
+func _on_backc_pressed() -> void:
+	$AnimationPlayer.play_backwards("credits")
+
+
+
 #Settings Menu
 func _on_sounds_pressed() -> void:
 	$"Buttons&settings/Settings/sounds".visible = true
