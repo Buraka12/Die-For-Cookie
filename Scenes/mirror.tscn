@@ -21,4 +21,3 @@ shape = SubResource("RectangleShape2D_1")
 [node name="LaserPoint" type="Node2D" parent="CollisionShape2D"]
 position = Vector2(2, -1)
 rotation = 0.785398
-scale = Vector2(1, 1)

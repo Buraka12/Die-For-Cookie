@@ -624,6 +624,7 @@ events = [SubResource("InputEventKey_k34f5")]
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtah4"]
 
 [node name="Main_Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -651,10 +652,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 482.0
-offset_top = -76.0
-offset_right = 4.0
-offset_bottom = 83.0
+offset_left = 220.0
+offset_top = -87.0
+offset_right = -114.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.174533
