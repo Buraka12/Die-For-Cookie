@@ -6,7 +6,7 @@ const SPEED = 170
 const JUMP_VELOCITY = -300
 const ACCELERATION = 800
 const DECELERATION = 950
-var health = 2
+var health = 5
 
 enum states {IDLE,RUN,FALL,PULSH,INTERACT}
 var current_state : states = states.IDLE

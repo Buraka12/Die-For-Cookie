@@ -302,7 +302,7 @@ position = Vector2(278, 81)
 position = Vector2(359, 82)
 
 [node name="Button" parent="background" instance=ExtResource("6_y5bto")]
-position = Vector2(637, 273)
+position = Vector2(638, 274)
 rotation = -1.5708
 
 [node name="cube" parent="." instance=ExtResource("5_02f4p")]
