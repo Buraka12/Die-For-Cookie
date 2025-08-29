@@ -35,6 +35,7 @@ project/assembly_name="yeni"
 
 player=""
 floatable=""
+mirror=""
 
 [input]
 

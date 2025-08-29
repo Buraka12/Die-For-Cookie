@@ -1,24 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp813rjrc4w0t"]
+[gd_scene load_steps=3 format=3 uid="uid://bp813rjrc4w0t"]
 
 [ext_resource type="Texture2D" uid="uid://dobrx1615gr6x" path="res://Assets/Puzzles/Mirror.png" id="1_m4k3n"]
-[ext_resource type="Script" path="res://Scripts/mirror.gd" id="1_p2k4l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(3, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imdhk"]
+size = Vector2(3, 20)
 
-[node name="Mirror" type="StaticBody2D"]
-collision_layer = 2
-script = ExtResource("1_p2k4l")
+[node name="Mirror" type="StaticBody2D" groups=["mirror"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
 texture = ExtResource("1_m4k3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-rotation = -0.785398
-shape = SubResource("RectangleShape2D_1")
-
-[node name="LaserPoint" type="Node2D" parent="CollisionShape2D"]
-position = Vector2(2, -1)
-rotation = 0.785398
-scale = Vector2(1, 1)
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_imdhk")
