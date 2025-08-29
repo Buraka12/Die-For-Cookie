@@ -16,7 +16,8 @@ var can_interact : bool = false
 var interacted : Sprite2D = null
 
 var corpse_scene = preload("res://Scenes/corpse.tscn")
-
+var death_position : Vector2
+var can_die : bool = true
 @onready var respawn_point = $"../respawn_point"
 
 @export var camera_limit_left : int = -100000
@@ -123,25 +124,35 @@ func interact():
 
 #Die
 func die():
-	var death_position = global_position
-	health -=1
+	if can_die:
+		print("Öldü")
+		can_die = false
+		death_position = global_position
+		health -=1
 
-	if health > 0:
-		#await get_tree().process_frame
-		global_position = respawn_point.global_position
-		velocity = Vector2.ZERO
-
-		await get_tree().create_timer(0.01).timeout
-		call_deferred("_spawn_corpse",death_position)
+		if health > 0:
+			#await get_tree().process_frame
+			global_position = respawn_point.global_position
+			velocity = Vector2.ZERO
+	
+			await get_tree().create_timer(0.01).timeout
+			call_deferred("_spawn_corpse",death_position)
+			can_die = true
 		
-	#ölüm menüsü yapınca koy
-	else:
-		pass
+		#ölüm menüsü yapınca koy
+		else:
+			pass
 
 func _spawn_corpse(pos : Vector2):
 	var corpse = corpse_scene.instantiate()
-	corpse.global_position = pos
+	corpse.global_position = death_position
+	corpse.global_position.y -= 20
+	corpse.linear_velocity = Vector2.ZERO
+	corpse.angular_velocity = 0
 	get_parent().add_child(corpse)
+	await get_tree().physics_frame
+	corpse.linear_velocity = Vector2.ZERO
+	corpse.angular_velocity = 0
 
 func is_facing_object(body: Node2D) -> bool:
 	var is_facing_right = $Visual.scale.x > 0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddfrtr3urk07c"]
+
+[ext_resource type="Script" path="res://Scripts/panel.gd" id="1_ikb0n"]
+[ext_resource type="Texture2D" uid="uid://ctp3jky7gpyna" path="res://Assets/Puzzles/Panel-Sheet.png" id="1_uef7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8yko"]
+size = Vector2(20, 3)
+
+[node name="Panel" type="Sprite2D"]
+texture = ExtResource("1_uef7o")
+hframes = 2
+script = ExtResource("1_ikb0n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["panel"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_i8yko")
