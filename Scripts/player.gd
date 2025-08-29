@@ -143,7 +143,7 @@ func die():
 		else:
 			pass
 
-func _spawn_corpse(pos : Vector2):
+func _spawn_corpse():
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = death_position
 	corpse.global_position.y -= 10

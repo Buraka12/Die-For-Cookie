@@ -316,23 +316,17 @@ camera_limit_down = 475
 
 [node name="LaserLauncher" parent="." instance=ExtResource("5_w0uqj")]
 position = Vector2(341, 203)
-rotation = -1.5708
 
 [node name="Mirror" parent="." instance=ExtResource("6_m3g0h")]
 position = Vector2(341, 88)
-rotation = -2.3562
+rotation = 4.71239
 
 [node name="Mirror2" parent="." instance=ExtResource("6_m3g0h")]
 position = Vector2(574, 88)
-rotation = -0.785398
 
 [node name="Mirror3" parent="." instance=ExtResource("6_m3g0h")]
 position = Vector2(417, 332)
 rotation = 1.5708
-
-[node name="LaserLauncher2" parent="." instance=ExtResource("5_w0uqj")]
-position = Vector2(416, 428)
-rotation = -1.5708
 
 [node name="Panel" parent="." node_paths=PackedStringArray("object") instance=ExtResource("8_xekiy")]
 position = Vector2(573, 217)
@@ -351,4 +345,4 @@ rotation = -1.5708
 position = Vector2(615, 380)
 
 [node name="CheckPointArea" parent="." instance=ExtResource("10_ms4pp")]
-position = Vector2(498, 371)
+position = Vector2(507, 371)
