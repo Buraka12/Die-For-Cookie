@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://s7xx3l3v01dh"]
+[gd_scene load_steps=18 format=4 uid="uid://s7xx3l3v01dh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_24or4"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_odfcn"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="7_fecdh"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="8_yoy0r"]
 [ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="9_us8v6"]
+[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_v2pej"]
+[ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="11_o5n8x"]
+[ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="12_gqr27"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nhaut"]
 
@@ -307,16 +310,16 @@ position = Vector2(591, 294)
 position = Vector2(622, 294)
 
 [node name="spikes6" parent="." instance=ExtResource("4_e3nu3")]
-position = Vector2(655, 245)
+position = Vector2(653, 246)
 
 [node name="spikes7" parent="." instance=ExtResource("4_e3nu3")]
 position = Vector2(384, 230)
 
 [node name="cube" parent="." instance=ExtResource("5_1het6")]
-position = Vector2(107, 97)
+position = Vector2(107, 87)
 
 [node name="cube2" parent="." instance=ExtResource("5_1het6")]
-position = Vector2(526, 83)
+position = Vector2(526, 88)
 
 [node name="background" type="Node2D" parent="."]
 
@@ -367,16 +370,34 @@ shape = SubResource("RectangleShape2D_1kvxh")
 position = Vector2(-1, 30)
 shape = SubResource("RectangleShape2D_gpbf1")
 
-[node name="Button" parent="." instance=ExtResource("4_snddp")]
-position = Vector2(19, 204)
+[node name="Button" parent="." node_paths=PackedStringArray("object") instance=ExtResource("4_snddp")]
+position = Vector2(18, 204)
 rotation = 1.5708
+object = NodePath("../CubeHolder")
 
-[node name="Button2" parent="." instance=ExtResource("4_snddp")]
-position = Vector2(579, 259)
+[node name="Button2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("4_snddp")]
+position = Vector2(578, 256)
 rotation = 1.5708
+object = NodePath("../CubeHolder2")
+
+[node name="Button3" parent="." node_paths=PackedStringArray("object") instance=ExtResource("4_snddp")]
+position = Vector2(674, 280)
+rotation = 1.5708
+object = NodePath("../Door")
 
 [node name="Player" parent="." instance=ExtResource("8_yoy0r")]
-position = Vector2(45, 205)
+position = Vector2(44, 201)
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(44, 195)
+
+[node name="CheckPointArea" parent="." instance=ExtResource("10_v2pej")]
+
+[node name="CubeHolder" parent="." instance=ExtResource("11_o5n8x")]
+position = Vector2(107, 89)
+
+[node name="CubeHolder2" parent="." instance=ExtResource("11_o5n8x")]
+position = Vector2(526, 89)
+
+[node name="Door" parent="." instance=ExtResource("12_gqr27")]
+position = Vector2(791, 284)

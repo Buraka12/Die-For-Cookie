@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://jht7nscsaad8"]
+
+[ext_resource type="Script" path="res://Scripts/OpenObejcts.gd" id="1_p10kp"]
+[ext_resource type="Texture2D" uid="uid://dw2fmpf2je0j4" path="res://Assets/Puzzles/CubeHolder-Sheet.png" id="1_v5o0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyqka"]
+size = Vector2(25, 3)
+
+[sub_resource type="Animation" id="Animation_tc54v"]
+resource_name = "Active"
+length = 0.27
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2amfi"]
+_data = {
+"Active": SubResource("Animation_tc54v")
+}
+
+[node name="CubeHolder" type="Node2D"]
+script = ExtResource("1_p10kp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v5o0w")
+hframes = 8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 14)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xyqka")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2amfi")
+}

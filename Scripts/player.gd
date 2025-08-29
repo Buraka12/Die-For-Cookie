@@ -8,22 +8,22 @@ const ACCELERATION = 800
 const DECELERATION = 950
 var health = 9
 
-enum states {IDLE,RUN,FALL,PULSH,CLIMB}
+enum states {IDLE,RUN,FALL,PULSH,INTERACT}
 var current_state : states = states.IDLE
 var grabbed_body: RigidBody2D = null
 
+var can_interact : bool = false
+var interacted : Sprite2D = null
+
 var corpse_scene = preload("res://Scenes/corpse.tscn")
 
-@onready var respawn_point: Marker2D = $"../respawn_point"
-@onready var climb_cast : RayCast2D = $Visual/RayCast2D
-var climb_tween = null
+@onready var respawn_point = $"../respawn_point"
 
 func _physics_process(delta: float) -> void:
-	check_climb()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		if current_state != states.FALL and current_state != states.CLIMB:
+		if current_state != states.FALL:
 			current_state = states.FALL
 			$Visual/AnimatedSprite2D.play("fall")
 
@@ -31,7 +31,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$Visual/AnimatedSprite2D.play("jump")
-
+	
+	if chec_interact():
+		interact()
+	
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
 	
@@ -51,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		grabbed_body.linear_velocity.x = 0
 	
 	#Flip Visuals
-	if current_state != states.PULSH:  # pulsh değilken değiştir
+	if current_state != states.PULSH and current_state != states.INTERACT:  # pulsh değilken değiştir
 		if direction > 0:
 			$Visual.scale.x = 1
 		elif direction < 0:
@@ -65,7 +68,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = target_speed * direction
 		else:
 			velocity.x = 0
-	elif current_state != states.CLIMB:
+	elif current_state != states.INTERACT:
 		if direction:
 			# Acceleration
 			velocity.x = move_toward(velocity.x, target_speed * direction, ACCELERATION * delta)
@@ -74,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
 	
 	#Animations
-	if is_on_floor() and current_state != states.PULSH and current_state != states.CLIMB:
+	if is_on_floor() and current_state != states.PULSH and current_state != states.INTERACT:
 		if direction == 0:
 			current_state = states.IDLE
 			$Visual/AnimatedSprite2D.play("idle")
@@ -90,24 +93,24 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func check_climb():
-	if climb_cast.is_colliding() and velocity.y > 0 and direction == $Visual.scale.x and current_state != states.CLIMB:
-		climb()
+func chec_interact():
+	return can_interact and interacted and current_state == states.IDLE and Input.is_action_just_pressed("grab")
 
-func climb():
-	current_state = states.CLIMB
-	climb_tween = create_tween()
-	climb_tween.tween_property(self,"global_position",Vector2(global_position.x+direction*8,global_position.y-24),0.2)
-	climb_tween.finished.connect(func():
-		current_state = states.IDLE
+func interact():
+	velocity.x = 0
+	current_state = states.INTERACT
+	$Visual/AnimatedSprite2D.play("interact_button1")
+	$Visual/AnimatedSprite2D.animation_finished.connect(func():
+		if $Visual/AnimatedSprite2D.animation == "interact_button1":
+			interacted.object.active()
+			interacted.frame = 1
+			$Visual/AnimatedSprite2D.play("interact_button2")
+			await get_tree().create_timer(0.25).timeout
+			current_state = states.IDLE
 	)
 
 #Die
 func die():
-	if climb_tween:
-		climb_tween.kill()
-		climb_tween = null
-		current_state = states.IDLE
 	var death_position = global_position
 	health -=1
 
