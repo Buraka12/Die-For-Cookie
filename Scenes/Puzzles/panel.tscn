@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8yko"]
 size = Vector2(20, 3)
 
-[node name="Panel" type="Sprite2D" groups=["panel"]]
+[node name="Panel" type="Sprite2D"]
 texture = ExtResource("1_uef7o")
 hframes = 2
 script = ExtResource("1_ikb0n")

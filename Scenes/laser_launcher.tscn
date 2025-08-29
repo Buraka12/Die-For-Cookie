@@ -1,57 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvudb2ar1sq5b"]
 
 [ext_resource type="Texture2D" uid="uid://d0p7yfccf2qoi" path="res://Assets/Puzzles/LaserLauncher.png" id="1_2k4qp"]
-
-[sub_resource type="GDScript" id="GDScript_73fww"]
-script/source = "extends Node2D
-
-@onready var line: Line2D = $Laser/Line2D
-@onready var ray: RayCast2D = $Laser/RayCast2D
-
-@export var active : bool = true
-
-func _process(delta: float) -> void:
-	line.clear_points()
-	if active:
-		line.add_point(Vector2.ZERO)
-			
-		ray.global_position = line.global_position
-		ray.target_position = Vector2.RIGHT.rotated(rotation) * 1000
-		var prev = null
-		while true:
-			ray.force_raycast_update()
-			
-			if not ray.is_colliding():
-				var end_point = ray.global_position + ray.target_position
-				line.add_point(line.to_local(end_point))
-				break
-			
-			var coll = ray.get_collider()
-			var end_point = ray.get_collision_point()
-
-			line.add_point(line.to_local(end_point))
-			
-			if not coll.is_in_group(\"mirror\"):
-				if coll.is_in_group(\"panel\"):
-					coll.active = true
-				break
-			
-			
-			var normal = ray.get_collision_normal()
-			if normal == Vector2.ZERO:
-				break
-			
-			var dir = ray.target_position.normalized()
-			if dir.dot(normal)<0:
-				normal = -normal
-			
-			dir = dir.bounce(normal).normalized()
-			ray.global_position = end_point
-			ray.target_position = dir * 1000
-"
+[ext_resource type="Script" path="res://Scripts/laser_launcher.gd" id="1_l3k4m"]
 
 [node name="LaserLauncher" type="Node2D"]
-script = SubResource("GDScript_73fww")
+script = ExtResource("1_l3k4m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2k4qp")
+
+[node name="LaserPoint" type="Node2D" parent="."]
+position = Vector2(0, 2)

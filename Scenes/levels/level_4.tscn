@@ -299,9 +299,8 @@ tile_set = SubResource("TileSet_uhgy1")
 [node name="Button" parent="." instance=ExtResource("7_vp1xa")]
 position = Vector2(446, 393)
 
-[node name="Button2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("7_vp1xa")]
+[node name="Button2" parent="." instance=ExtResource("7_vp1xa")]
 position = Vector2(405, 218)
-object = NodePath("../LaserLauncher")
 
 [node name="Button3" parent="." instance=ExtResource("7_vp1xa")]
 position = Vector2(451, 218)
@@ -318,10 +317,13 @@ camera_limit_down = 475
 [node name="LaserLauncher" parent="." instance=ExtResource("5_w0uqj")]
 position = Vector2(341, 203)
 
+[node name="Mirror" parent="." instance=ExtResource("6_m3g0h")]
+position = Vector2(341, 88)
+rotation = 4.71239
+
 [node name="Panel" parent="." node_paths=PackedStringArray("object") instance=ExtResource("8_xekiy")]
 position = Vector2(573, 217)
 object = NodePath("../Door")
-demand = true
 
 [node name="Panel2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("8_xekiy")]
 position = Vector2(114, 330)
@@ -337,9 +339,3 @@ position = Vector2(615, 380)
 
 [node name="CheckPointArea" parent="." instance=ExtResource("10_ms4pp")]
 position = Vector2(507, 371)
-
-[node name="Mirror" parent="." instance=ExtResource("6_m3g0h")]
-position = Vector2(344, 93)
-
-[node name="Mirror2" parent="." instance=ExtResource("6_m3g0h")]
-position = Vector2(573, 93)
