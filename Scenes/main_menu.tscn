@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=60 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://d124r07tn8xcp" path="res://Assets/MainManuBakcground.png" id="2_p7xvr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
 [ext_resource type="PackedScene" uid="uid://cob2to74nrumw" path="res://Scenes/input_button.tscn" id="8_yf2dr"]
+[ext_resource type="FontFile" uid="uid://nbm826r7lfx7" path="res://Assets/Fonts/BirchLeaf.ttf" id="9_sfxd3"]
 
 [sub_resource type="Animation" id="Animation_66o4w"]
 length = 0.001
@@ -130,6 +131,106 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Buttons&settings/Credits:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Buttons&settings/Credits:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_us38n"]
+resource_name = "credits"
+length = 0.633
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons&settings/Allbuttons:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons&settings/Allbuttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons&settings:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.633, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(162, 519), Vector2(306, 519), Vector2(278, 519)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons&settings:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.633, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(482, -76), Vector2(294, -74), Vector2(220, -87), Vector2(224, -76)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons&settings/Credits:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Buttons&settings/Credits:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.633, 0.633333),
+"transitions": PackedFloat32Array(4.75683, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.984314), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uigbl"]
@@ -266,6 +367,7 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yflxl"]
 _data = {
 "RESET": SubResource("Animation_66o4w"),
+"credits": SubResource("Animation_us38n"),
 "fade_in": SubResource("Animation_uigbl"),
 "opening": SubResource("Animation_px24m"),
 "settings": SubResource("Animation_8p550")
@@ -516,6 +618,10 @@ events = [SubResource("InputEventKey_k34f5")]
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5unt0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8tk4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ejoqo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtah4"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -954,10 +1060,116 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
+[node name="Credits" type="Panel" parent="Buttons&settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ejoqo")
+
+[node name="corner" type="Panel" parent="Buttons&settings/Credits"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 88.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0hkjj")
+
+[node name="Backc" type="Button" parent="Buttons&settings/Credits/corner"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 0
+offset_left = 0.333908
+offset_top = 440.92
+offset_right = 80.3339
+offset_bottom = 472.92
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys0th")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0j7rn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8fjb")
+text = "<- Back"
+
+[node name="VBoxContainer" type="Panel" parent="Buttons&settings/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.5655
+offset_top = 139.215
+offset_right = -1.43448
+offset_bottom = -64.7852
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qtah4")
+
+[node name="Label" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
+layout_mode = 2
+offset_right = 213.0
+offset_bottom = 35.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("9_sfxd3")
+text = "Thanks For Playing
+ 
+"
+
+[node name="Label2" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
+layout_mode = 2
+offset_top = 39.0
+offset_right = 213.0
+offset_bottom = 55.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("9_sfxd3")
+text = "Sound Effects : (doldur sonra)
+"
+
+[node name="Label3" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 213.0
+offset_bottom = 113.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("9_sfxd3")
+text = "Music : Osaka by
+tubebackr & Tetuano
+ "
+
+[node name="Label4" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
+layout_mode = 2
+offset_top = 117.0
+offset_right = 213.0
+offset_bottom = 133.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("9_sfxd3")
+text = "Level Design: Halimpak"
+
+[node name="Label5" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
+layout_mode = 2
+offset_top = 137.0
+offset_right = 213.0
+offset_bottom = 172.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("9_sfxd3")
+text = "Scripts (Codes) : 
+Buraka12 and Metehan-07"
+
+[node name="Label6" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
+layout_mode = 2
+offset_top = 176.0
+offset_right = 213.0
+offset_bottom = 192.0
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("9_sfxd3")
+text = "All Assets : Metehan-07"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer5/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer4/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Buttons&settings/Settings/tabs/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Buttons&settings/Settings/tabs/Controls" to="." method="_on_controls_pressed"]
@@ -967,3 +1179,4 @@ theme_override_font_sizes/font_size = 15
 [connection signal="value_changed" from="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="Buttons&settings/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
 [connection signal="toggled" from="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="item_selected" from="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Buttons&settings/Credits/corner/Backc" to="." method="_on_backc_pressed"]

@@ -1,8 +1,35 @@
 extends StaticBody2D
 
+var lasered : bool = false
+
+var laser_scene : PackedScene = load("res://Scenes/laser.tscn")
+var crated : bool = false
+var laser
+var creator : Vector2
+
+var timer : Timer
+
 func _ready():
 	add_to_group("mirror")
-	rotation_degrees = snap_to_45(rotation_degrees)
+	timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.wait_time = 0.1
+	timer.timeout.connect(check_laser)
+	timer.start()
 
-func snap_to_45(degrees: float) -> float:
-	return round(degrees / 45.0) * 45.0
+func check_laser():
+	if lasered and !crated:
+		print("Yeni")
+		crated = true
+		var new_laser = laser_scene.instantiate()
+		new_laser.position = $CollisionShape2D/LaserPoint.position
+		$CollisionShape2D.add_child(new_laser)
+		new_laser.rotation = 0
+		laser = new_laser
+	elif !lasered and crated:
+		print("Kapat")
+		crated = false
+		laser.queue_free()
+	timer.start()
+	lasered = false
