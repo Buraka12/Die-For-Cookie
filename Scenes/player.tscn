@@ -1,8 +1,10 @@
-[gd_scene load_steps=60 format=3 uid="uid://dp1picjxjosr2"]
+[gd_scene load_steps=62 format=3 uid="uid://dp1picjxjosr2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3y4p7"]
 [ext_resource type="Texture2D" uid="uid://cpu8t276rxtw7" path="res://Assets/Player/player-Sheet.png" id="1_dxe1q"]
+[ext_resource type="PackedScene" uid="uid://df0kuxlq8eqyb" path="res://Scenes/player_ui.tscn" id="3_ekmdu"]
 [ext_resource type="PackedScene" uid="uid://dd33uady8fso6" path="res://Scenes/pausemenu.tscn" id="3_lpjkf"]
+[ext_resource type="PackedScene" uid="uid://btcvll6jqg7ly" path="res://Scenes/die_menu.tscn" id="5_foo3s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1nu7"]
 radius = 5.0
@@ -449,9 +451,6 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Pausemenu" parent="." instance=ExtResource("3_lpjkf")]
-visible = false
-
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual"]
@@ -460,3 +459,12 @@ sprite_frames = SubResource("SpriteFrames_cwv63")
 animation = &"interact_button2"
 frame = 3
 frame_progress = 1.0
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="Playerui" parent="ui" instance=ExtResource("3_ekmdu")]
+
+[node name="Die_Menu" parent="ui" instance=ExtResource("5_foo3s")]
+
+[node name="Pausemenu" parent="ui" instance=ExtResource("3_lpjkf")]
+visible = false

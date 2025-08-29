@@ -7,70 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/music.gd" id="5_67dci"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="6_pkydm"]
 
-[sub_resource type="Animation" id="Animation_0i4km"]
-resource_name = "pause"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blur/Panel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(366, -49), Vector2(272.5, -65.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("blur/Panel:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 491), Vector2(177, 491)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("blur/Panel:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("blur/Panel/MarginContainer:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("blur/Panel/MarginContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_sboga"]
 length = 0.001
 tracks/0/type = "value"
@@ -158,9 +94,86 @@ tracks/6/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_0i4km"]
+resource_name = "pause"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blur/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(366, -49), Vector2(272.5, -65.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blur/Panel:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 491), Vector2(177, 491)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blur/Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("blur/Panel/MarginContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("blur/Panel/MarginContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("blur/Panel/Settings:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_qqwtj"]
 resource_name = "settings"
 length = 0.4
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -221,6 +234,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("blur/Panel/MarginContainer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1iirb"]
 _data = {
@@ -241,47 +266,6 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.244776, 0.244776, 0.244776, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjt46"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ko6e"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21plb"]
-bg_color = Color(0.104488, 0.25393, 0.39394, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.1599, 0.293287, 0.41, 1)
-corner_radius_top_left = 5
-corner_radius_bottom_right = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spkqc"]
-bg_color = Color(0.0312974, 0.112433, 0.188798, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.1599, 0.293287, 0.41, 1)
-corner_radius_top_left = 5
-corner_radius_bottom_right = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nldp2"]
-bg_color = Color(0.0579071, 0.164983, 0.265162, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.1599, 0.293287, 0.41, 1)
-corner_radius_top_left = 5
-corner_radius_bottom_right = 5
-
-[sub_resource type="InputEventKey" id="InputEventKey_71u8d"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_8dj7e"]
-events = [SubResource("InputEventKey_71u8d")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl0og"]
 
@@ -333,6 +317,47 @@ thickness = 3
 color = Color(0.28785, 0.2622, 0.57, 1)
 thickness = 3
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjt46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ko6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21plb"]
+bg_color = Color(0.104488, 0.25393, 0.39394, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spkqc"]
+bg_color = Color(0.0312974, 0.112433, 0.188798, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nldp2"]
+bg_color = Color(0.0579071, 0.164983, 0.265162, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1599, 0.293287, 0.41, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="InputEventKey" id="InputEventKey_71u8d"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_8dj7e"]
+events = [SubResource("InputEventKey_71u8d")]
+
 [node name="Pausemenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_uofnw")
@@ -369,105 +394,6 @@ rotation = 0.174533
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_8sf5l")
-
-[node name="MarginContainer" type="MarginContainer" parent="blur/Panel"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -155.647
-offset_top = -123.358
-offset_right = 96.3526
-offset_bottom = 146.642
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.174533
-
-[node name="VBoxContainer" type="VBoxContainer" parent="blur/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 45
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
-
-[node name="Resume" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4xr1l")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
-shortcut = SubResource("Shortcut_8dj7e")
-text = "  Resume  "
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_constants/separation = 32
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
-
-[node name="Settings" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4xr1l")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
-text = " Settings "
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
-
-[node name="Main Menu" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4xr1l")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
-text = "Main Menu"
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
-
-[node name="Exit" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4xr1l")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
-text = "     Exit    "
 
 [node name="Settings" type="Panel" parent="blur/Panel"]
 visible = false
@@ -645,13 +571,15 @@ rotation = -0.174533
 focus_mode = 0
 
 [node name="Label" type="Label" parent="blur/Panel/Settings/graph"]
+layout_mode = 0
 offset_left = 52.0333
 offset_top = 0.878704
 offset_right = 290.033
 offset_bottom = 43.8787
 theme_override_fonts/font = ExtResource("4_evy7c")
 text = "Can only be changed
- in the main menu"
+in the main menu
+ "
 
 [node name="controls" type="TabBar" parent="blur/Panel/Settings"]
 visible = false
@@ -675,10 +603,110 @@ theme_override_fonts/font = ExtResource("4_evy7c")
 text = "Can only be changed
  in the main menu"
 
-[connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="blur/Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.647
+offset_top = -123.358
+offset_right = 96.3526
+offset_bottom = 146.642
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.174533
+
+[node name="VBoxContainer" type="VBoxContainer" parent="blur/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
+
+[node name="Resume" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
+shortcut = SubResource("Shortcut_8dj7e")
+text = "  Resume  "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
+
+[node name="Settings" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
+text = " Settings "
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
+
+[node name="Main Menu" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
+text = "Main Menu"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
+
+[node name="Exit" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
+text = "     Exit    "
+
 [connection signal="pressed" from="blur/Panel/Settings/tabs/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="blur/Panel/Settings/tabs/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="blur/Panel/Settings/tabs/Graphs" to="." method="_on_graphs_pressed"]
 [connection signal="pressed" from="blur/Panel/Settings/tabs/Sounds" to="." method="_on_sounds_pressed"]
 [connection signal="value_changed" from="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container/Music" to="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Music_container/Music" method="_on_value_changed"]
 [connection signal="value_changed" from="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" to="blur/Panel/Settings/sounds/MarginContainer/VBoxContainer/Sfx_container/Sfx" method="_on_value_changed"]
+[connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5/Main Menu" to="." method="_on_main_menu_pressed"]
