@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://crt5cypuubviw"]
+[gd_scene load_steps=15 format=4 uid="uid://crt5cypuubviw"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_yd4l3"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="3_ah3jt"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="6_2dmby"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="7_fgeoy"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="7_xwfys"]
-[ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="8_wl14k"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/panel.tscn" id="8_wl14k"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="9_cjc5i"]
+[ext_resource type="PackedScene" uid="uid://q38fcmddn56" path="res://Scenes/information.tscn" id="10_18b3n"]
+[ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="11_7hf7q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bry64"]
 
@@ -340,3 +342,25 @@ object = NodePath("../Door")
 
 [node name="LevelTransition" parent="." instance=ExtResource("9_cjc5i")]
 position = Vector2(505, 267)
+
+[node name="Information" parent="." instance=ExtResource("10_18b3n")]
+
+[node name="Lasertanıtım" type="Label" parent="Information"]
+offset_left = 426.0
+offset_top = 24.0
+offset_right = 499.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("11_7hf7q")
+theme_override_font_sizes/font_size = 6
+text = "The laser will kill you"
+
+[node name="Paneltanıtım" type="Label" parent="Information"]
+offset_left = 390.0
+offset_top = 131.0
+offset_right = 464.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("11_7hf7q")
+theme_override_font_sizes/font_size = 6
+text = "When the laser hits
+the panel,the 
+panel is activated."
