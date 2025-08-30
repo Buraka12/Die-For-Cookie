@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("grab") and current_state == states.INTERACT:
 		current_state = states.IDLE
+		$Insruction.visible = false
 		interacted.active = false
 		interacted = null
 	
@@ -136,6 +137,7 @@ func interact():
 				current_state = states.IDLE
 		)
 	else:
+		$Insruction.visible = true
 		interacted.interact()
 	
 

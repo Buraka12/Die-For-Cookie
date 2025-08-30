@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var object : Node2D = null
-@export var rot_speed : float = 20
+@export var rot_speed : float = 60
 var active : bool = false
 
 

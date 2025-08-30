@@ -13,9 +13,7 @@ func get_current_level_number() -> int:
 	return 1
 
 func _on_body_entered(body):
-	print("Body entered: ", body.name)
 	if body.is_in_group("player"):
-		print("Player detected!")
 		var current_level = get_current_level_number()
 		var next_level = current_level + 1
 		
@@ -28,5 +26,4 @@ func _on_body_entered(body):
 		Global.save_game_state()
 		
 		var next_level_path = "res://Scenes/levels/level_%d.tscn" % next_level
-		print("Attempting to load: ", next_level_path)
 		get_tree().call_deferred("change_scene_to_file", next_level_path)
