@@ -1,7 +1,15 @@
 extends Node
 
 const save_location : String = "user://SaveFile.json"
-const default_dict : Dictionary = {"level"=0}
+const default_dict : Dictionary = {
+	"level": 1,
+	"unlocked_levels": 1,
+	"current_level": 1,
+	"music": 0,
+	"sfx": 0.5,
+	"window_mode": false,
+	"antialiasing": 0
+}
 
 func save_game(data : Dictionary) -> void:
 	var save_file : FileAccess = FileAccess.open(save_location , FileAccess.WRITE)

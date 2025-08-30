@@ -3,21 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://dobrx1615gr6x" path="res://Assets/Puzzles/Mirror.png" id="1_m4k3n"]
 [ext_resource type="Script" path="res://Scripts/mirror.gd" id="1_p2k4l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(3, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nowyy"]
+size = Vector2(20, 3)
 
-[node name="Mirror" type="StaticBody2D"]
-collision_layer = 2
+[node name="Mirror" type="StaticBody2D" groups=["mirror"]]
 script = ExtResource("1_p2k4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_m4k3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-rotation = -0.785398
-shape = SubResource("RectangleShape2D_1")
-
-[node name="LaserPoint" type="Node2D" parent="CollisionShape2D"]
-position = Vector2(2, -1)
+position = Vector2(0, 1)
 rotation = 0.785398
+shape = SubResource("RectangleShape2D_nowyy")

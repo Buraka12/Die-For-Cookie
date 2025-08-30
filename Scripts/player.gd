@@ -6,7 +6,7 @@ const SPEED = 170
 const JUMP_VELOCITY = -300
 const ACCELERATION = 800
 const DECELERATION = 950
-var health = 2
+var health = 5
 
 enum states {IDLE,RUN,FALL,PULSH,INTERACT}
 var current_state : states = states.IDLE
@@ -34,6 +34,9 @@ func _ready() -> void:
 	
 	#healh'ı yükle
 	$ui/Playerui/Sprite2D.frame = health
+	
+	#hangi levelda olduğu ve fade işte
+	$ui/Playerui/AnimationPlayer.play("start")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -102,7 +105,9 @@ func _physics_process(delta: float) -> void:
 			$Visual/AnimatedSprite2D.play("move")
 	elif current_state == states.PULSH:
 		var offset = global_position.x - grabbed_body.global_position.x
-		if (direction<0 and offset>0) or (direction>0 and offset<0):
+		if direction==0:
+			$Visual/AnimatedSprite2D.play("pull-idle")
+		elif (direction<0 and offset>0) or (direction>0 and offset<0):
 			$Visual/AnimatedSprite2D.play("push")
 		else:
 			$Visual/AnimatedSprite2D.play("pull")
@@ -128,7 +133,6 @@ func interact():
 #Die
 func die():
 	if can_die:
-		
 		can_die = false
 		death_position = global_position
 		health -=1
@@ -148,9 +152,10 @@ func die():
 		else:
 			print("Öldü")
 			get_tree().paused = true
+			$ui/Die_Menu.visible = true
 			$ui/Die_Menu/AnimationPlayer.play("die")
 
-func _spawn_corpse(pos : Vector2):
+func _spawn_corpse(_pos : Vector2):
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = death_position
 	corpse.global_position.y -= 10

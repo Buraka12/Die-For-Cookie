@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=65 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://d124r07tn8xcp" path="res://Assets/MainManuBakcground.png" id="2_p7xvr"]
@@ -155,6 +155,118 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Buttons&settings/ContinuePanel:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Buttons&settings/ContinuePanel:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1eobv"]
+resource_name = "continue"
+length = 0.633
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons&settings/Allbuttons:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons&settings/Allbuttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons&settings:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.633, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(162, 519), Vector2(306, 519), Vector2(278, 519)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons&settings:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.633, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(482, -76), Vector2(294, -74), Vector2(220, -87), Vector2(224, -76)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons&settings/Settings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Buttons&settings/ContinuePanel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons&settings/ContinuePanel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.633),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_us38n"]
@@ -367,6 +479,7 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yflxl"]
 _data = {
 "RESET": SubResource("Animation_66o4w"),
+"continue": SubResource("Animation_1eobv"),
 "credits": SubResource("Animation_us38n"),
 "fade_in": SubResource("Animation_uigbl"),
 "opening": SubResource("Animation_px24m"),
@@ -622,6 +735,44 @@ events = [SubResource("InputEventKey_k34f5")]
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ejoqo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtah4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mb81k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4tsf"]
+bg_color = Color(0.153849, 0.256968, 0.277611, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svucp"]
+bg_color = Color(0.0441228, 0.0940682, 0.104053, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otobk"]
+bg_color = Color(0.0918, 0.1653, 0.18, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Main_Menu" type="Control"]
 process_mode = 3
@@ -1166,6 +1317,170 @@ rotation = -0.174533
 theme_override_fonts/font = ExtResource("9_sfxd3")
 text = "All Assets : Metehan-07"
 
+[node name="ContinuePanel" type="Panel" parent="Buttons&settings"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_right = -3.05176e-05
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb81k")
+
+[node name="corner" type="Panel" parent="Buttons&settings/ContinuePanel"]
+layout_mode = 0
+offset_left = 0.999985
+offset_top = -36.0
+offset_right = 88.0
+offset_bottom = 369.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0hkjj")
+
+[node name="GridContainer" type="GridContainer" parent="Buttons&settings/ContinuePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.9312
+offset_top = -90.7417
+offset_right = 132.069
+offset_bottom = 117.258
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.174533
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Level_1" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_2" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_3" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_4" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_5" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_6" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_7" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_8" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Level_9" type="Button" parent="Buttons&settings/ContinuePanel/GridContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2x58b")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m4tsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svucp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_otobk")
+text = "1"
+
+[node name="Backbutton" type="Button" parent="Buttons&settings/ContinuePanel"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+offset_left = 0.986618
+offset_top = 302.95
+offset_right = 80.9866
+offset_bottom = 334.95
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("4_hg1ii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g51mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys0th")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0j7rn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8fjb")
+text = "<- Back"
+
+[node name="Label" type="Label" parent="Buttons&settings/ContinuePanel"]
+layout_mode = 0
+offset_left = 142.257
+offset_top = 9.96799
+offset_right = 199.257
+offset_bottom = 32.968
+rotation = -0.174533
+theme_override_fonts/font = ExtResource("3_2x58b")
+text = "Levels"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Buttons&settings/Allbuttons/Vbox/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
@@ -1181,3 +1496,4 @@ text = "All Assets : Metehan-07"
 [connection signal="toggled" from="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="item_selected" from="Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Buttons&settings/Credits/corner/Backc" to="." method="_on_backc_pressed"]
+[connection signal="pressed" from="Buttons&settings/ContinuePanel/Backbutton" to="." method="_on_back_continue_pressed"]
