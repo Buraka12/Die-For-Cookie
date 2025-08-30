@@ -34,6 +34,9 @@ func _ready() -> void:
 	
 	#healh'ı yükle
 	$ui/Playerui/Sprite2D.frame = health
+	
+	#hangi levelda olduğu ve fade işte
+	$ui/Playerui/AnimationPlayer.play("start")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

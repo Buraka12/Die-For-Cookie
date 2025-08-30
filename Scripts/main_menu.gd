@@ -42,7 +42,11 @@ func _on_continue_pressed() -> void:
 	
 
 func _on_new_game_pressed() -> void:
-	level = null  # Yeni oyun için level değerini sıfırla
+	level = null
+	# level kayıtlarını sıfırla
+	Global.current_level = 1
+	Global.unlocked_levels = 1
+	Global.save_game_state()
 	$AnimationPlayer.play("opening")
 	$AnimatedSprite2D.play("opening")
 
