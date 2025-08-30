@@ -9,7 +9,7 @@
 friction = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5grk"]
-size = Vector2(28, 18)
+size = Vector2(34, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o62ee"]
 radius = 4.0
@@ -22,7 +22,7 @@ size = Vector2(20, 26)
 
 [node name="cube" type="RigidBody2D" groups=["floatable"]]
 collision_layer = 8
-collision_mask = 27
+collision_mask = 59
 physics_material_override = SubResource("PhysicsMaterial_53cim")
 script = ExtResource("1_rmc0b")
 

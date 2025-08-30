@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bybhrirxchkn6"]
+
+[ext_resource type="Texture2D" uid="uid://bau8i7l0rq57l" path="res://Assets/Puzzles/cam.png" id="1_mboyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7nkk"]
+size = Vector2(32, 6)
+
+[node name="Cam" type="Sprite2D"]
+position = Vector2(448, 269)
+texture = ExtResource("1_mboyu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_j7nkk")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://noa43hp6kavh"]
+[gd_scene load_steps=18 format=4 uid="uid://noa43hp6kavh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_4f77t"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_alnxr"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="9_kowsm"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="10_w554h"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="11_ye5i6"]
+[ext_resource type="PackedScene" uid="uid://bybhrirxchkn6" path="res://Scenes/Puzzles/cam.tscn" id="12_guoya"]
+[ext_resource type="PackedScene" uid="uid://bnhhrcokk0dhm" path="res://Scenes/Puzzles/pressure.tscn" id="13_hyva8"]
+[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="14_15ore"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uimo5"]
 
@@ -323,11 +326,11 @@ tile_map_data = PackedByteArray("AAABAAkAAAAEAAAAAAABAAgAAAACAAEAAAABAAcAAAACAAE
 tile_set = SubResource("TileSet_1uskh")
 
 [node name="LaserLauncher" parent="." instance=ExtResource("6_v0vaa")]
-position = Vector2(544, 196)
+position = Vector2(544, 198)
+rotation = 1.5708
 
 [node name="LaserLauncher2" parent="." instance=ExtResource("6_v0vaa")]
 position = Vector2(208, 316)
-rotation = -1.5708
 
 [node name="Mirror" parent="." instance=ExtResource("5_j6byo")]
 position = Vector2(208, 199)
@@ -354,10 +357,28 @@ position = Vector2(617, 153)
 position = Vector2(103, 169)
 
 [node name="Panel" parent="." node_paths=PackedStringArray("object") instance=ExtResource("10_w554h")]
-position = Vector2(34, 196)
+position = Vector2(34, 199)
 rotation = 1.5708
 object = NodePath("../CubeHolder2")
 
 [node name="Player" parent="." instance=ExtResource("11_ye5i6")]
-position = Vector2(106, 251)
+position = Vector2(685, 247)
 camera_limit_left = 0
+
+[node name="Cam" parent="." instance=ExtResource("12_guoya")]
+position = Vector2(208, 266)
+
+[node name="Panel2" parent="." instance=ExtResource("10_w554h")]
+position = Vector2(479, 198)
+rotation = -1.5708
+
+[node name="Pressure" parent="." node_paths=PackedStringArray("object") instance=ExtResource("13_hyva8")]
+position = Vector2(417, 329)
+object = NodePath("../Door")
+
+[node name="Panel3" parent="." instance=ExtResource("10_w554h")]
+position = Vector2(734, 200)
+rotation = -1.5708
+
+[node name="CheckPointArea" parent="." instance=ExtResource("14_15ore")]
+position = Vector2(479.318, 243.616)
