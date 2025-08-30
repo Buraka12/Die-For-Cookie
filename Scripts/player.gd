@@ -102,7 +102,9 @@ func _physics_process(delta: float) -> void:
 			$Visual/AnimatedSprite2D.play("move")
 	elif current_state == states.PULSH:
 		var offset = global_position.x - grabbed_body.global_position.x
-		if (direction<0 and offset>0) or (direction>0 and offset<0):
+		if direction==0:
+			$Visual/AnimatedSprite2D.play("pull-idle")
+		elif (direction<0 and offset>0) or (direction>0 and offset<0):
 			$Visual/AnimatedSprite2D.play("push")
 		else:
 			$Visual/AnimatedSprite2D.play("pull")
@@ -128,7 +130,6 @@ func interact():
 #Die
 func die():
 	if can_die:
-		
 		can_die = false
 		death_position = global_position
 		health -=1

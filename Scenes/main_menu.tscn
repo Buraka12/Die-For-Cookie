@@ -1332,6 +1332,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mb81k")
 
 [node name="corner" type="Panel" parent="Buttons&settings/ContinuePanel"]
+layout_mode = 0
 offset_left = 0.999985
 offset_top = -36.0
 offset_right = 88.0

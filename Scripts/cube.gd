@@ -6,7 +6,7 @@ var push_speed = 70
 var float_strength = 30
 var current_water_level_y = null  # suya girdiğinde güncellenecek
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	$GrabArea.rotation = 0
 	$GrabArea.global_rotation = 0
 	$MassArea.rotation = 0
@@ -43,4 +43,5 @@ func _on_mass_area_body_entered(body: Node2D) -> void:
 
 func _on_mass_area_body_exited(body: Node2D) -> void:
 	if body is RigidBody2D and body.get_parent() != $".":
-		mass-=body.mass
+		if mass > 1:
+			mass-=body.mass

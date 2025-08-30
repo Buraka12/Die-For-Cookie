@@ -9,7 +9,7 @@ var active : bool = false
 func _ready() -> void:
 	$Label.text = str(int(demand))
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if weight_object and !active:
 		print(weight_object.mass)
 		if weight_object.mass >= demand:
