@@ -7,7 +7,16 @@
 script = ExtResource("1_l3k4m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+rotation = 1.5708
 texture = ExtResource("1_2k4qp")
 
-[node name="LaserPoint" type="Node2D" parent="."]
-position = Vector2(0, 2)
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -1000)
+collision_mask = 11
+hit_from_inside = true
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+joint_mode = 1

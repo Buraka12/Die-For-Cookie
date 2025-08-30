@@ -314,7 +314,7 @@ position = Vector2(417, 234)
 texture = null
 
 [node name="Player" parent="." instance=ExtResource("3_glplb")]
-position = Vector2(120, 226)
+position = Vector2(335, 211)
 
 [node name="background" type="Node2D" parent="."]
 
@@ -360,20 +360,18 @@ offset_bottom = 368.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gtuag")
 
 [node name="respawn_point" type="Marker2D" parent="."]
-position = Vector2(120, 226)
+position = Vector2(330, 215)
 
 [node name="cube" parent="." instance=ExtResource("8_inbnj")]
-position = Vector2(194, 186)
+position = Vector2(430, 201)
 rotation = 0.865744
 
 [node name="cube2" parent="." instance=ExtResource("8_inbnj")]
-position = Vector2(139, 177)
+position = Vector2(476, 156)
 rotation = -3.12124
 
 [node name="LaserLauncher" parent="." instance=ExtResource("9_rmsnk")]
 position = Vector2(90, 251)
-rotation = -0.785398
 
 [node name="Mirror" parent="." instance=ExtResource("10_gsjfu")]
-position = Vector2(202, 140)
-rotation = -1.5708
+position = Vector2(269, 247)

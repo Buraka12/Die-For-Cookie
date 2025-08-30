@@ -123,7 +123,7 @@ func interact():
 	$Visual/AnimatedSprite2D.play("interact_button1")
 	$Visual/AnimatedSprite2D.animation_finished.connect(func():
 		if $Visual/AnimatedSprite2D.animation == "interact_button1":
-			interacted.object.active()
+			interacted.object.actdive()
 			interacted.frame = 1
 			$Visual/AnimatedSprite2D.play("interact_button2")
 			await get_tree().create_timer(0.25).timeout

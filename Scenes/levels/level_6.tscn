@@ -312,7 +312,8 @@ position = Vector2(240, 256)
 position = Vector2(370, 254)
 
 [node name="LaserLauncher" parent="." instance=ExtResource("5_lw0pt")]
-position = Vector2(448, 315)
+position = Vector2(448, 332)
+rotation = -1.5708
 
 [node name="Mirror" parent="." instance=ExtResource("6_cvgsi")]
 position = Vector2(448, 74)
