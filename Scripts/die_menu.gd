@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+func _ready() -> void:
+	$".".visible = false
 
 func _on_restart_pressed() -> void:
 	$AnimationPlayer.play_backwards("die")

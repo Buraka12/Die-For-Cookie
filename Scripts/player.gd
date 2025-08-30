@@ -152,6 +152,7 @@ func die():
 		else:
 			print("Öldü")
 			get_tree().paused = true
+			$ui/Die_Menu.visible = true
 			$ui/Die_Menu/AnimationPlayer.play("die")
 
 func _spawn_corpse(_pos : Vector2):

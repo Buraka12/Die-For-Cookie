@@ -54,6 +54,7 @@ func _on_settings_pressed() -> void:
 	$AnimationPlayer.play("settings")
 
 func _on_back_pressed() -> void:
+	Global.save_game_state()
 	$AnimationPlayer.play_backwards("settings")
 
 
