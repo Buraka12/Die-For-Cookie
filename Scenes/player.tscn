@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3y4p7"]
 [ext_resource type="Texture2D" uid="uid://cpu8t276rxtw7" path="res://Assets/Player/player-Sheet.png" id="1_dxe1q"]
-[ext_resource type="PackedScene" path="res://Scenes/player_ui.tscn" id="3_ekmdu"]
+[ext_resource type="PackedScene" uid="uid://df0kuxlq8eqyb" path="res://Scenes/player_ui.tscn" id="3_ekmdu"]
 [ext_resource type="PackedScene" uid="uid://dd33uady8fso6" path="res://Scenes/pausemenu.tscn" id="3_lpjkf"]
-[ext_resource type="PackedScene" path="res://Scenes/die_menu.tscn" id="5_foo3s"]
+[ext_resource type="PackedScene" uid="uid://btcvll6jqg7ly" path="res://Scenes/die_menu.tscn" id="5_foo3s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1nu7"]
 radius = 5.0

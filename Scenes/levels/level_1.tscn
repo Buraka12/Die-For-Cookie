@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://s7xx3l3v01dh"]
+[gd_scene load_steps=19 format=4 uid="uid://s7xx3l3v01dh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_24or4"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_odfcn"]
@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="4_e3nu3"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="4_snddp"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="5_1het6"]
-[ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="7_fecdh"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/water_area.tscn" id="7_fecdh"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="8_yoy0r"]
-[ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="9_us8v6"]
-[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_v2pej"]
-[ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="11_o5n8x"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/dead_area.tscn" id="9_us8v6"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/check_point_area.tscn" id="10_v2pej"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/cube_holder.tscn" id="11_o5n8x"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="12_gqr27"]
+[ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="13_a25vl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nhaut"]
 
@@ -420,3 +421,6 @@ position = Vector2(527, 121)
 
 [node name="Door" parent="." instance=ExtResource("12_gqr27")]
 position = Vector2(791, 284)
+
+[node name="LevelTransition" parent="." instance=ExtResource("13_a25vl")]
+position = Vector2(811, 286)

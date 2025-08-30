@@ -5,20 +5,41 @@ var level
 
 func _ready() -> void:
 	var dict : Dictionary = SaveLoad.load_game()
-	level = dict["level"]
+	if dict.has("current_level"):
+		level = dict["current_level"]
+	else:
+		level = 1
+	
+	# Ses ayarlarını yükle
+	if dict.has("music"):
+		Global.music = dict["music"]
+	if dict.has("sfx"):
+		Global.sfx = dict["sfx"]
+	
 	AudioManager.play("Main")
-	set_scaling(scaling_default)
-	$"Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton".selected = scaling_default
+	
+	# Grafik ayarlarını yükle ve uygula
+	if dict.has("antialiasing"):
+		set_scaling(dict["antialiasing"])
+	else:
+		set_scaling(scaling_default)
+	
+	$"Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton".selected = Global.antialiasing
+	
+	# Pencere modunu ayarla
+	if dict.has("window_mode"):
+		_on_check_button_toggled(dict["window_mode"])
+	
 	#control list creating
 	_create_action_list()
 #Buttons
 
 func _on_continue_pressed() -> void:
-	$AnimationPlayer.play("opening")
-	$AnimatedSprite2D.play("opening")
+	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 	
 
 func _on_new_game_pressed() -> void:
+	level = null  # Yeni oyun için level değerini sıfırla
 	$AnimationPlayer.play("opening")
 	$AnimatedSprite2D.play("opening")
 
@@ -35,7 +56,10 @@ func _on_exit_pressed() -> void:
 #Playe fade animation
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="opening":
-		get_tree().change_scene_to_file("res://Scenes/main_area.tscn")
+		if level == null:  # New Game seçeneği için
+			get_tree().change_scene_to_file("res://Scenes/levels/level_1.tscn")
+		else:  # Continue seçeneği için
+			get_tree().change_scene_to_file("res://Scenes/main_area.tscn")
 		
 #credits
 func _on_credits_pressed() -> void:
@@ -66,13 +90,16 @@ func _on_controls_pressed() -> void:
 #Graphics
 #Fullscreen mode
 func _on_check_button_toggled(toggled_on: bool) -> void:
+	Global.window_mode = toggled_on
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	Global.save_game_state()
 		
 #Antialising
 func set_scaling(new_scaling : int) -> void:
+	Global.antialiasing = new_scaling
 	match new_scaling:
 		0:
 			get_viewport().msaa_2d = Viewport.MSAA_DISABLED
@@ -82,6 +109,7 @@ func set_scaling(new_scaling : int) -> void:
 			get_viewport().msaa_2d = Viewport.MSAA_4X
 		3:
 			get_viewport().msaa_2d = Viewport.MSAA_8X
+	Global.save_game_state()
 		
 func _on_option_button_item_selected(new_scaling: int) -> void:
 	set_scaling(new_scaling)
