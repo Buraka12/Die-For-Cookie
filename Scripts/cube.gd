@@ -9,6 +9,8 @@ var current_water_level_y = null  # suya girdiğinde güncellenecek
 func _physics_process(delta: float) -> void:
 	$GrabArea.rotation = 0
 	$GrabArea.global_rotation = 0
+	$MassArea.rotation = 0
+	$MassArea.global_rotation = 0
 	if current_water_level_y:
 		var depth = global_position.y - current_water_level_y
 		if depth > 0:
@@ -32,3 +34,13 @@ func push(direction:float,extra_speed):
 		$GrabArea.global_rotation = 0
 	else:
 		linear_velocity.x = 0
+
+
+func _on_mass_area_body_entered(body: Node2D) -> void:
+	if body is RigidBody2D and body != $".":
+		mass+=body.mass
+		print($".","   ",mass)
+
+func _on_mass_area_body_exited(body: Node2D) -> void:
+	if body is RigidBody2D and body.get_parent() != $".":
+		mass-=body.mass

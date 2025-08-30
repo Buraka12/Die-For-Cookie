@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://4hcg017hfqs2"]
+[gd_scene load_steps=10 format=3 uid="uid://4hcg017hfqs2"]
 
 [ext_resource type="Script" path="res://Scripts/cube.gd" id="1_qucsk"]
 [ext_resource type="PackedScene" uid="uid://c58wp21fdm1ms" path="res://Scenes/Components/grab_area.tscn" id="2_pkcgs"]
 [ext_resource type="Texture2D" uid="uid://bb3a0hm2fistx" path="res://Assets/Player/Corpse.png" id="2_wdjeq"]
+[ext_resource type="PackedScene" uid="uid://blmgllq4y7p7x" path="res://Scenes/Components/mass_area.tscn" id="4_do4g6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_th5vv"]
 friction = 0.3
@@ -15,6 +16,9 @@ radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvus"]
 size = Vector2(32, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u64xs"]
+size = Vector2(31, 20)
 
 [node name="corpse" type="RigidBody2D"]
 collision_layer = 8
@@ -46,5 +50,13 @@ shape = SubResource("CircleShape2D_qanf0")
 position = Vector2(0, -7.75)
 shape = SubResource("RectangleShape2D_ixvus")
 
+[node name="MassArea" parent="." instance=ExtResource("4_do4g6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MassArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_u64xs")
+
 [connection signal="body_entered" from="GrabArea" to="." method="_on_grab_area_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_grab_area_body_exited"]
+[connection signal="body_entered" from="MassArea" to="." method="_on_mass_area_body_entered"]
+[connection signal="body_exited" from="MassArea" to="." method="_on_mass_area_body_exited"]

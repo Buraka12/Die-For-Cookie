@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://p5bv7nwfq8uj"]
+[gd_scene load_steps=20 format=4 uid="uid://p5bv7nwfq8uj"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_imo5a"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_tceh4"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="5_x7lxq"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="6_wry4h"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="8_bvh5a"]
+[ext_resource type="PackedScene" uid="uid://bnhhrcokk0dhm" path="res://Scenes/Puzzles/pressure.tscn" id="9_2dq0k"]
+[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_46fxk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m7q2s"]
 
@@ -416,3 +418,11 @@ position = Vector2(903, 188)
 
 [node name="Door2" parent="." instance=ExtResource("8_bvh5a")]
 position = Vector2(528, 188)
+
+[node name="Pressure" parent="." node_paths=PackedStringArray("object") instance=ExtResource("9_2dq0k")]
+position = Vector2(408, 233)
+demand = 2.0
+object = NodePath("../Door2")
+
+[node name="CheckPointArea" parent="." instance=ExtResource("10_46fxk")]
+position = Vector2(343.99, 176.832)
