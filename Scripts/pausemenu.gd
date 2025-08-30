@@ -18,7 +18,7 @@ var input_actions = {
 	"left" : "Move Left",
 	"right" : "Move Right",
 	"grab" : "Pull-Push",
-	"ui_cancel": "Pause"
+	"Info" : "Information"
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -122,10 +122,10 @@ func _create_action_list():
 	
 	# Create input buttons
 	for action in input_actions:
+		
 		var button = input_button_scene.instantiate()
 		var action_label = button.find_child("LabelAction")
 		var input_label = button.find_child("LabelInput")
-		
 		action_label.text = input_actions[action]
 		var events = InputMap.action_get_events(action)
 		if events.size() > 0:
@@ -135,7 +135,7 @@ func _create_action_list():
 		
 		action_list.add_child(button)
 		button.pressed.connect(_on_input_button_pressed.bind(button, action))
-
+		
 func _on_input_button_pressed(button, action):
 	if !is_remapping:
 		is_remapping = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://s7xx3l3v01dh"]
+[gd_scene load_steps=21 format=4 uid="uid://s7xx3l3v01dh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_24or4"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_odfcn"]
@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="4_e3nu3"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="4_snddp"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="5_1het6"]
-[ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="7_fecdh"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/water_area.tscn" id="7_fecdh"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="8_yoy0r"]
-[ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="9_us8v6"]
-[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_v2pej"]
-[ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="11_o5n8x"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/dead_area.tscn" id="9_us8v6"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/check_point_area.tscn" id="10_v2pej"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/cube_holder.tscn" id="11_o5n8x"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="12_gqr27"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="13_a25vl"]
+[ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="14_1321n"]
+[ext_resource type="PackedScene" uid="uid://q38fcmddn56" path="res://Scenes/information.tscn" id="15_p46wy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nhaut"]
 
@@ -404,7 +406,7 @@ object = NodePath("../Door")
 
 [node name="Player" parent="." instance=ExtResource("8_yoy0r")]
 position = Vector2(44, 201)
-camera_limit_left = 0
+camera_limit_left = -100
 camera_limit_right = 880
 camera_limit_down = 339
 
@@ -424,3 +426,119 @@ position = Vector2(791, 284)
 
 [node name="LevelTransition" parent="." instance=ExtResource("13_a25vl")]
 position = Vector2(811, 286)
+
+[node name="Information" parent="." instance=ExtResource("15_p46wy")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Infotanıtım" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = 113.0
+offset_right = 21.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "You can close and open
+ Informations with"
+
+[node name="InfoKey" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 124.0
+offset_right = -5.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "\"\""
+
+[node name="controltanıtım" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = -86.0
+offset_top = 194.0
+offset_right = 10.0
+offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "Press the button with"
+
+[node name="ControlKey" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = -95.0
+offset_top = 205.0
+offset_right = 1.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "\"\""
+horizontal_alignment = 1
+
+[node name="controltanıtım2" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = -85.0
+offset_top = 212.0
+offset_right = 11.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "and release the block"
+
+[node name="grabtanıtım" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 233.0
+offset_right = 104.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "You can Pull or Push blocks and
+corpses by holding down"
+
+[node name="GrabKey" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 245.0
+offset_right = 99.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "\"\""
+
+[node name="Dietanıtım" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 246.0
+offset_right = 341.0
+offset_bottom = 265.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "You'll die in the 
+acid and thorns,
+but you'll get a corpse."
+
+[node name="realDietanıtım" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 248.0
+offset_right = 546.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "Watch your hearts. If they
+reach zero, you will really die."
+
+[node name="Doors" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 310.0
+offset_right = 778.0
+offset_bottom = 340.0
+theme_override_fonts/font = ExtResource("14_1321n")
+theme_override_font_sizes/font_size = 6
+text = "And some buttons open doors"

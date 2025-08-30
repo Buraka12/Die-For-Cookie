@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://q38fcmddn56"]
+
+[ext_resource type="Script" path="res://Scripts/information.gd" id="1_egiey"]
+
+[node name="Information" type="Control" groups=["Information"]]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+script = ExtResource("1_egiey")

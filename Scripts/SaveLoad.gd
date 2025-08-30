@@ -7,8 +7,12 @@ const default_dict : Dictionary = {
 	"current_level": 1,
 	"music": 0,
 	"sfx": 0.5,
-	"window_mode": false,
-	"antialiasing": 0
+	"antialiasing": 0,
+	"jump" : "W",
+	"right" : "D",
+	"left" : "A",
+	"grab" : "E",
+	"Info" : "I",
 }
 
 func save_game(data : Dictionary) -> void:

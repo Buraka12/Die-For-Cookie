@@ -27,10 +27,6 @@ func _ready() -> void:
 	
 	$"Buttons&settings/Settings/graph/MarginContainer/VBoxContainer/Antialising/OptionButton".selected = Global.antialiasing
 	
-	# Pencere modunu ayarla
-	if dict.has("window_mode"):
-		_on_check_button_toggled(dict["window_mode"])
-	
 	#control list creating
 	_create_action_list()
 	
@@ -138,6 +134,7 @@ var input_actions = {
 	"left" : "Move Left",
 	"right" : "Move Right",
 	"grab" : "Pull-Push",
+	"Info" : "Information"
 }
 
 func _create_action_list():
