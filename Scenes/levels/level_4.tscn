@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bsj3c5bjvehte"]
+[gd_scene load_steps=20 format=4 uid="uid://bsj3c5bjvehte"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_mvq5q"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_60tbg"]
@@ -7,13 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://cvudb2ar1sq5b" path="res://Scenes/laser_launcher.tscn" id="5_w0uqj"]
 [ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/mirror.tscn" id="6_m3g0h"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="7_vp1xa"]
-[ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="8_xekiy"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/panel.tscn" id="8_xekiy"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_u7scv"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="11_5bijv"]
 [ext_resource type="PackedScene" uid="uid://bybhrirxchkn6" path="res://Scenes/Puzzles/cam.tscn" id="12_kvky2"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_vnaa0"]
-[ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="13_kgwyk"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/cube_holder.tscn" id="13_kgwyk"]
 [ext_resource type="PackedScene" uid="uid://dklwted5vqdgd" path="res://Scenes/Puzzles/rotate_part.tscn" id="14_k7i8r"]
+[ext_resource type="PackedScene" uid="uid://q38fcmddn56" path="res://Scenes/information.tscn" id="15_ky3yo"]
+[ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="16_s2qjr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_djmdu"]
 
@@ -316,7 +318,7 @@ object = NodePath("../CubeHolder")
 position = Vector2(244, 195)
 
 [node name="Player" parent="." instance=ExtResource("4_g7247")]
-position = Vector2(245, 196)
+position = Vector2(241, 196)
 camera_limit_left = 0
 camera_limit_right = 700
 camera_limit_down = 475
@@ -377,3 +379,60 @@ position = Vector2(516, 106)
 
 [node name="RotatePart" parent="." node_paths=PackedStringArray("object") instance=ExtResource("14_k7i8r")]
 object = NodePath("../Mirror3")
+rot_speed = 100.0
+
+[node name="Information" parent="." instance=ExtResource("15_ky3yo")]
+
+[node name="Ayna çevirme" type="Label" parent="Information"]
+offset_left = 201.0
+offset_top = 404.0
+offset_right = 342.0
+offset_bottom = 423.0
+theme_override_fonts/font = ExtResource("16_s2qjr")
+theme_override_font_sizes/font_size = 6
+text = "You can control the mirror's by pressing"
+
+[node name="mirror" type="Label" parent="Information"]
+offset_left = 336.0
+offset_top = 404.0
+offset_right = 477.0
+offset_bottom = 423.0
+theme_override_fonts/font = ExtResource("16_s2qjr")
+theme_override_font_sizes/font_size = 6
+text = "\"\""
+
+[node name="Ayna çevirmeleft" type="Label" parent="Information"]
+offset_left = 202.0
+offset_top = 414.0
+offset_right = 264.0
+offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("16_s2qjr")
+theme_override_font_sizes/font_size = 6
+text = "left direction with"
+
+[node name="left" type="Label" parent="Information"]
+offset_left = 264.0
+offset_top = 414.0
+offset_right = 326.0
+offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("16_s2qjr")
+theme_override_font_sizes/font_size = 6
+text = "\"\""
+
+[node name="Ayna çevirmeright" type="Label" parent="Information"]
+offset_left = 201.0
+offset_top = 424.0
+offset_right = 263.0
+offset_bottom = 443.0
+theme_override_fonts/font = ExtResource("16_s2qjr")
+theme_override_font_sizes/font_size = 6
+text = "right direction with"
+
+[node name="right" type="Label" parent="Information"]
+offset_left = 265.0
+offset_top = 424.0
+offset_right = 327.0
+offset_bottom = 443.0
+theme_override_fonts/font = ExtResource("16_s2qjr")
+theme_override_font_sizes/font_size = 6
+text = "	\"\""

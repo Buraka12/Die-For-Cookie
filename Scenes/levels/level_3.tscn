@@ -1,16 +1,18 @@
-[gd_scene load_steps=21 format=4 uid="uid://p5bv7nwfq8uj"]
+[gd_scene load_steps=23 format=4 uid="uid://p5bv7nwfq8uj"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_imo5a"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_tceh4"]
 [ext_resource type="Texture2D" uid="uid://bm2grmerqveas" path="res://Assets/tile-set.png" id="3_x6ydn"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="4_4j7ke"]
-[ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="4_xu8bc"]
-[ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="5_x7lxq"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/dead_area.tscn" id="4_xu8bc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/water_area.tscn" id="5_x7lxq"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="6_wry4h"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="8_bvh5a"]
 [ext_resource type="PackedScene" uid="uid://bnhhrcokk0dhm" path="res://Scenes/Puzzles/pressure.tscn" id="9_2dq0k"]
-[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_46fxk"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/check_point_area.tscn" id="10_46fxk"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="11_rrnv2"]
+[ext_resource type="PackedScene" uid="uid://q38fcmddn56" path="res://Scenes/information.tscn" id="12_leuw8"]
+[ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="13_uwmaj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m7q2s"]
 
@@ -431,3 +433,16 @@ position = Vector2(955, 189)
 [node name="Pressure2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("9_2dq0k")]
 position = Vector2(776, 249)
 object = NodePath("../Door")
+
+[node name="Information" parent="." instance=ExtResource("12_leuw8")]
+
+[node name="PressurePlate" type="Label" parent="Information"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 212.0
+offset_right = 566.0
+offset_bottom = 231.0
+theme_override_fonts/font = ExtResource("13_uwmaj")
+theme_override_font_sizes/font_size = 6
+text = "It says how many corpses are needed
+ to activate the pressure plate."
