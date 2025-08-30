@@ -117,8 +117,19 @@ func _physics_process(delta: float) -> void:
 			$Visual/AnimatedSprite2D.play("push")
 		else:
 			$Visual/AnimatedSprite2D.play("pull")
-	
 	move_and_slide()
+	#sounds
+	if current_state == 1 and $Timer.is_stopped() :
+		$Timer.start(0.22)
+		AudioManager.play("footsteprun")
+		await $Timer.timeout
+		$Timer.stop()
+	elif current_state == 3 and direction and $Timer.is_stopped() :
+		$Timer.start(0.5)
+		AudioManager.play("drag")
+		await $Timer.timeout
+		$Timer.stop()
+
 
 func check_interact():
 	return can_interact and interacted and current_state == states.IDLE and Input.is_action_just_pressed("grab")

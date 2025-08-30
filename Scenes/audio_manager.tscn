@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcfiajo3hdaji"]
+[gd_scene load_steps=5 format=3 uid="uid://bcfiajo3hdaji"]
 
 [ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="1_n5a8c"]
 [ext_resource type="AudioStream" uid="uid://dwb2kk0kdchcm" path="res://müzik/[No Copyright Background Music] Cool Fast Electronic Dynamic D&B _ OSAKA by tubebackr & Tetuano [hoa76tZaGwY].mp3" id="2_wctjt"]
+[ext_resource type="AudioStream" uid="uid://nud0fw35n0hm" path="res://Assets/sfx/footstep.ogg" id="3_dnqse"]
+[ext_resource type="AudioStream" uid="uid://ck2qcoj1pfert" path="res://Assets/sfx/dragging_crate.ogg" id="4_pjy5f"]
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("clips")]
 process_mode = 3
@@ -14,3 +16,19 @@ clips = NodePath("Clips")
 stream = ExtResource("2_wctjt")
 volume_db = -10.0
 bus = &"Music"
+
+[node name="footsteppulsh" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("3_dnqse")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"Sfx"
+
+[node name="footsteprun" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("3_dnqse")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="drag" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("4_pjy5f")
+volume_db = -10.0
+bus = &"Sfx"

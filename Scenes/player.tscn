@@ -474,3 +474,6 @@ visible = false
 visible = false
 position = Vector2(1, -31)
 texture = ExtResource("6_kdynd")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
