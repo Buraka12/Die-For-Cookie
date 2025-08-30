@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bc48xijte43af"]
+[gd_scene load_steps=16 format=4 uid="uid://bc48xijte43af"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_c4q8a"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_4lrpl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_qfc0a"]
 [ext_resource type="PackedScene" uid="uid://dklwted5vqdgd" path="res://Scenes/Puzzles/rotate_part.tscn" id="10_wmh7t"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="11_w56ei"]
+[ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_lmyh7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iafhk"]
 
@@ -316,6 +317,7 @@ object = NodePath("../LaserLauncher2")
 [node name="LaserLauncher3" parent="." instance=ExtResource("6_ymclo")]
 position = Vector2(624, 156)
 rotation = 1.5708
+active = false
 
 [node name="Player" parent="." instance=ExtResource("8_1txd6")]
 position = Vector2(384, 296)
@@ -365,3 +367,6 @@ position = Vector2(880, 362)
 
 [node name="Button7" parent="." instance=ExtResource("5_g6max")]
 position = Vector2(928, 362)
+
+[node name="LevelTransition" parent="." instance=ExtResource("12_lmyh7")]
+position = Vector2(577, 446)

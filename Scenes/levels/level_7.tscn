@@ -400,11 +400,6 @@ demand = true
 position = Vector2(395, 329)
 object = NodePath("../Door")
 
-[node name="Panel3" parent="." node_paths=PackedStringArray("object") instance=ExtResource("10_w554h")]
-position = Vector2(734, 200)
-rotation = -1.5708
-object = NodePath("")
-
 [node name="CheckPointArea" parent="." instance=ExtResource("14_15ore")]
 position = Vector2(479.318, 243.616)
 
