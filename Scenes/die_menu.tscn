@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btcvll6jqg7ly"]
+[gd_scene load_steps=13 format=3 uid="uid://btcvll6jqg7ly"]
 
 [ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="1_hhf85"]
 [ext_resource type="Script" path="res://Scripts/die_menu.gd" id="1_t6d1f"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qgtde"]
 shader = ExtResource("1_hhf85")
-shader_parameter/blur = 0.87
+shader_parameter/blur = 1.26
 shader_parameter/brightness = 0.835
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6gys"]
@@ -16,7 +16,21 @@ border_width_left = 1
 border_width_right = 1
 border_color = Color(0.340339, 0.340339, 0.340339, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kq33a"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec80k"]
+bg_color = Color(0.180005, 0.180005, 0.180005, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87hja"]
 bg_color = Color(0.111197, 0.111197, 0.111197, 1)
 border_width_left = 1
 border_width_top = 1
@@ -69,7 +83,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel2:visible")
+tracks/3/path = NodePath("blur:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -81,7 +95,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel2:modulate")
+tracks/4/path = NodePath("blur:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -157,7 +171,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel2:visible")
+tracks/3/path = NodePath("blur:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -169,7 +183,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel2:modulate")
+tracks/4/path = NodePath("blur:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -213,7 +227,7 @@ _data = {
 process_mode = 3
 script = ExtResource("1_t6d1f")
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="blur" type="Panel" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_qgtde")
@@ -225,19 +239,19 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 414.0
-offset_top = -54.0
-offset_right = 414.0
-offset_bottom = 465.0
+offset_left = 220.0
+offset_top = -88.0
+offset_right = 526.0
+offset_bottom = 431.0
 rotation = 0.174533
 theme_override_styles/panel = SubResource("StyleBoxFlat_y6gys")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 2
-offset_left = -190.856
-offset_top = 282.433
-offset_right = 103.144
-offset_bottom = 319.433
+offset_left = 5.28992
+offset_top = 283.387
+offset_right = 299.29
+offset_bottom = 320.387
 rotation = -0.174533
 theme_override_constants/separation = 10
 alignment = 1
@@ -248,7 +262,10 @@ layout_mode = 2
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_cj1ct")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kq33a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_87hja")
 text = "Restart"
 
 [node name="MainMenu" type="Button" parent="Panel/HBoxContainer"]
@@ -257,7 +274,10 @@ layout_mode = 2
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_cj1ct")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kq33a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_87hja")
 text = "Main Menu"
 
 [node name="Exit" type="Button" parent="Panel/HBoxContainer"]
@@ -267,15 +287,18 @@ layout_mode = 2
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_cj1ct")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kq33a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ec80k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_87hja")
 text = "Exit"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = -81.3611
-offset_top = 212.354
-offset_right = -25.3611
-offset_bottom = 243.354
+offset_left = 116.117
+offset_top = 215.105
+offset_right = 172.117
+offset_bottom = 246.105
 rotation = -0.174533
 theme_override_fonts/font = ExtResource("3_x5nsf")
 theme_override_font_sizes/font_size = 30

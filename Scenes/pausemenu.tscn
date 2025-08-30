@@ -767,11 +767,6 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
-[node name="InputButton5" parent="blur/Panel/Settings/controls" instance=ExtResource("7_w05qc")]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-
 [connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="blur/Panel/Settings/tabs/Back" to="." method="_on_back_pressed"]
