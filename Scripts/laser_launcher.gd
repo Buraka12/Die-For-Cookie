@@ -4,11 +4,15 @@ extends Node2D
 @onready var line = $Line2D
 var current_bounces = []
 
+@export var acti : bool = true
+
 func _ready() -> void:
 	# Laser başlangıçta yukarı bakıyor
 	line.clear_points()
 
 func _process(_delta: float) -> void:
+	if !acti:
+		return
 	update_laser()
 
 func update_laser() -> void:
@@ -48,6 +52,9 @@ func update_laser() -> void:
 				current_position = collision_point + current_direction * 0.1
 				current_bounce += 1
 			# Cube, Corpse veya TileMap'e çarparsa dur
+			elif collider.is_in_group("panel"):
+				collider.get_parent().active = true
+				break
 			elif collider.is_in_group("cube") or collider.is_in_group("corpse") or collider is TileMap:
 				break
 			else:
@@ -55,3 +62,9 @@ func update_laser() -> void:
 		else:
 			line.add_point(to_local(current_position + current_direction * 1000))
 			break
+
+func active():
+	acti = true
+	
+func deactive():
+	acti = false

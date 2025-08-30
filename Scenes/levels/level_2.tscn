@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://crt5cypuubviw"]
+[gd_scene load_steps=13 format=4 uid="uid://crt5cypuubviw"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_yd4l3"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="3_ah3jt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="7_fgeoy"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="7_xwfys"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="8_wl14k"]
+[ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="9_cjc5i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bry64"]
 
@@ -322,12 +323,12 @@ position = Vector2(432, 118)
 position = Vector2(367, 134)
 
 [node name="LaserLauncher" parent="." instance=ExtResource("5_tv4iw")]
-position = Vector2(480, 60)
-rotation = 3.14159
+position = Vector2(481, 44)
+rotation = 1.5708
 
 [node name="LaserLauncher2" parent="." instance=ExtResource("5_tv4iw")]
-position = Vector2(433, 296)
-rotation = 4.71239
+position = Vector2(448, 295)
+rotation = 3.14159
 
 [node name="Door" parent="." instance=ExtResource("7_xwfys")]
 position = Vector2(304, 160)
@@ -336,3 +337,6 @@ rotation = 1.5708
 [node name="Panel" parent="." node_paths=PackedStringArray("object") instance=ExtResource("8_wl14k")]
 position = Vector2(480, 154)
 object = NodePath("../Door")
+
+[node name="LevelTransition" parent="." instance=ExtResource("9_cjc5i")]
+position = Vector2(505, 267)

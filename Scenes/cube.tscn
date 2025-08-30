@@ -59,6 +59,12 @@ shape = SubResource("RectangleShape2D_ig0qu")
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_p44pk")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 1)
+target_position = Vector2(0, 14)
+collision_mask = 3
+hit_from_inside = true
+
 [connection signal="body_entered" from="GrabArea" to="." method="_on_grab_area_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_grab_area_body_exited"]
 [connection signal="body_entered" from="MassArea" to="." method="_on_mass_area_body_entered"]

@@ -6,27 +6,30 @@ extends Sprite2D
 var weight_object : RigidBody2D
 var active : bool = false
 
+var timer : Timer
+
 func _ready() -> void:
 	$Label.text = str(int(demand))
+	timer = Timer.new()
+	timer.one_shot = true
+	timer.wait_time = 0.1
+	add_child(timer)
+	timer.timeout.connect(_timeout)
+	timer.start()
 
-func _process(_delta: float) -> void:
-	if weight_object and !active:
-		print(weight_object.weight)
-		if weight_object.weight >= demand:
+func _timeout() -> void:
+	if weight_object:
+		if weight_object.weight >= demand and !active:
 			action(true)
 			active = true
-		elif active:
-			active = false
+		elif weight_object.weight < demand and active:
 			action(false)
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is RigidBody2D:
-		weight_object = body
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body is RigidBody2D:
-		weight_object = null
+			active = false
+	elif weight_object == null and active:
+		action(false)
+		active = false
+	weight_object = null
+	timer.start()
 
 func action(state:bool):
 	if state:

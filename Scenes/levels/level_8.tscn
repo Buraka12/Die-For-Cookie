@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bc48xijte43af"]
+[gd_scene load_steps=17 format=4 uid="uid://bc48xijte43af"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_c4q8a"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_4lrpl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_qfc0a"]
 [ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="10_4nln0"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="11_w56ei"]
+[ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_lmyh7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_roep2"]
 
@@ -309,8 +310,7 @@ position = Vector2(159, 230)
 position = Vector2(177, 230)
 
 [node name="LaserLauncher" parent="." instance=ExtResource("6_ymclo")]
-position = Vector2(400, 327)
-rotation = 1.5708
+position = Vector2(385, 323)
 
 [node name="Button2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("5_g6max")]
 position = Vector2(574, 282)
@@ -353,3 +353,6 @@ demand = true
 
 [node name="Door3" parent="." instance=ExtResource("9_qfc0a")]
 position = Vector2(407, 140)
+
+[node name="LevelTransition" parent="." instance=ExtResource("12_lmyh7")]
+position = Vector2(573, 189)

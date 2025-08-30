@@ -18,7 +18,7 @@ radius = 4.0
 size = Vector2(32, 14.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u64xs"]
-size = Vector2(31, 20)
+size = Vector2(26, 16)
 
 [node name="corpse" type="RigidBody2D"]
 collision_layer = 8
@@ -53,8 +53,14 @@ shape = SubResource("RectangleShape2D_ixvus")
 [node name="MassArea" parent="." instance=ExtResource("4_do4g6")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MassArea"]
-position = Vector2(0, -12)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_u64xs")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -12)
+target_position = Vector2(0, 14)
+collision_mask = 3
+hit_from_inside = true
 
 [connection signal="body_entered" from="GrabArea" to="." method="_on_grab_area_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_grab_area_body_exited"]

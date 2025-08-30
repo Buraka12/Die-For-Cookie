@@ -297,7 +297,6 @@ tile_set = SubResource("TileSet_073ad")
 [node name="LaserLauncher" parent="." instance=ExtResource("4_d5leh")]
 position = Vector2(49, 139)
 rotation = 1.5708
-can_laser = false
 
 [node name="Button" parent="." instance=ExtResource("5_vmepd")]
 position = Vector2(283, 153)
