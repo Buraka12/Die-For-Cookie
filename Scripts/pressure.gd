@@ -11,8 +11,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if weight_object and !active:
-		print(weight_object.mass)
-		if weight_object.mass >= demand:
+		print(weight_object.weight)
+		if weight_object.weight >= demand:
 			action(true)
 			active = true
 		elif active:

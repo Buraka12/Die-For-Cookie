@@ -154,7 +154,7 @@ func die():
 			get_tree().paused = true
 			$ui/Die_Menu/AnimationPlayer.play("die")
 
-func _spawn_corpse(pos : Vector2):
+func _spawn_corpse(_pos : Vector2):
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = death_position
 	corpse.global_position.y -= 10
