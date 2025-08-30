@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dbcit5317dr25"]
+[gd_scene load_steps=18 format=4 uid="uid://dbcit5317dr25"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_1bga1"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_63m6r"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="7_te2l1"]
 [ext_resource type="PackedScene" uid="uid://bnhhrcokk0dhm" path="res://Scenes/Puzzles/pressure.tscn" id="8_h3o2l"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_egp2f"]
+[ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_53igs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u22mk"]
 
@@ -402,3 +403,6 @@ position = Vector2(521, 268)
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(114, 156)
+
+[node name="LevelTransition" parent="." instance=ExtResource("12_53igs")]
+position = Vector2(499, 269)

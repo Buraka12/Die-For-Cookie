@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmhxum0xpsgep"]
+[gd_scene load_steps=6 format=3 uid="uid://bmhxum0xpsgep"]
 
 [ext_resource type="Texture2D" uid="uid://derqufx766jop" path="res://Assets/Puzzles/Button-Sheet.png" id="1_paply"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="2_8j440"]
+[ext_resource type="PackedScene" uid="uid://b4t8n4eggopsp" path="res://Scenes/Components/interact_area.tscn" id="3_8ka0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34gjd"]
 size = Vector2(25, 18.5)
@@ -13,8 +14,7 @@ texture = ExtResource("1_paply")
 hframes = 2
 script = ExtResource("2_8j440")
 
-[node name="InteractArea" type="Area2D" parent="."]
-collision_layer = 4
+[node name="InteractArea" parent="." instance=ExtResource("3_8ka0i")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(0, -6.75)
@@ -28,5 +28,5 @@ physics_material_override = SubResource("PhysicsMaterial_7ed15")
 position = Vector2(0, 1)
 polygon = PackedVector2Array(-11, 2, -2, -2, 2, -2, 10, 2)
 
-[connection signal="body_entered" from="InteractArea" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="InteractArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

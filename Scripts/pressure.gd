@@ -34,7 +34,7 @@ func _timeout() -> void:
 func action(state:bool):
 	if state:
 		frame = 1
-		object.active()
+		object.interaction()
 	else:
 		frame = 0
-		object.deactive()
+		object.deinteraction()

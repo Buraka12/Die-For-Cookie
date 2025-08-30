@@ -4,14 +4,14 @@ extends Node2D
 @onready var line = $Line2D
 var current_bounces = []
 
-@export var acti : bool = true
+@export var active : bool = true
 
 func _ready() -> void:
 	# Laser başlangıçta yukarı bakıyor
 	line.clear_points()
 
 func _process(_delta: float) -> void:
-	if !acti:
+	if !active:
 		return
 	update_laser()
 
@@ -63,8 +63,8 @@ func update_laser() -> void:
 			line.add_point(to_local(current_position + current_direction * 1000))
 			break
 
-func active():
-	acti = true
+func interaction():
+	active = true
 	
-func deactive():
-	acti = false
+func deinteraction():
+	active = false

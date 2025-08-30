@@ -1,8 +1,8 @@
 extends Node2D
 
 
-func active():
+func interaction():
 	$AnimationPlayer.play("Active")
 
-func deactive():
+func deinteraction():
 	$AnimationPlayer.play_backwards("Active")

@@ -23,10 +23,10 @@ func time():
 	else:
 		frame = 0
 	if active == demand and !done:
-		object.active()
+		object.interaction()
 		done = true
 	elif active != demand and done:
 		done = false
-		object.deactive()
+		object.deinteraction()
 	active = false
 	timer.start()

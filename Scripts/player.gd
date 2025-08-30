@@ -47,11 +47,16 @@ func _physics_process(delta: float) -> void:
 			$Visual/AnimatedSprite2D.play("fall")
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and current_state != states.INTERACT:
 		velocity.y = JUMP_VELOCITY
 		$Visual/AnimatedSprite2D.play("jump")
 	
-	if chec_interact():
+	if Input.is_action_just_pressed("grab") and current_state == states.INTERACT:
+		current_state = states.IDLE
+		interacted.active = false
+		interacted = null
+	
+	if check_interact():
 		interact()
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -114,21 +119,25 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func chec_interact():
+func check_interact():
 	return can_interact and interacted and current_state == states.IDLE and Input.is_action_just_pressed("grab")
 
 func interact():
 	velocity.x = 0
 	current_state = states.INTERACT
-	$Visual/AnimatedSprite2D.play("interact_button1")
-	$Visual/AnimatedSprite2D.animation_finished.connect(func():
-		if $Visual/AnimatedSprite2D.animation == "interact_button1":
-			interacted.object.active()
-			interacted.frame = 1
-			$Visual/AnimatedSprite2D.play("interact_button2")
-			await get_tree().create_timer(0.25).timeout
-			current_state = states.IDLE
-	)
+	if "Button" in interacted.name:
+		$"Visual/AnimatedSprite2D".play("interact_button1")
+		$"Visual/AnimatedSprite2D".animation_finished.connect(func():
+			if $"Visual/AnimatedSprite2D".animation == "interact_button1":
+				interacted.interact()
+				interacted.frame = 1
+				$"Visual/AnimatedSprite2D".play("interact_button2")
+				await get_tree().create_timer(0.25).timeout
+				current_state = states.IDLE
+		)
+	else:
+		interacted.interact()
+	
 
 #Die
 func die():
@@ -138,17 +147,13 @@ func die():
 		health -=1
 		$ui/Playerui/Sprite2D.frame = health
 		
-
 		if health > 0:
 			#await get_tree().process_frame
 			global_position = respawn_point.global_position
 			velocity = Vector2.ZERO
-	
 			await get_tree().create_timer(0.01).timeout
 			call_deferred("_spawn_corpse",death_position)
 			can_die = true
-		
-		#ölüm menüsü yapınca koy
 		else:
 			print("Öldü")
 			get_tree().paused = true

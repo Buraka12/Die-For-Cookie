@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://noa43hp6kavh"]
+[gd_scene load_steps=25 format=4 uid="uid://noa43hp6kavh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_4f77t"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_alnxr"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bybhrirxchkn6" path="res://Scenes/Puzzles/cam.tscn" id="12_guoya"]
 [ext_resource type="PackedScene" uid="uid://bnhhrcokk0dhm" path="res://Scenes/Puzzles/pressure.tscn" id="13_hyva8"]
 [ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="14_15ore"]
+[ext_resource type="PackedScene" uid="uid://dklwted5vqdgd" path="res://Scenes/Puzzles/rotate_part.tscn" id="17_072bv"]
+[ext_resource type="Texture2D" uid="uid://b83effwr0ra4w" path="res://Assets/Puzzles/buscit.png" id="18_4c826"]
+[ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="19_slyjh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uimo5"]
 
@@ -359,22 +362,17 @@ position = Vector2(208, 199)
 rotation = 2.35619
 
 [node name="cube" parent="." instance=ExtResource("7_aaiiq")]
-position = Vector2(722, 255)
-
-[node name="cube2" parent="." instance=ExtResource("7_aaiiq")]
-position = Vector2(617, 153)
+position = Vector2(616, 256)
 
 [node name="cube3" parent="." instance=ExtResource("7_aaiiq")]
 position = Vector2(103, 169)
 
-[node name="Button" parent="." instance=ExtResource("5_5verw")]
-position = Vector2(808, 185)
+[node name="Button" parent="." node_paths=PackedStringArray("object") instance=ExtResource("5_5verw")]
+position = Vector2(768, 186)
+object = NodePath("../Door2")
 
 [node name="Door" parent="." instance=ExtResource("8_511ix")]
 position = Vector2(512, 252)
-
-[node name="CubeHolder" parent="." instance=ExtResource("9_kowsm")]
-position = Vector2(617, 153)
 
 [node name="CubeHolder2" parent="." instance=ExtResource("9_kowsm")]
 position = Vector2(103, 169)
@@ -395,19 +393,34 @@ position = Vector2(208, 266)
 [node name="Panel2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("10_w554h")]
 position = Vector2(479, 198)
 rotation = -1.5708
-object = NodePath("../CubeHolder")
+object = NodePath("../CubeHolder2")
 demand = true
 
 [node name="Pressure" parent="." node_paths=PackedStringArray("object") instance=ExtResource("13_hyva8")]
-position = Vector2(417, 329)
+position = Vector2(395, 329)
 object = NodePath("../Door")
 
-[node name="Panel3" parent="." instance=ExtResource("10_w554h")]
+[node name="Panel3" parent="." node_paths=PackedStringArray("object") instance=ExtResource("10_w554h")]
 position = Vector2(734, 200)
 rotation = -1.5708
+object = NodePath("")
 
 [node name="CheckPointArea" parent="." instance=ExtResource("14_15ore")]
 position = Vector2(479.318, 243.616)
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(53, 256)
+
+[node name="RotatePart" parent="." node_paths=PackedStringArray("object") instance=ExtResource("17_072bv")]
+position = Vector2(93, 258)
+object = NodePath("../Mirror")
+
+[node name="Buscit" type="Sprite2D" parent="."]
+position = Vector2(879, 173)
+texture = ExtResource("18_4c826")
+
+[node name="LevelTransition" parent="." instance=ExtResource("19_slyjh")]
+position = Vector2(877, 172)
+
+[node name="Door2" parent="." instance=ExtResource("8_511ix")]
+position = Vector2(855, 172)

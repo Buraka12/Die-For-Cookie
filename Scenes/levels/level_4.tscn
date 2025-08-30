@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="7_vp1xa"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="8_xekiy"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_u7scv"]
-[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_ms4pp"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="11_5bijv"]
 [ext_resource type="PackedScene" uid="uid://bybhrirxchkn6" path="res://Scenes/Puzzles/cam.tscn" id="12_kvky2"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_vnaa0"]
 [ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="13_kgwyk"]
+[ext_resource type="PackedScene" uid="uid://dklwted5vqdgd" path="res://Scenes/Puzzles/rotate_part.tscn" id="14_k7i8r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_djmdu"]
 
@@ -301,7 +301,7 @@ tile_map_data = PackedByteArray("AAACAPr/AAABAAEAAAACAPv/AAABAAEAAAACAPz/AAAEAAE
 tile_set = SubResource("TileSet_uhgy1")
 
 [node name="Button" parent="." node_paths=PackedStringArray("object") instance=ExtResource("7_vp1xa")]
-position = Vector2(446, 393)
+position = Vector2(330, 394)
 object = NodePath("../LaserLauncher2")
 
 [node name="Button2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("7_vp1xa")]
@@ -316,7 +316,7 @@ object = NodePath("../CubeHolder")
 position = Vector2(244, 195)
 
 [node name="Player" parent="." instance=ExtResource("4_g7247")]
-position = Vector2(244, 199)
+position = Vector2(245, 196)
 camera_limit_left = 0
 camera_limit_right = 700
 camera_limit_down = 475
@@ -324,7 +324,7 @@ camera_limit_down = 475
 [node name="LaserLauncher" parent="." instance=ExtResource("5_w0uqj")]
 position = Vector2(336, 268)
 rotation = -1.5708
-acti = false
+active = false
 
 [node name="Mirror" parent="." instance=ExtResource("6_m3g0h")]
 position = Vector2(332, 89)
@@ -335,6 +335,7 @@ position = Vector2(573, 86)
 
 [node name="Mirror3" parent="." instance=ExtResource("6_m3g0h")]
 position = Vector2(419, 323)
+rotation = 2.35619
 
 [node name="Panel" parent="." node_paths=PackedStringArray("object") instance=ExtResource("8_xekiy")]
 position = Vector2(573, 217)
@@ -354,9 +355,6 @@ rotation = -1.5708
 [node name="Door2" parent="." instance=ExtResource("9_u7scv")]
 position = Vector2(615, 380)
 
-[node name="CheckPointArea" parent="." instance=ExtResource("10_ms4pp")]
-position = Vector2(489, 371)
-
 [node name="Cam" parent="." instance=ExtResource("12_kvky2")]
 position = Vector2(336, 218)
 
@@ -366,7 +364,7 @@ position = Vector2(416, 394)
 [node name="LaserLauncher2" parent="." instance=ExtResource("5_w0uqj")]
 position = Vector2(417, 443)
 rotation = -1.5708
-acti = false
+active = false
 
 [node name="LevelTransition" parent="." instance=ExtResource("12_vnaa0")]
 position = Vector2(653, 381)
@@ -376,3 +374,6 @@ position = Vector2(516, 105)
 
 [node name="cube" parent="." instance=ExtResource("11_5bijv")]
 position = Vector2(516, 106)
+
+[node name="RotatePart" parent="." node_paths=PackedStringArray("object") instance=ExtResource("14_k7i8r")]
+object = NodePath("../Mirror3")
