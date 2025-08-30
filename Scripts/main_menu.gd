@@ -4,6 +4,7 @@ const scaling_default : int = 0
 var level
 
 func _ready() -> void:
+	#levelleri yükle
 	var dict : Dictionary = SaveLoad.load_game()
 	if dict.has("current_level"):
 		level = dict["current_level"]
@@ -32,10 +33,12 @@ func _ready() -> void:
 	
 	#control list creating
 	_create_action_list()
+	
 #Buttons
 
 func _on_continue_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
+	$AnimationPlayer.play("continue")
+	_setup_level_buttons()
 	
 
 func _on_new_game_pressed() -> void:
@@ -67,6 +70,9 @@ func _on_credits_pressed() -> void:
 
 func _on_backc_pressed() -> void:
 	$AnimationPlayer.play_backwards("credits")
+
+func _on_back_continue_pressed() -> void:
+	$AnimationPlayer.play_backwards("continue")
 
 
 
@@ -176,3 +182,22 @@ func _input(event):
 			
 func  _update_action_list(button , event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
+
+func _setup_level_buttons() -> void:
+	var grid = $"Buttons&settings/ContinuePanel/GridContainer"
+	for i in range(9):
+		var button = grid.get_node("Level_" + str(i + 1))
+		var level_num = i + 1
+		button.text = str(level_num)
+		
+		# Check if level is unlocked
+		if level_num <= Global.unlocked_levels:
+			button.disabled = false
+			button.pressed.connect(_on_level_button_pressed.bind(level_num))
+		else:
+			button.disabled = true
+		
+func _on_level_button_pressed(level_num: int) -> void:
+	Global.current_level = level_num
+	Global.save_game_state()
+	get_tree().change_scene_to_file("res://Scenes/levels/level_" + str(level_num) + ".tscn")

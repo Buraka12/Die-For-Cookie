@@ -44,6 +44,11 @@ func save_game_state():
 	}
 	SaveLoad.save_game(save_data)
 
+func unlock_next_level():
+	if current_level == unlocked_levels and unlocked_levels < 9:
+		unlocked_levels += 1
+		save_game_state()
+
 
 
 func _apply_window_mode():
