@@ -3,19 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_4f77t"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_alnxr"]
 [ext_resource type="Texture2D" uid="uid://bm2grmerqveas" path="res://Assets/tile-set.png" id="3_fiydv"]
-[ext_resource type="PackedScene" uid="uid://d3wv08hk5uuk1" path="res://Scenes/Components/dead_area.tscn" id="4_0ahgu"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/dead_area.tscn" id="4_0ahgu"]
 [ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="5_5verw"]
 [ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/mirror.tscn" id="5_j6byo"]
-[ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="5_jyc16"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/water_area.tscn" id="5_jyc16"]
 [ext_resource type="PackedScene" uid="uid://cvudb2ar1sq5b" path="res://Scenes/laser_launcher.tscn" id="6_v0vaa"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="7_aaiiq"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="8_511ix"]
-[ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="9_kowsm"]
-[ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="10_w554h"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/cube_holder.tscn" id="9_kowsm"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/panel.tscn" id="10_w554h"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="11_ye5i6"]
 [ext_resource type="PackedScene" uid="uid://bybhrirxchkn6" path="res://Scenes/Puzzles/cam.tscn" id="12_guoya"]
 [ext_resource type="PackedScene" uid="uid://bnhhrcokk0dhm" path="res://Scenes/Puzzles/pressure.tscn" id="13_hyva8"]
-[ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="14_15ore"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/check_point_area.tscn" id="14_15ore"]
 [ext_resource type="PackedScene" uid="uid://dklwted5vqdgd" path="res://Scenes/Puzzles/rotate_part.tscn" id="17_072bv"]
 [ext_resource type="Texture2D" uid="uid://b83effwr0ra4w" path="res://Assets/Puzzles/buscit.png" id="18_4c826"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="19_slyjh"]
@@ -409,6 +409,7 @@ position = Vector2(53, 256)
 [node name="RotatePart" parent="." node_paths=PackedStringArray("object") instance=ExtResource("17_072bv")]
 position = Vector2(93, 258)
 object = NodePath("../Mirror")
+rot_speed = 60.0
 
 [node name="Buscit" type="Sprite2D" parent="."]
 position = Vector2(879, 173)
