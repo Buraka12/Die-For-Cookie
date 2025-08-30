@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bsj3c5bjvehte"]
+[gd_scene load_steps=18 format=4 uid="uid://bsj3c5bjvehte"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_mvq5q"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_60tbg"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="8_xekiy"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_u7scv"]
 [ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="10_ms4pp"]
+[ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="11_5bijv"]
 [ext_resource type="PackedScene" uid="uid://bybhrirxchkn6" path="res://Scenes/Puzzles/cam.tscn" id="12_kvky2"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_vnaa0"]
+[ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="13_kgwyk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_djmdu"]
 
@@ -306,8 +308,9 @@ object = NodePath("../LaserLauncher2")
 position = Vector2(405, 218)
 object = NodePath("../LaserLauncher")
 
-[node name="Button3" parent="." instance=ExtResource("7_vp1xa")]
+[node name="Button3" parent="." node_paths=PackedStringArray("object") instance=ExtResource("7_vp1xa")]
 position = Vector2(451, 218)
+object = NodePath("../CubeHolder")
 
 [node name="respawn_point" type="Marker2D" parent="."]
 position = Vector2(244, 195)
@@ -352,7 +355,7 @@ rotation = -1.5708
 position = Vector2(615, 380)
 
 [node name="CheckPointArea" parent="." instance=ExtResource("10_ms4pp")]
-position = Vector2(507, 371)
+position = Vector2(489, 371)
 
 [node name="Cam" parent="." instance=ExtResource("12_kvky2")]
 position = Vector2(336, 218)
@@ -367,3 +370,9 @@ acti = false
 
 [node name="LevelTransition" parent="." instance=ExtResource("12_vnaa0")]
 position = Vector2(653, 381)
+
+[node name="CubeHolder" parent="." instance=ExtResource("13_kgwyk")]
+position = Vector2(516, 105)
+
+[node name="cube" parent="." instance=ExtResource("11_5bijv")]
+position = Vector2(516, 106)
