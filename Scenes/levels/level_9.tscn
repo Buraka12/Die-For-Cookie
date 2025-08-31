@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jjk3lqsf755"]
 
-[ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="1_4gif7"]
-[ext_resource type="Script" path="res://Scripts/end.gd" id="1_vf22q"]
+[ext_resource type="Script" path="res://Scripts/end.gd" id="1_anxb5"]
+[ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="2_847uj"]
 
 [node name="End" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vf22q")
+script = ExtResource("1_anxb5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -35,7 +35,7 @@ offset_right = 86.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_4gif7")
+theme_override_fonts/font = ExtResource("2_847uj")
 theme_override_font_sizes/font_size = 30
 text = "Thank you for playing!"
 horizontal_alignment = 1

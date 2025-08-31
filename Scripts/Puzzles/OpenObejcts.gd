@@ -4,7 +4,7 @@ var done : bool = false
 
 @export var objects : Array[Sprite2D]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if objects.is_empty():
 		return

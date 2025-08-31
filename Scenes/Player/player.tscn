@@ -462,6 +462,7 @@ animation = &"idle"
 [node name="ui" type="Node2D" parent="."]
 
 [node name="Playerui" parent="ui" instance=ExtResource("3_ekmdu")]
+visible = true
 
 [node name="Die_Menu" parent="ui" instance=ExtResource("5_foo3s")]
 

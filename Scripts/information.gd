@@ -6,7 +6,7 @@ var dict = {}
 var events
 func _ready() -> void:
 	#level bilgisi çekme
-	var dict : Dictionary = SaveLoad.load_game()
+	dict = SaveLoad.load_game()
 	if dict.has("current_level"):
 		level = dict["current_level"]
 	else:

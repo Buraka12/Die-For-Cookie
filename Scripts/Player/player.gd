@@ -15,7 +15,7 @@ var grabbed_body: RigidBody2D = null
 var can_interact : bool = false
 var interacted : Sprite2D = null
 
-var corpse_scene = preload("res://Scenes/corpse.tscn")
+var corpse_scene = preload("res://Scenes/Player/corpse.tscn")
 var death_position : Vector2
 var can_die : bool = true
 @onready var respawn_point = $"../respawn_point"
@@ -175,7 +175,6 @@ func interact():
 #Die
 func die():
 	if can_die:
-		print("Öldü")
 		can_die = false
 		death_position = global_position
 		health -=1

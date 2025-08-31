@@ -25,9 +25,7 @@ func _on_body_entered(body):
 		
 		# Değişiklikleri kaydet
 		Global.save_game_state()
-		
-		if next_level == 9:
-			get_tree().call_deferred("change_scene_to_file","res://Scenes/levels/End.tscn")
+
 		
 		var next_level_path = "res://Scenes/levels/level_%d.tscn" % next_level
 		get_tree().call_deferred("change_scene_to_file", next_level_path)
