@@ -1275,7 +1275,7 @@ offset_right = 213.0
 offset_bottom = 55.0
 rotation = -0.174533
 theme_override_fonts/font = ExtResource("9_sfxd3")
-text = "Sound Effects : (doldur sonra)
+text = "Sound Effects : kenney.nl
 "
 
 [node name="Label3" type="Label" parent="Buttons&settings/Credits/VBoxContainer"]
@@ -1315,7 +1315,8 @@ offset_right = 213.0
 offset_bottom = 192.0
 rotation = -0.174533
 theme_override_fonts/font = ExtResource("9_sfxd3")
-text = "All Assets : Metehan-07"
+text = "All Assets :
+Metehan-07 and Halimpak"
 
 [node name="ContinuePanel" type="Panel" parent="Buttons&settings"]
 visible = false
