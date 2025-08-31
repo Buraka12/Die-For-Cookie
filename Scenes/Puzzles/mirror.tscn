@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp813rjrc4w0t"]
+
+[ext_resource type="Texture2D" uid="uid://dobrx1615gr6x" path="res://Assets/Puzzles/Mirror.png" id="1_m4k3n"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/mirror.gd" id="1_p2k4l"]
+[ext_resource type="Texture2D" uid="uid://b1w87h0fnxwxm" path="res://Assets/Puzzles/Mirror_n.png" id="3_mf57d"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dhspc"]
+diffuse_texture = ExtResource("1_m4k3n")
+normal_texture = ExtResource("3_mf57d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nowyy"]
+size = Vector2(20, 3)
+
+[node name="Mirror" type="StaticBody2D" groups=["mirror"]]
+script = ExtResource("1_p2k4l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_dhspc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_nowyy")

@@ -1,11 +1,11 @@
 [gd_scene load_steps=31 format=3 uid="uid://dd33uady8fso6"]
 
 [ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="1_5emyn"]
-[ext_resource type="Script" path="res://Scripts/pausemenu.gd" id="1_uofnw"]
+[ext_resource type="Script" path="res://Scripts/Player/pausemenu.gd" id="1_uofnw"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="2_4xr1l"]
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="4_evy7c"]
-[ext_resource type="Script" path="res://Scripts/music.gd" id="5_67dci"]
-[ext_resource type="Script" path="res://Scripts/sfx.gd" id="6_pkydm"]
+[ext_resource type="Script" path="res://Scripts/SFX/music.gd" id="5_67dci"]
+[ext_resource type="Script" path="res://Scripts/SFX/sfx.gd" id="6_pkydm"]
 [ext_resource type="PackedScene" uid="uid://cob2to74nrumw" path="res://Scenes/input_button.tscn" id="7_w05qc"]
 
 [sub_resource type="Animation" id="Animation_sboga"]

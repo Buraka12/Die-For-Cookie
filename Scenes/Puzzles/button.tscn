@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmhxum0xpsgep"]
 
 [ext_resource type="Texture2D" uid="uid://derqufx766jop" path="res://Assets/Puzzles/Button-Sheet.png" id="1_paply"]
-[ext_resource type="Script" path="res://Scripts/button.gd" id="2_8j440"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/button.gd" id="2_8j440"]
 [ext_resource type="Texture2D" uid="uid://bugw1ri06rtva" path="res://Assets/Puzzles/Button-Sheet_n.png" id="2_fpgfm"]
 [ext_resource type="PackedScene" uid="uid://b4t8n4eggopsp" path="res://Scenes/Components/interact_area.tscn" id="3_8ka0i"]
 

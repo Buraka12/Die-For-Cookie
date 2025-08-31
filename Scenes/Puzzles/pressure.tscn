@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://jgmv1y43fuv4" path="res://Assets/Puzzles/PressurePlater-Sheet.png" id="1_7p0eo"]
 [ext_resource type="Texture2D" uid="uid://dqecyv0bqcn0c" path="res://Assets/Puzzles/PressurePlater-Sheet_n.png" id="2_e3hsd"]
-[ext_resource type="Script" path="res://Scripts/pressure.gd" id="2_yfp60"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/pressure.gd" id="2_yfp60"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="3_uqb5m"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_34m8g"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxxc5cntlyska"]
 
-[ext_resource type="Script" path="res://Scripts/OpenObejcts.gd" id="1_nengm"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/OpenObejcts.gd" id="1_nengm"]
 [ext_resource type="Texture2D" uid="uid://c8ehxte5dicr3" path="res://Assets/Puzzles/Door-Sheet.png" id="1_wlbk7"]
 [ext_resource type="Texture2D" uid="uid://dslg28bd6s1u8" path="res://Assets/Puzzles/Door-Sheet_n.png" id="3_2xh0m"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://jht7nscsaad8"]
 
-[ext_resource type="Script" path="res://Scripts/OpenObejcts.gd" id="1_p10kp"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/OpenObejcts.gd" id="1_p10kp"]
 [ext_resource type="Texture2D" uid="uid://dw2fmpf2je0j4" path="res://Assets/Puzzles/CubeHolder-Sheet.png" id="1_v5o0w"]
 [ext_resource type="Texture2D" uid="uid://bwhibqgnvavhx" path="res://Assets/Puzzles/CubeHolder-Sheet_n.png" id="3_bfwii"]
 

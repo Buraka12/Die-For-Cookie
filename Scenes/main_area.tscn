@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=4 uid="uid://b0pehd5u70by"]
 
 [ext_resource type="Script" path="res://Scripts/main_area.gd" id="1_52wci"]
-[ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/player.tscn" id="3_glplb"]
+[ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/Player/player.tscn" id="3_glplb"]
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="4_11j5d"]
 [ext_resource type="Texture2D" uid="uid://bm2grmerqveas" path="res://Assets/tile-set.png" id="4_p8h7y"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="6_jj2w6"]
-[ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/spikes.tscn" id="6_mnrye"]
-[ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/button.tscn" id="7_u4uwd"]
-[ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/cube.tscn" id="8_inbnj"]
-[ext_resource type="PackedScene" uid="uid://cvudb2ar1sq5b" path="res://Scenes/laser_launcher.tscn" id="9_rmsnk"]
-[ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/mirror.tscn" id="10_gsjfu"]
+[ext_resource type="PackedScene" uid="uid://bmlqjngxrk78x" path="res://Scenes/Puzzles/spikes.tscn" id="6_mnrye"]
+[ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/Puzzles/button.tscn" id="7_u4uwd"]
+[ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/Puzzles/cube.tscn" id="8_inbnj"]
+[ext_resource type="PackedScene" uid="uid://cvudb2ar1sq5b" path="res://Scenes/Puzzles/laser_launcher.tscn" id="9_rmsnk"]
+[ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/Puzzles/mirror.tscn" id="10_gsjfu"]
 
 [sub_resource type="Animation" id="Animation_xcp3s"]
 length = 0.001

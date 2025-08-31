@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://df0kuxlq8eqyb"]
 
 [ext_resource type="Texture2D" uid="uid://cvnq5neoj12hf" path="res://Assets/Sprites/health.png" id="1_oiugr"]
-[ext_resource type="Script" path="res://Scripts/player_ui.gd" id="1_rw0cs"]
+[ext_resource type="Script" path="res://Scripts/Player/player_ui.gd" id="1_rw0cs"]
 [ext_resource type="FontFile" uid="uid://nbm826r7lfx7" path="res://Assets/Fonts/BirchLeaf.ttf" id="3_en6gl"]
 
 [sub_resource type="Animation" id="Animation_rrsel"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddfrtr3urk07c"]
 
-[ext_resource type="Script" path="res://Scripts/panel.gd" id="1_ikb0n"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/panel.gd" id="1_ikb0n"]
 [ext_resource type="Texture2D" uid="uid://ctp3jky7gpyna" path="res://Assets/Puzzles/Panel-Sheet.png" id="1_uef7o"]
 [ext_resource type="Texture2D" uid="uid://sc4016yxv3ay" path="res://Assets/Puzzles/Panel-Sheet_n.png" id="2_ykpg8"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://btcvll6jqg7ly"]
 
 [ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="1_hhf85"]
-[ext_resource type="Script" path="res://Scripts/die_menu.gd" id="1_t6d1f"]
+[ext_resource type="Script" path="res://Scripts/Player/die_menu.gd" id="1_t6d1f"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="2_cj1ct"]
 [ext_resource type="FontFile" uid="uid://nbm826r7lfx7" path="res://Assets/Fonts/BirchLeaf.ttf" id="3_x5nsf"]
 

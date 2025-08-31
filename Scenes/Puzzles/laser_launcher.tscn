@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvudb2ar1sq5b"]
 
 [ext_resource type="Texture2D" uid="uid://d0p7yfccf2qoi" path="res://Assets/Puzzles/LaserLauncher.png" id="1_2k4qp"]
-[ext_resource type="Script" path="res://Scripts/laser_launcher.gd" id="1_l3k4m"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/laser_launcher.gd" id="1_l3k4m"]
 [ext_resource type="Texture2D" uid="uid://05lclg1r3kdv" path="res://Assets/Puzzles/LaserLauncher_n.png" id="3_2kir6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_m1ly1"]

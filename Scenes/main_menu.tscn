@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="3_2x58b"]
 [ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="3_2yhjk"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
-[ext_resource type="Script" path="res://Scripts/music.gd" id="4_ya1pm"]
-[ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_rip41"]
+[ext_resource type="Script" path="res://Scripts/SFX/music.gd" id="4_ya1pm"]
+[ext_resource type="Script" path="res://Scripts/SFX/sfx.gd" id="5_rip41"]
 [ext_resource type="PackedScene" uid="uid://cob2to74nrumw" path="res://Scenes/input_button.tscn" id="8_yf2dr"]
 [ext_resource type="FontFile" uid="uid://nbm826r7lfx7" path="res://Assets/Fonts/BirchLeaf.ttf" id="9_sfxd3"]
 
