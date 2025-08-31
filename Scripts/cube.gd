@@ -24,8 +24,6 @@ func _physics_process(_delta: float) -> void:
 		var collider = $RayCast2D.get_collider()
 		if collider.is_in_group("pressure"):
 			collider.get_parent().weight_object = $"."
-		elif collider.is_in_group("player") and linear_velocity.y > 100:
-			collider.die()
 
 func _on_grab_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and body.grabbed_body == null:

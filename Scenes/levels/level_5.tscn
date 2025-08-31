@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dbcit5317dr25"]
+[gd_scene load_steps=24 format=4 uid="uid://dbcit5317dr25"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_1bga1"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_63m6r"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_egp2f"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="12_53igs"]
 [ext_resource type="PackedScene" uid="uid://08co3sia0abp" path="res://Scenes/Puzzles/boulder.tscn" id="13_pomge"]
-[ext_resource type="PackedScene" uid="uid://q38fcmddn56" path="res://Scenes/information.tscn" id="14_scm7l"]
-[ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="15_3v5se"]
 [ext_resource type="PackedScene" uid="uid://duu5mim04jyqn" path="res://Scenes/Components/end_position.tscn" id="16_o25u7"]
 [ext_resource type="PackedScene" uid="uid://dih02itsvsh84" path="res://Scenes/Components/start_position.tscn" id="17_wamqe"]
 [ext_resource type="PackedScene" uid="uid://bv6dhcb34dvqx" path="res://Scenes/Decor/wall_light_2.tscn" id="18_0bcod"]
@@ -398,6 +396,10 @@ objects = [NodePath("../Button1")]
 position = Vector2(894, 89)
 objects = [NodePath("../Button2")]
 
+[node name="CubeHolder5" parent="Puzzles" node_paths=PackedStringArray("objects") instance=ExtResource("7_te2l1")]
+position = Vector2(738, 121)
+objects = [NodePath("../Pressure2")]
+
 [node name="cube1" parent="Puzzles" instance=ExtResource("5_02f4p")]
 position = Vector2(244, 58)
 
@@ -406,6 +408,9 @@ position = Vector2(335, 42)
 
 [node name="cube3" parent="Puzzles" instance=ExtResource("5_02f4p")]
 position = Vector2(660, 122)
+
+[node name="cube4" parent="Puzzles" instance=ExtResource("5_02f4p")]
+position = Vector2(738, 122)
 
 [node name="Button1" parent="Puzzles" instance=ExtResource("6_y5bto")]
 position = Vector2(659, 282)
@@ -441,20 +446,6 @@ position = Vector2(894, 86)
 [node name="Door" parent="Puzzles" node_paths=PackedStringArray("objects") instance=ExtResource("9_egp2f")]
 position = Vector2(521, 268)
 objects = [NodePath("../Pressure1"), NodePath("../Pressure2"), NodePath("../Pressure3")]
-
-[node name="Information" parent="." instance=ExtResource("14_scm7l")]
-
-[node name="Info" type="Label" parent="Information"]
-layout_mode = 0
-offset_left = 637.0
-offset_top = 290.0
-offset_right = 677.0
-offset_bottom = 313.0
-theme_override_fonts/font = ExtResource("15_3v5se")
-theme_override_font_sizes/font_size = 6
-text = "If a cube falls
-your head with
-enough speed, it will kill you"
 
 [node name="Lights" type="Node2D" parent="."]
 
