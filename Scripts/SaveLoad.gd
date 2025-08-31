@@ -5,14 +5,14 @@ const default_dict : Dictionary = {
 	"level": 1,
 	"unlocked_levels": 1,
 	"current_level": 1,
-	"music": 0,
+	"music": 0.5,
 	"sfx": 0.5,
 	"antialiasing": 0,
 	"jump" : "W",
 	"right" : "D",
 	"left" : "A",
 	"grab" : "E",
-	"Info" : "I",
+
 }
 
 func save_game(data : Dictionary) -> void:

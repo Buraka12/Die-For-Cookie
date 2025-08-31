@@ -1,6 +1,6 @@
 extends Node
 
-static var music : float = 0
+static var music : float = 0.5
 static var sfx : float = 0.5
 var current_level : int = 1
 var unlocked_levels : int = 1
