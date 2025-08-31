@@ -147,7 +147,6 @@ var input_actions = {
 	"left" : "Move Left",
 	"right" : "Move Right",
 	"grab" : "Pull-Push",
-	"Info" : "Information"
 }
 
 func _create_action_list():

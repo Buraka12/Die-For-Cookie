@@ -18,7 +18,6 @@ var input_actions = {
 	"left" : "Move Left",
 	"right" : "Move Right",
 	"grab" : "Pull-Push",
-	"Info" : "Information"
 }
 
 # Called when the node enters the scene tree for the first time.

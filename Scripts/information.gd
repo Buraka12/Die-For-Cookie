@@ -15,9 +15,7 @@ func _ready() -> void:
 	
 	
 	if level == 1:
-		events = InputMap.action_get_events("Info")
-		$InfoKey.text = '"' + events[0].as_text().trim_suffix(" (Physical)") + '"'
-		
+
 		events = InputMap.action_get_events("grab")
 		$ControlKey.text = '"' + events[0].as_text().trim_suffix(" (Physical)") + '"'
 			
