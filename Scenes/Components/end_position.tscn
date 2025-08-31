@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://duu5mim04jyqn"]
+
+[node name="EndPosition" type="Marker2D"]
+position = Vector2(74, 124)

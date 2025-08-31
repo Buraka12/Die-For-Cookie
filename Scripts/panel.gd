@@ -1,10 +1,8 @@
 extends Sprite2D
 
-@export var object : Node2D = null
-
 @export var demand : bool = false
+var working : bool = false
 var active : bool = false
-var done : bool = false
 
 var timer : Timer
 
@@ -18,15 +16,13 @@ func _ready() -> void:
 	timer.start()
 
 func time():
-	if active:
+	if working:
 		frame = 1
 	else:
 		frame = 0
-	if active == demand and !done:
-		object.interaction()
-		done = true
-	elif active != demand and done:
-		done = false
-		object.deinteraction()
-	active = false
+	if working == demand:
+		active = true
+	elif working != demand:
+		active = false
+	working = false
 	timer.start()

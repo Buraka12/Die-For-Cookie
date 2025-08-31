@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dih02itsvsh84"]
+
+[node name="StartPosition" type="Marker2D"]
+position = Vector2(-58, 124)

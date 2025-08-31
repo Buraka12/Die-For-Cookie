@@ -1,12 +1,11 @@
 extends Sprite2D
 
-@export var object : Node2D
+var active : bool = false
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.can_interact = true
 		body.interacted = $"."
-
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -14,4 +13,7 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 		body.interacted = null
 
 func interact():
-	object.interaction()
+	active = true
+	
+func deinteract():
+	active = false

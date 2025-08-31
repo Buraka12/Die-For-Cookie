@@ -20,21 +20,13 @@ func _ready() -> void:
 func _timeout() -> void:
 	if weight_object:
 		if weight_object.weight >= demand and !active:
-			action(true)
+			frame = 1
 			active = true
 		elif weight_object.weight < demand and active:
-			action(false)
+			frame = 0
 			active = false
 	elif weight_object == null and active:
-		action(false)
+		frame = 0
 		active = false
 	weight_object = null
 	timer.start()
-
-func action(state:bool):
-	if state:
-		frame = 1
-		object.interaction()
-	else:
-		frame = 0
-		object.deinteraction()

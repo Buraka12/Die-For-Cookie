@@ -239,19 +239,19 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 220.0
-offset_top = -88.0
-offset_right = 526.0
-offset_bottom = 431.0
+offset_left = 414.0
+offset_top = -54.0
+offset_right = 414.0
+offset_bottom = 465.0
 rotation = 0.174533
 theme_override_styles/panel = SubResource("StyleBoxFlat_y6gys")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 2
-offset_left = 5.28992
-offset_top = 283.387
-offset_right = 299.29
-offset_bottom = 320.387
+offset_left = -190.856
+offset_top = 282.433
+offset_right = 103.144
+offset_bottom = 319.433
 rotation = -0.174533
 theme_override_constants/separation = 10
 alignment = 1
@@ -295,10 +295,10 @@ text = "Exit"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 116.117
-offset_top = 215.105
-offset_right = 172.117
-offset_bottom = 246.105
+offset_left = -81.3611
+offset_top = 212.354
+offset_right = -25.3611
+offset_bottom = 243.354
 rotation = -0.174533
 theme_override_fonts/font = ExtResource("3_x5nsf")
 theme_override_font_sizes/font_size = 30

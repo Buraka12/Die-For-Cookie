@@ -384,10 +384,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -260.0
-offset_right = 210.0
-offset_bottom = 231.0
+offset_left = -47.5
+offset_top = -245.5
+offset_right = 129.5
+offset_bottom = 245.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.174533
@@ -437,12 +437,31 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
 shortcut = SubResource("Shortcut_8dj7e")
 text = "  Resume  "
 
+[node name="HBoxContainer6" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
+
+[node name="Restart" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xr1l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ko6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_21plb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_spkqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nldp2")
+text = " RESTART "
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="blur/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 19
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
 
 [node name="Settings" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
@@ -461,7 +480,7 @@ layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
 
 [node name="Main Menu" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
@@ -480,7 +499,7 @@ layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yjt46")
 
 [node name="Exit" type="Button" parent="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
@@ -767,6 +786,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
+[connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer6/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer3/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="blur/Panel/MarginContainer/VBoxContainer/HBoxContainer5/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="blur/Panel/Settings/tabs/Back" to="." method="_on_back_pressed"]

@@ -8,7 +8,7 @@ const ACCELERATION = 800
 const DECELERATION = 950
 @export var health = 5
 
-enum states {IDLE,RUN,FALL,PULSH,INTERACT}
+enum states {IDLE,RUN,FALL,PULSH,INTERACT,NOT}
 var current_state : states = states.IDLE
 var grabbed_body: RigidBody2D = null
 
@@ -19,6 +19,10 @@ var corpse_scene = preload("res://Scenes/corpse.tscn")
 var death_position : Vector2
 var can_die : bool = true
 @onready var respawn_point = $"../respawn_point"
+
+@export var start_position : Marker2D
+@export var end_position : Marker2D
+@export var start_door : Node2D
 
 @export var camera_limit_left : int = -100000
 @export var camera_limit_right : int = 100000
@@ -32,6 +36,8 @@ func _ready() -> void:
 	$Camera2D.limit_right= camera_limit_right
 	$Camera2D.limit_top = camera_limit_up
 	
+	start_animation()
+	Global.firs_time = false
 	#healh'ı yükle
 	$ui/Playerui/Sprite2D.frame = health
 	
@@ -39,6 +45,8 @@ func _ready() -> void:
 	$ui/Playerui/AnimationPlayer.play("start")
 
 func _physics_process(delta: float) -> void:
+	if current_state == states.NOT:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -138,15 +146,27 @@ func interact():
 	velocity.x = 0
 	current_state = states.INTERACT
 	if "Button" in interacted.name:
-		$"Visual/AnimatedSprite2D".play("interact_button1")
-		$"Visual/AnimatedSprite2D".animation_finished.connect(func():
-			if $"Visual/AnimatedSprite2D".animation == "interact_button1":
-				interacted.interact()
-				interacted.frame = 1
-				$"Visual/AnimatedSprite2D".play("interact_button2")
-				await get_tree().create_timer(0.25).timeout
-				current_state = states.IDLE
-		)
+		if !interacted.active:
+			$"Visual/AnimatedSprite2D".play("interact_button1")
+			$"Visual/AnimatedSprite2D".animation_finished.connect(func():
+				if $"Visual/AnimatedSprite2D".animation == "interact_button1":
+					interacted.interact()
+					interacted.frame = 1
+					$"Visual/AnimatedSprite2D".play("interact_button2")
+					await get_tree().create_timer(0.25).timeout
+					current_state = states.IDLE
+			,CONNECT_ONE_SHOT)
+		else:
+			$"Visual/AnimatedSprite2D".play("interact_button1")
+			$"Visual/AnimatedSprite2D".animation_finished.connect(func():
+				print($"Visual/AnimatedSprite2D".animation)
+				if $"Visual/AnimatedSprite2D".animation == "interact_button1":
+					interacted.deinteract()
+					interacted.frame = 0
+					$"Visual/AnimatedSprite2D".play("interact_button2")
+					await get_tree().create_timer(0.25).timeout
+					current_state = states.IDLE
+			,CONNECT_ONE_SHOT)
 	else:
 		$Insruction.visible = true
 		interacted.interact()
@@ -155,6 +175,7 @@ func interact():
 #Die
 func die():
 	if can_die:
+		print("Öldü")
 		can_die = false
 		death_position = global_position
 		health -=1
@@ -166,9 +187,7 @@ func die():
 			velocity = Vector2.ZERO
 			await get_tree().create_timer(0.01).timeout
 			call_deferred("_spawn_corpse",death_position)
-			can_die = true
 		else:
-			print("Öldü")
 			get_tree().paused = true
 			$ui/Die_Menu.visible = true
 			$ui/Die_Menu/AnimationPlayer.play("die")
@@ -181,6 +200,7 @@ func _spawn_corpse(_pos : Vector2):
 	corpse.angular_velocity = 0
 	get_parent().add_child(corpse)
 	await get_tree().physics_frame
+	can_die = true
 	corpse.linear_velocity = Vector2.ZERO
 	corpse.angular_velocity = 0
 
@@ -192,3 +212,20 @@ func is_facing_object(body: Node2D) -> bool:
 	# Karakter sola bakıyorsa ve nesne soldaysa true döner
 	return (is_facing_right and direction_to_object > 0) or \
 		   (not is_facing_right and direction_to_object < 0)
+
+func start_animation():
+	if Global.firs_time:
+		if !start_position:
+			return
+		global_position = start_position.global_position
+		start_door.interaction()
+		current_state = states.NOT
+		await get_tree().create_timer(1).timeout
+		$Visual/AnimatedSprite2D.play("move")
+		var tween = create_tween()
+		tween.tween_property(self,"position",end_position.global_position,1)
+		tween.finished.connect(func():
+			$Visual/AnimatedSprite2D.play("idle")
+			start_door.deinteraction()
+			current_state = states.IDLE
+		,CONNECT_ONE_SHOT)

@@ -7,6 +7,8 @@ var unlocked_levels : int = 1
 var window_mode : bool = false
 var antialiasing : int = 0
 
+var firs_time : bool = true
+
 func _ready():
 	# Kayıtlı oyun verilerini yükle
 	load_game_state()

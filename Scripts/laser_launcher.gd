@@ -6,13 +6,25 @@ var current_bounces = []
 
 @export var active : bool = true
 
+@export var objects : Array[Sprite2D]
+
 func _ready() -> void:
 	# Laser başlangıçta yukarı bakıyor
 	line.clear_points()
 
 func _process(_delta: float) -> void:
-	if !active:
+	line.clear_points()
+	if objects.is_empty():
+		if active:
+			update_laser()
 		return
+	
+	for i in objects:
+		if !i.active:
+			return
+	
+	active = true
+	
 	update_laser()
 
 func update_laser() -> void:
@@ -53,7 +65,7 @@ func update_laser() -> void:
 				current_bounce += 1
 			# Cube, Corpse veya TileMap'e çarparsa dur
 			elif collider.is_in_group("panel"):
-				collider.get_parent().active = true
+				collider.get_parent().working = true
 				break
 			elif collider.is_in_group("cube") or collider.is_in_group("corpse") or collider is TileMap:
 				break

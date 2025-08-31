@@ -39,6 +39,7 @@ func _on_continue_pressed() -> void:
 
 func _on_new_game_pressed() -> void:
 	level = null
+	Global.firs_time = true
 	# level kayıtlarını sıfırla
 	Global.current_level = 1
 	Global.unlocked_levels = 1
@@ -200,6 +201,7 @@ func _setup_level_buttons() -> void:
 			button.disabled = true
 		
 func _on_level_button_pressed(level_num: int) -> void:
+	Global.firs_time = true
 	Global.current_level = level_num
 	Global.save_game_state()
 	get_tree().change_scene_to_file("res://Scenes/levels/level_" + str(level_num) + ".tscn")

@@ -18,12 +18,16 @@ func _on_body_entered(body):
 		var next_level = current_level + 1
 		
 		# Global değişkenleri güncelle
+		Global.firs_time = true
 		Global.current_level = next_level
 		if next_level > Global.unlocked_levels:
 			Global.unlocked_levels = next_level
 		
 		# Değişiklikleri kaydet
 		Global.save_game_state()
+		
+		if next_level == 9:
+			get_tree().call_deferred("change_scene_to_file","res://Scenes/levels/End.tscn")
 		
 		var next_level_path = "res://Scenes/levels/level_%d.tscn" % next_level
 		get_tree().call_deferred("change_scene_to_file", next_level_path)
