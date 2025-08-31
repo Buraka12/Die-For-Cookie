@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="yeni"
+config/name="Die For Cookie"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
