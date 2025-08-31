@@ -1,9 +1,8 @@
-[gd_scene load_steps=65 format=3 uid="uid://coo2ey1o15ejr"]
+[gd_scene load_steps=63 format=3 uid="uid://coo2ey1o15ejr"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n0q02"]
 [ext_resource type="Texture2D" uid="uid://d124r07tn8xcp" path="res://Assets/MainManuBakcground.png" id="2_p7xvr"]
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="3_2x58b"]
-[ext_resource type="Shader" path="res://Scripts/blur.gdshader" id="3_2yhjk"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="4_hg1ii"]
 [ext_resource type="Script" path="res://Scripts/SFX/music.gd" id="4_ya1pm"]
 [ext_resource type="Script" path="res://Scripts/SFX/sfx.gd" id="5_rip41"]
@@ -620,18 +619,11 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tef6u"]
-shader = ExtResource("3_2yhjk")
-shader_parameter/blur = 1.292
-shader_parameter/brightness = 0.326
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_votjp"]
-bg_color = Color(0.0687982, 0.0687983, 0.0687982, 0.490196)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5si3c"]
+bg_color = Color(0, 0, 0, 0.6)
 border_width_left = 1
-border_width_top = 1
 border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.244776, 0.244776, 0.244776, 1)
+border_color = Color(0.273873, 0.273873, 0.273873, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m57te"]
 
@@ -798,7 +790,6 @@ sprite_frames = SubResource("SpriteFrames_k7vi1")
 animation = &"opening"
 
 [node name="Buttons&settings" type="Panel" parent="."]
-material = SubResource("ShaderMaterial_tef6u")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -812,7 +803,7 @@ grow_vertical = 2
 rotation = 0.174533
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_votjp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5si3c")
 
 [node name="Allbuttons" type="MarginContainer" parent="Buttons&settings"]
 layout_mode = 1
