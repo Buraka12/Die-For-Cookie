@@ -11,8 +11,6 @@ func _ready() -> void:
 		level = dict["current_level"]
 	else:
 		level = 1
-		
-	
 	
 	if level == 1:
 
