@@ -13,9 +13,12 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 		body.interacted = null
 
 func interact():
+	AudioManager.play("push_button")
 	$PointLight2D.color = Color("00cc05")
 	active = true
+	
 	
 func deinteract():
 	$PointLight2D.color = Color("bd0905")
 	active = false
+	

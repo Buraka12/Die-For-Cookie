@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvudb2ar1sq5b"]
+[gd_scene load_steps=7 format=3 uid="uid://8hmtja81k1qc"]
 
 [ext_resource type="Texture2D" uid="uid://d0p7yfccf2qoi" path="res://Assets/Puzzles/LaserLauncher.png" id="1_2k4qp"]
 [ext_resource type="Script" path="res://Scripts/Puzzles/laser_launcher.gd" id="1_l3k4m"]

@@ -10,9 +10,13 @@ func _process(delta: float) -> void:
 		return
 	
 	if Input.is_action_pressed("LeftMouse"):
+		AudioManager.play("miror")
 		object.rotation_degrees += rot_speed*delta
+		
 	elif Input.is_action_pressed("RightMouse"):
+		AudioManager.play("miror")
 		object.rotation_degrees -= rot_speed*delta
+		
 	
 	if abs(object.rotation_degrees) == 360:
 		object.rotation_degrees = 0

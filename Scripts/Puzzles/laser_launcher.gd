@@ -16,7 +16,9 @@ func _process(_delta: float) -> void:
 	line.clear_points()
 	if objects.is_empty():
 		if active:
+			AudioManager.play("Laser")
 			update_laser()
+			
 		return
 	
 	for i in objects:
@@ -29,9 +31,11 @@ func _process(_delta: float) -> void:
 	$PointLight2D.visible = true
 	$Sprite2D.frame = 0
 	
+	
 	update_laser()
 
 func update_laser() -> void:
+	
 	line.clear_points()
 	current_bounces.clear()
 	

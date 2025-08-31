@@ -46,16 +46,20 @@ func _on_new_game_pressed() -> void:
 	Global.save_game_state()
 	$AnimationPlayer.play("opening")
 	$AnimatedSprite2D.play("opening")
+	AudioManager.play("ui_button")
 
 func _on_settings_pressed() -> void:
 	$AnimationPlayer.play("settings")
+	AudioManager.play("ui_button")
 
 func _on_back_pressed() -> void:
 	Global.save_game_state()
 	$AnimationPlayer.play_backwards("settings")
+	AudioManager.play("ui_button")
 
 
 func _on_exit_pressed() -> void:
+	AudioManager.play("ui_button")
 	get_tree().quit()
 
 #Playe fade animation
@@ -69,12 +73,15 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 #credits
 func _on_credits_pressed() -> void:
 	$AnimationPlayer.play("credits")
+	AudioManager.play("ui_button")
 
 func _on_backc_pressed() -> void:
 	$AnimationPlayer.play_backwards("credits")
+	AudioManager.play("ui_button")
 
 func _on_back_continue_pressed() -> void:
 	$AnimationPlayer.play_backwards("continue")
+	AudioManager.play("ui_button")
 
 
 
@@ -83,21 +90,25 @@ func _on_sounds_pressed() -> void:
 	$"Buttons&settings/Settings/sounds".visible = true
 	$"Buttons&settings/Settings/graph".visible = false
 	$"Buttons&settings/Settings/controls".visible = false
+	AudioManager.play("ui_button")
 
 func _on_graphs_pressed() -> void:
 	$"Buttons&settings/Settings/sounds".visible = false
 	$"Buttons&settings/Settings/graph".visible = true
 	$"Buttons&settings/Settings/controls".visible = false
+	AudioManager.play("ui_button")
 	
 func _on_controls_pressed() -> void:
 	$"Buttons&settings/Settings/sounds".visible = false
 	$"Buttons&settings/Settings/graph".visible = false
 	$"Buttons&settings/Settings/controls".visible = true
+	AudioManager.play("ui_button")
 
 
 #Graphics
 #Fullscreen mode
 func _on_check_button_toggled(toggled_on: bool) -> void:
+	AudioManager.play("ui_button")
 	Global.window_mode = toggled_on
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -121,6 +132,7 @@ func set_scaling(new_scaling : int) -> void:
 		
 func _on_option_button_item_selected(new_scaling: int) -> void:
 	set_scaling(new_scaling)
+	AudioManager.play("ui_button")
 
 #Control settings
 @onready var input_button_scene = preload("res://Scenes/input_button.tscn")

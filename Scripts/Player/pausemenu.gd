@@ -38,7 +38,7 @@ func _ready() -> void:
 
 
 func _on_main_menu_pressed() -> void:
-
+	AudioManager.play("ui_button")
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,6 +50,7 @@ func unpause():
 	await $AnimationPlayer.animation_finished
 	$".".visible = false
 	get_tree().paused = false
+	AudioManager.play("ui_button")
 
 #Oyun durdurulur.
 func pause():
@@ -57,30 +58,36 @@ func pause():
 		$".".visible = true
 		$AnimationPlayer.play("pause")
 		get_tree().paused = true
+		AudioManager.play("ui_button")
 		
 #settings
 func _on_settings_pressed() -> void:
 	$AnimationPlayer.play("settings")
+	AudioManager.play("ui_button")
 	
 func _on_back_pressed() -> void:
 	Global.save_game_state()
 	$AnimationPlayer.play_backwards("settings")
+	AudioManager.play("ui_button")
 	
 
 func _on_sounds_pressed() -> void:
 	$"blur/Panel/Settings/sounds".visible = true
 	$blur/Panel/Settings/graph.visible = false
 	$blur/Panel/Settings/controls.visible = false
+	AudioManager.play("ui_button")
 
 func _on_graphs_pressed() -> void:
 	$"blur/Panel/Settings/sounds".visible = false
 	$blur/Panel/Settings/graph.visible = true
 	$blur/Panel/Settings/controls.visible = false
+	AudioManager.play("ui_button")
 	
 func _on_controls_pressed() -> void:
 	$"blur/Panel/Settings/sounds".visible = false
 	$blur/Panel/Settings/graph.visible = false
 	$blur/Panel/Settings/controls.visible = true
+	AudioManager.play("ui_button")
 
 func _load_settings() -> void:
 	# Load window mode setting

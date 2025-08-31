@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcfiajo3hdaji"]
+[gd_scene load_steps=11 format=3 uid="uid://bcfiajo3hdaji"]
 
 [ext_resource type="Script" path="res://Scripts/SFX/audio_manager.gd" id="1_n5a8c"]
 [ext_resource type="AudioStream" uid="uid://dwb2kk0kdchcm" path="res://müzik/[No Copyright Background Music] Cool Fast Electronic Dynamic D&B _ OSAKA by tubebackr & Tetuano [hoa76tZaGwY].mp3" id="2_wctjt"]
 [ext_resource type="AudioStream" uid="uid://nud0fw35n0hm" path="res://Assets/sfx/footstep.ogg" id="3_dnqse"]
 [ext_resource type="AudioStream" uid="uid://ck2qcoj1pfert" path="res://Assets/sfx/dragging_crate.ogg" id="4_pjy5f"]
+[ext_resource type="AudioStream" uid="uid://b62u74ht3r3f0" path="res://Assets/sfx/button.mp3" id="5_bahqh"]
+[ext_resource type="AudioStream" uid="uid://pi1367xlpdrm" path="res://Assets/sfx/ui_button.mp3" id="6_upk30"]
+[ext_resource type="AudioStream" uid="uid://bthb8iqch6num" path="res://Assets/sfx/OpenDoor.mp3" id="7_dclyy"]
+[ext_resource type="AudioStream" uid="uid://djh57isjoycpa" path="res://Assets/sfx/CloseDoor.ogg" id="8_dmdgs"]
+[ext_resource type="AudioStream" uid="uid://csw8tfh0vgjtm" path="res://Assets/sfx/mirror rotate.mp3" id="8_ysrrb"]
+[ext_resource type="AudioStream" uid="uid://bdestgmbnfwew" path="res://Assets/sfx/laser_voice.ogg" id="10_uncr2"]
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("clips")]
 process_mode = 3
@@ -17,18 +23,43 @@ stream = ExtResource("2_wctjt")
 volume_db = -10.0
 bus = &"Music"
 
-[node name="footsteppulsh" type="AudioStreamPlayer" parent="Clips"]
-stream = ExtResource("3_dnqse")
-volume_db = -10.0
-pitch_scale = 0.8
-bus = &"Sfx"
-
 [node name="footsteprun" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("3_dnqse")
 volume_db = -10.0
+pitch_scale = 1.5
 bus = &"Sfx"
 
 [node name="drag" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("4_pjy5f")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="push_button" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("5_bahqh")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="ui_button" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("6_upk30")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="opendoor" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("7_dclyy")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="closedoor" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("8_dmdgs")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="miror" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("8_ysrrb")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="Laser" type="AudioStreamPlayer" parent="Clips"]
+stream = ExtResource("10_uncr2")
 volume_db = -10.0
 bus = &"Sfx"
