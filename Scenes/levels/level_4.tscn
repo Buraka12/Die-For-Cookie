@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_60tbg"]
 [ext_resource type="Texture2D" uid="uid://bm2grmerqveas" path="res://Assets/tile-set.png" id="3_y6x7y"]
 [ext_resource type="PackedScene" uid="uid://dp1picjxjosr2" path="res://Scenes/Player/player.tscn" id="4_g7247"]
-[ext_resource type="PackedScene" uid="uid://cvudb2ar1sq5b" path="res://Scenes/Puzzles/laser_launcher.tscn" id="5_w0uqj"]
+[ext_resource type="PackedScene" uid="uid://8hmtja81k1qc" path="res://Scenes/Puzzles/laser_launcher.tscn" id="5_w0uqj"]
 [ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/Puzzles/mirror.tscn" id="6_m3g0h"]
-[ext_resource type="PackedScene" uid="uid://bmhxum0xpsgep" path="res://Scenes/Puzzles/button.tscn" id="7_vp1xa"]
+[ext_resource type="PackedScene" uid="uid://rym00e0d5fxi" path="res://Scenes/Puzzles/button.tscn" id="7_vp1xa"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="8_xekiy"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="9_u7scv"]
 [ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/Puzzles/cube.tscn" id="11_5bijv"]
@@ -477,10 +477,10 @@ position = Vector2(494, 349)
 position = Vector2(170, 125)
 
 [node name="Light" parent="Lights" instance=ExtResource("20_b4pod")]
-position = Vector2(215, 203)
+position = Vector2(215, 204)
 
 [node name="Light2" parent="Lights" instance=ExtResource("20_b4pod")]
-position = Vector2(510, 203)
+position = Vector2(510, 204)
 
 [node name="Light3" parent="Lights" instance=ExtResource("20_b4pod")]
 position = Vector2(202, 380)

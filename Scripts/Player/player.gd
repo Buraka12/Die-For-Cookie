@@ -170,7 +170,6 @@ func interact():
 	else:
 		$Insruction.visible = true
 		interacted.interact()
-	
 
 #Die
 func die():

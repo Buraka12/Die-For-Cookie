@@ -25,7 +25,7 @@ bus = &"Music"
 
 [node name="footsteprun" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("3_dnqse")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 1.5
 bus = &"Sfx"
 
@@ -36,7 +36,7 @@ bus = &"Sfx"
 
 [node name="push_button" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("5_bahqh")
-volume_db = -10.0
+volume_db = -15.0
 bus = &"Sfx"
 
 [node name="ui_button" type="AudioStreamPlayer" parent="Clips"]
@@ -46,20 +46,27 @@ bus = &"Sfx"
 
 [node name="opendoor" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("7_dclyy")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"Sfx"
 
 [node name="closedoor" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("8_dmdgs")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"Sfx"
 
 [node name="miror" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("8_ysrrb")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"Sfx"
 
 [node name="Laser" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("10_uncr2")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"Sfx"
+
+[node name="MusicTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="MusicTimer" to="." method="_on_music_timer_timeout"]

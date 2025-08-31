@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 
 func interaction():
 	$PointLight2D.color = Color("00cc05")
+	AudioManager.play("opendoor")
 	$AnimationPlayer.play("Active")
 
 func deinteraction():

@@ -42,6 +42,7 @@ func _on_main_menu_pressed() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		AudioManager.stop()
 		pause()
 
 func unpause():

@@ -17,8 +17,6 @@ func _ready() -> void:
 	if dict.has("sfx"):
 		Global.sfx = dict["sfx"]
 	
-	AudioManager.play("Main")
-	
 	# Grafik ayarlarını yükle ve uygula
 	if dict.has("antialiasing"):
 		set_scaling(dict["antialiasing"])

@@ -5,6 +5,7 @@ extends Node2D
 var current_bounces = []
 
 @export var active : bool = true
+var sound_active : bool = false
 
 @export var objects : Array[Sprite2D]
 
@@ -16,7 +17,11 @@ func _process(_delta: float) -> void:
 	line.clear_points()
 	if objects.is_empty():
 		if active:
-			AudioManager.play("Laser")
+			if !sound_active:
+				AudioManager.play("Laser")
+				sound_active = true
+				await  get_tree().create_timer(1).timeout
+				sound_active = false
 			update_laser()
 			
 		return
@@ -31,7 +36,11 @@ func _process(_delta: float) -> void:
 	$PointLight2D.visible = true
 	$Sprite2D.frame = 0
 	
-	
+	if !sound_active:
+		AudioManager.play("Laser")
+		sound_active = true
+		await  get_tree().create_timer(1).timeout
+		sound_active = false
 	update_laser()
 
 func update_laser() -> void:
