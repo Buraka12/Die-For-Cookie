@@ -17,13 +17,12 @@ func _process(_delta: float) -> void:
 	line.clear_points()
 	if objects.is_empty():
 		if active:
+			update_laser()
 			if !sound_active:
 				AudioManager.play("Laser")
 				sound_active = true
 				await  get_tree().create_timer(1).timeout
 				sound_active = false
-			update_laser()
-			
 		return
 	
 	for i in objects:

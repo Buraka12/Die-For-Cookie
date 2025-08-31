@@ -54,14 +54,14 @@ stream = ExtResource("8_dmdgs")
 volume_db = -20.0
 bus = &"Sfx"
 
-[node name="miror" type="AudioStreamPlayer" parent="Clips"]
+[node name="mirror" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("8_ysrrb")
-volume_db = -20.0
+volume_db = -10.0
 bus = &"Sfx"
 
 [node name="Laser" type="AudioStreamPlayer" parent="Clips"]
 stream = ExtResource("10_uncr2")
-volume_db = -20.0
+volume_db = -10.0
 bus = &"Sfx"
 
 [node name="MusicTimer" type="Timer" parent="."]

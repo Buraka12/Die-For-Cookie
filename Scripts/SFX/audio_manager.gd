@@ -12,7 +12,11 @@ func play(audio_name : String,from_position :float = 0.0,skip_restrat:bool = fal
 	active_music_stream = clips.get_node(audio_name)
 	active_music_stream.play(from_position)
 
-func stop():
+func stop(song:String=""):
+	if song!="":
+		print(song)
+		clips.get_node(song).stop()
+		
 	for i in clips.get_children():
 		if i.name != "Main":
 			i.stop()
