@@ -1,11 +1,10 @@
-[gd_scene load_steps=64 format=3 uid="uid://dp1picjxjosr2"]
+[gd_scene load_steps=63 format=3 uid="uid://dp1picjxjosr2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_3y4p7"]
 [ext_resource type="Texture2D" uid="uid://cpu8t276rxtw7" path="res://Assets/Player/player-Sheet.png" id="1_dxe1q"]
 [ext_resource type="PackedScene" uid="uid://df0kuxlq8eqyb" path="res://Scenes/Player/player_ui.tscn" id="3_ekmdu"]
 [ext_resource type="PackedScene" uid="uid://dd33uady8fso6" path="res://Scenes/Player/pausemenu.tscn" id="3_lpjkf"]
 [ext_resource type="PackedScene" uid="uid://btcvll6jqg7ly" path="res://Scenes/Player/die_menu.tscn" id="5_foo3s"]
-[ext_resource type="Script" path="res://Scripts/Player/pausemenu.gd" id="6_e2h6q"]
 [ext_resource type="Texture2D" uid="uid://6mk8fyvjnv5n" path="res://Assets/Player/instuction.png" id="6_kdynd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1nu7"]
@@ -469,7 +468,6 @@ visible = false
 
 [node name="Pausemenu" parent="ui" instance=ExtResource("3_lpjkf")]
 visible = false
-script = ExtResource("6_e2h6q")
 
 [node name="Insruction" type="Sprite2D" parent="."]
 visible = false
