@@ -127,12 +127,12 @@ func _physics_process(delta: float) -> void:
 			$Visual/AnimatedSprite2D.play("pull")
 	move_and_slide()
 	#sounds
-	if current_state == 1 and $Timer.is_stopped() :
+	if current_state == states.RUN and $Timer.is_stopped() :
 		$Timer.start(0.22)
 		AudioManager.play("footsteprun")
 		await $Timer.timeout
 		$Timer.stop()
-	elif current_state == 3 and direction and $Timer.is_stopped() :
+	elif current_state == states.PULSH and direction and $Timer.is_stopped() :
 		$Timer.start(0.5)
 		AudioManager.play("drag")
 		await $Timer.timeout
@@ -148,59 +148,79 @@ func interact():
 	if "Button" in interacted.name:
 		if !interacted.active:
 			$"Visual/AnimatedSprite2D".play("interact_button1")
-			$"Visual/AnimatedSprite2D".animation_finished.connect(func():
-				if $"Visual/AnimatedSprite2D".animation == "interact_button1":
-					interacted.interact()
-					interacted.frame = 1
-					$"Visual/AnimatedSprite2D".play("interact_button2")
-					await get_tree().create_timer(0.25).timeout
-					current_state = states.IDLE
-			,CONNECT_ONE_SHOT)
+			# Signal'i bir kez bağla
+			if not $"Visual/AnimatedSprite2D".animation_finished.is_connected(_on_button_interact_finished):
+				$"Visual/AnimatedSprite2D".animation_finished.connect(_on_button_interact_finished, CONNECT_ONE_SHOT)
 		else:
 			$"Visual/AnimatedSprite2D".play("interact_button1")
-			$"Visual/AnimatedSprite2D".animation_finished.connect(func():
-				print($"Visual/AnimatedSprite2D".animation)
-				if $"Visual/AnimatedSprite2D".animation == "interact_button1":
-					interacted.deinteract()
-					interacted.frame = 0
-					$"Visual/AnimatedSprite2D".play("interact_button2")
-					await get_tree().create_timer(0.25).timeout
-					current_state = states.IDLE
-			,CONNECT_ONE_SHOT)
+			# Signal'i bir kez bağla
+			if not $"Visual/AnimatedSprite2D".animation_finished.is_connected(_on_button_deinteract_finished):
+				$"Visual/AnimatedSprite2D".animation_finished.connect(_on_button_deinteract_finished, CONNECT_ONE_SHOT)
 	else:
 		$Insruction.visible = true
 		interacted.interact()
 
+func _on_button_interact_finished():
+	if $"Visual/AnimatedSprite2D".animation == "interact_button1":
+		interacted.interact()
+		interacted.frame = 1
+		$"Visual/AnimatedSprite2D".play("interact_button2")
+		await get_tree().create_timer(0.25).timeout
+		current_state = states.IDLE
+
+func _on_button_deinteract_finished():
+	if $"Visual/AnimatedSprite2D".animation == "interact_button1":
+		interacted.deinteract()
+		interacted.frame = 0
+		$"Visual/AnimatedSprite2D".play("interact_button2")
+		await get_tree().create_timer(0.25).timeout
+		current_state = states.IDLE
+
 #Die
 func die():
-	if can_die:
+	if can_die and is_instance_valid(self):
 		can_die = false
 		death_position = global_position
-		health -=1
-		$ui/Playerui/Sprite2D.frame = health
+		health -= 1
+		
+		# UI güvenlik kontrolü
+		if is_instance_valid($ui) and is_instance_valid($ui.get_node("Playerui/Sprite2D")):
+			$ui/Playerui/Sprite2D.frame = health
 		
 		if health > 0:
-			#await get_tree().process_frame
-			global_position = respawn_point.global_position
+			if is_instance_valid(respawn_point):
+				global_position = respawn_point.global_position
 			velocity = Vector2.ZERO
 			await get_tree().create_timer(0.01).timeout
-			call_deferred("_spawn_corpse",death_position)
+			call_deferred("_spawn_corpse", death_position)
 		else:
 			get_tree().paused = true
-			$ui/Die_Menu.visible = true
-			$ui/Die_Menu/AnimationPlayer.play("die")
+			if is_instance_valid($ui) and is_instance_valid($ui.get_node("Die_Menu")):
+				$ui/Die_Menu.visible = true
+				var anim_player = $ui.get_node("Die_Menu/AnimationPlayer")
+				if is_instance_valid(anim_player):
+					anim_player.play("die")
 
 func _spawn_corpse(_pos : Vector2):
+	if not is_instance_valid(self) or not is_instance_valid(get_parent()):
+		can_die = true
+		return
+		
 	var corpse = corpse_scene.instantiate()
 	corpse.global_position = death_position
 	corpse.global_position.y -= 10
 	corpse.linear_velocity = Vector2.ZERO
 	corpse.angular_velocity = 0
 	get_parent().add_child(corpse)
+	
 	await get_tree().physics_frame
+	
+	# Corpse hala valid mi kontrol et
+	if is_instance_valid(corpse):
+		corpse.linear_velocity = Vector2.ZERO
+		corpse.angular_velocity = 0
+	
 	can_die = true
-	corpse.linear_velocity = Vector2.ZERO
-	corpse.angular_velocity = 0
 
 func is_facing_object(body: Node2D) -> bool:
 	var is_facing_right = $Visual.scale.x > 0

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bp813rjrc4w0t" path="res://Scenes/Puzzles/mirror.tscn" id="5_j6byo"]
 [ext_resource type="PackedScene" uid="uid://s11yfagbxksl" path="res://Scenes/Components/water_area.tscn" id="5_jyc16"]
 [ext_resource type="PackedScene" uid="uid://8hmtja81k1qc" path="res://Scenes/Puzzles/laser_launcher.tscn" id="6_v0vaa"]
-[ext_resource type="PackedScene" uid="uid://bkghn3oj6fhe1" path="res://Scenes/Puzzles/cube.tscn" id="7_aaiiq"]
+[ext_resource type="PackedScene" path="res://Scenes/Puzzles/cube.tscn" id="7_aaiiq"]
 [ext_resource type="PackedScene" uid="uid://bxxc5cntlyska" path="res://Scenes/Puzzles/door.tscn" id="8_511ix"]
 [ext_resource type="PackedScene" uid="uid://jht7nscsaad8" path="res://Scenes/Puzzles/cube_holder.tscn" id="9_kowsm"]
 [ext_resource type="PackedScene" uid="uid://ddfrtr3urk07c" path="res://Scenes/Puzzles/panel.tscn" id="10_w554h"]
@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://b2km1ht60gst0" path="res://Scenes/Components/check_point_area.tscn" id="14_15ore"]
 [ext_resource type="PackedScene" uid="uid://dklwted5vqdgd" path="res://Scenes/Puzzles/rotate_part.tscn" id="17_072bv"]
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="19_slyjh"]
-[ext_resource type="PackedScene" uid="uid://duu5mim04jyqn" path="res://Scenes/Components/end_position.tscn" id="20_p5pax"]
-[ext_resource type="PackedScene" uid="uid://dih02itsvsh84" path="res://Scenes/Components/start_position.tscn" id="21_jc6wn"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/end_position.tscn" id="20_p5pax"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/start_position.tscn" id="21_jc6wn"]
 [ext_resource type="PackedScene" uid="uid://bv6dhcb34dvqx" path="res://Scenes/Decor/wall_light_2.tscn" id="21_l7d4q"]
 [ext_resource type="PackedScene" uid="uid://cpkgqqslqnuuv" path="res://Scenes/Decor/light.tscn" id="22_cbxfx"]
 [ext_resource type="PackedScene" uid="uid://ds0yoto2887rf" path="res://Scenes/Decor/wall_light_1.tscn" id="23_0cb0r"]
@@ -433,6 +433,7 @@ object = NodePath("../Door1")
 [node name="LaserLauncher1" parent="Puzzles" node_paths=PackedStringArray("objects") instance=ExtResource("6_v0vaa")]
 position = Vector2(528, 198)
 active = false
+invert_logic = true
 objects = [NodePath("../Panel1")]
 
 [node name="LaserLauncher2" parent="Puzzles" instance=ExtResource("6_v0vaa")]

@@ -71,6 +71,18 @@ RightMouse={
 ]
 }
 
+[memory]
+
+limits/message_queue/max_size_mb=32
+
+[physics]
+
+common/max_physics_steps_per_frame=4
+common/physics_jitter_fix=1.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+2d/snap_2d_transforms_to_pixel=true
+2d/snap_2d_vertices_to_pixel=true

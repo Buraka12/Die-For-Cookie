@@ -38,6 +38,8 @@ func _ready() -> void:
 
 func _on_main_menu_pressed() -> void:
 	AudioManager.play("ui_button")
+	# Ana menüye gitmeden önce ayarları kaydet
+	Global.save_game_state()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -65,6 +67,9 @@ func _on_settings_pressed() -> void:
 	$AnimationPlayer.play("settings")
 	AudioManager.play("ui_button")
 	
+	# Settings açıldığında kontrol listesini yenile
+	_create_action_list()
+	
 func _on_back_pressed() -> void:
 	Global.save_game_state()
 	$AnimationPlayer.play_backwards("settings")
@@ -88,6 +93,9 @@ func _on_controls_pressed() -> void:
 	$blur/Panel/Settings/graph.visible = false
 	$blur/Panel/Settings/controls.visible = true
 	AudioManager.play("ui_button")
+	
+	# Kontrol listesini yenile
+	_create_action_list()
 
 func _load_settings() -> void:
 	# Load window mode setting
@@ -122,18 +130,18 @@ func _on_option_button_item_selected(new_scaling: int) -> void:
 
 # Input remapping functions
 func _create_action_list():
-	InputMap.load_from_project_settings()
 	# Clear existing input buttons
 	for item in action_list.get_children():
 		item.queue_free()
 	
 	# Create input buttons
 	for action in input_actions:
-		
 		var button = input_button_scene.instantiate()
 		var action_label = button.find_child("LabelAction")
 		var input_label = button.find_child("LabelInput")
 		action_label.text = input_actions[action]
+		
+		# Mevcut InputMap'dan keyleri oku
 		var events = InputMap.action_get_events(action)
 		if events.size() > 0:
 			input_label.text = events[0].as_text().trim_suffix(" (Physical)")
@@ -163,6 +171,9 @@ func _input(event):
 			is_remapping = false
 			action_to_remap = null
 			remapping_button = null
+			
+			# Kontrol tuşlarını kaydet
+			Global.save_game_state()
 			
 			get_tree().root.set_input_as_handled()
 

@@ -49,6 +49,9 @@ func _on_new_game_pressed() -> void:
 func _on_settings_pressed() -> void:
 	$AnimationPlayer.play("settings")
 	AudioManager.play("ui_button")
+	
+	# Settings açıldığında kontrol listesini yenile  
+	_create_action_list()
 
 func _on_back_pressed() -> void:
 	Global.save_game_state()
@@ -101,6 +104,9 @@ func _on_controls_pressed() -> void:
 	$"Buttons&settings/Settings/graph".visible = false
 	$"Buttons&settings/Settings/controls".visible = true
 	AudioManager.play("ui_button")
+	
+	# Kontrol listesini yenile
+	_create_action_list()
 
 
 #Graphics
@@ -148,12 +154,11 @@ var input_actions = {
 }
 
 func _create_action_list():
-	InputMap.load_from_project_settings()
-	#action listi temizleme
+	# Clear existing input buttons
 	for item in action_list.get_children():
 		item.queue_free()
 	
-	#action list yazdır
+	# Create input buttons based on current InputMap
 	for action in input_actions:
 		var button = input_button_scene.instantiate()
 		var action_label = button.find_child("LabelAction")
@@ -189,6 +194,9 @@ func _input(event):
 			is_remapping = false
 			action_to_remap = null
 			remapping_button = null
+			
+			# Kontrol tuşlarını kaydet
+			Global.save_game_state()
 			
 			accept_event()
 			

@@ -5,6 +5,7 @@ extends Sprite2D
 
 var weight_object : RigidBody2D
 var active : bool = false
+var last_active_state : bool = false
 
 var timer : Timer
 
@@ -18,17 +19,22 @@ func _ready() -> void:
 	timer.start()
 
 func _timeout() -> void:
-	if weight_object:
-		if weight_object.weight >= demand and !active:
+	var new_active_state = false
+	
+	if weight_object and weight_object.weight >= demand:
+		new_active_state = true
+	
+	# Sadece durum değiştiğinde güncelle
+	if new_active_state != last_active_state:
+		active = new_active_state
+		last_active_state = active
+		
+		if active:
 			frame = 1
-			active = true
 			$PointLight2D.color = Color("00cc05")
-		elif weight_object.weight < demand and active:
+		else:
 			frame = 0
-			active = false
 			$PointLight2D.color = Color("bd0905")
-	elif weight_object == null and active:
-		frame = 0
-		active = false
+	
 	weight_object = null
 	timer.start()
