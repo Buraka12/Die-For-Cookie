@@ -397,7 +397,7 @@ position = Vector2(894, 89)
 objects = [NodePath("../Button2")]
 
 [node name="CubeHolder5" parent="Puzzles" node_paths=PackedStringArray("objects") instance=ExtResource("7_te2l1")]
-position = Vector2(738, 121)
+position = Vector2(772, 121)
 objects = [NodePath("../Pressure2")]
 
 [node name="cube1" parent="Puzzles" instance=ExtResource("5_02f4p")]
@@ -410,7 +410,7 @@ position = Vector2(335, 42)
 position = Vector2(660, 122)
 
 [node name="cube4" parent="Puzzles" instance=ExtResource("5_02f4p")]
-position = Vector2(738, 122)
+position = Vector2(772, 122)
 
 [node name="Button1" parent="Puzzles" instance=ExtResource("6_y5bto")]
 position = Vector2(659, 282)
