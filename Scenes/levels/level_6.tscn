@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://qv52baldwf1f"]
+[gd_scene load_steps=22 format=4 uid="uid://qv52baldwf1f"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_afsow"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_xfr7n"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="13_3df8g"]
 [ext_resource type="PackedScene" uid="uid://duu5mim04jyqn" path="res://Scenes/Components/end_position.tscn" id="14_oakhy"]
 [ext_resource type="PackedScene" uid="uid://dih02itsvsh84" path="res://Scenes/Components/start_position.tscn" id="15_qc8eu"]
+[ext_resource type="PackedScene" uid="uid://bv6dhcb34dvqx" path="res://Scenes/Decor/wall_light_2.tscn" id="16_fsg1l"]
+[ext_resource type="PackedScene" uid="uid://cpkgqqslqnuuv" path="res://Scenes/Decor/light.tscn" id="17_kt4jn"]
+[ext_resource type="PackedScene" uid="uid://ds0yoto2887rf" path="res://Scenes/Decor/wall_light_1.tscn" id="18_vxc43"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uimo5"]
 
@@ -381,3 +384,39 @@ rotation = 1.5708
 
 [node name="Panel" parent="Puzzles" instance=ExtResource("11_8vdlo")]
 position = Vector2(720, 298)
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="WallLight2" parent="Lights" instance=ExtResource("16_fsg1l")]
+position = Vector2(-30, 237)
+
+[node name="WallLight3" parent="Lights" instance=ExtResource("16_fsg1l")]
+position = Vector2(64, 141)
+
+[node name="WallLight4" parent="Lights" instance=ExtResource("16_fsg1l")]
+position = Vector2(274, 93)
+
+[node name="WallLight5" parent="Lights" instance=ExtResource("16_fsg1l")]
+position = Vector2(511, 61)
+
+[node name="WallLight6" parent="Lights" instance=ExtResource("16_fsg1l")]
+position = Vector2(656, 61)
+
+[node name="WallLight7" parent="Lights" instance=ExtResource("16_fsg1l")]
+position = Vector2(946, 174)
+
+[node name="Light" parent="Lights" instance=ExtResource("17_kt4jn")]
+position = Vector2(167, 252)
+
+[node name="Light2" parent="Lights" instance=ExtResource("17_kt4jn")]
+position = Vector2(559, 203)
+
+[node name="Light3" parent="Lights" instance=ExtResource("17_kt4jn")]
+position = Vector2(689, 251)
+
+[node name="WallLight1" parent="Lights" instance=ExtResource("18_vxc43")]
+position = Vector2(321, 214)
+rotation = 3.14159
+
+[node name="WallLight8" parent="Lights" instance=ExtResource("18_vxc43")]
+position = Vector2(495, 214)

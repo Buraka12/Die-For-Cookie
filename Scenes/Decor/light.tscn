@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpkgqqslqnuuv"]
+
+[ext_resource type="Texture2D" uid="uid://q8uya85ga8co" path="res://Assets/Decor/light.png" id="1_2mpsh"]
+[ext_resource type="Texture2D" uid="uid://b2k65eetahasf" path="res://Assets/Decor/light_n.png" id="2_lsuuc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hlh52"]
+diffuse_texture = ExtResource("1_2mpsh")
+normal_texture = ExtResource("2_lsuuc")
+
+[sub_resource type="Gradient" id="Gradient_do6yi"]
+offsets = PackedFloat32Array(0, 0.75974)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l5v1o"]
+gradient = SubResource("Gradient_do6yi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.0229358)
+
+[node name="Light" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_hlh52")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(2, 2)
+energy = 0.5
+texture = SubResource("GradientTexture2D_l5v1o")

@@ -22,7 +22,9 @@ func time():
 		frame = 0
 	if working == demand:
 		active = true
+		$PointLight2D.visible = true
 	elif working != demand:
 		active = false
+		$PointLight2D.visible = false
 	working = false
 	timer.start()

@@ -33,6 +33,3 @@ func _ready() -> void:
 		
 		events = InputMap.action_get_events("RightMouse")
 		$right.text = '"' + events[0].as_text().trim_suffix(" (Physical)") + '"'
-	
-	if level == 5:
-		pass

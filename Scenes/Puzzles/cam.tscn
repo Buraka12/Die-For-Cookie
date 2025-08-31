@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bybhrirxchkn6"]
+[gd_scene load_steps=5 format=3 uid="uid://bybhrirxchkn6"]
 
 [ext_resource type="Texture2D" uid="uid://bau8i7l0rq57l" path="res://Assets/Puzzles/cam.png" id="1_mboyu"]
+[ext_resource type="Texture2D" uid="uid://daxqk02v2147s" path="res://Assets/Puzzles/cam_n.png" id="2_r1bgl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ae63t"]
+diffuse_texture = ExtResource("1_mboyu")
+normal_texture = ExtResource("2_r1bgl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7nkk"]
 size = Vector2(32, 6)
 
 [node name="Cam" type="Sprite2D"]
 position = Vector2(448, 269)
-texture = ExtResource("1_mboyu")
+texture = SubResource("CanvasTexture_ae63t")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 32

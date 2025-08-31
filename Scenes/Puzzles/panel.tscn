@@ -1,13 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddfrtr3urk07c"]
+[gd_scene load_steps=8 format=3 uid="uid://ddfrtr3urk07c"]
 
 [ext_resource type="Script" path="res://Scripts/panel.gd" id="1_ikb0n"]
 [ext_resource type="Texture2D" uid="uid://ctp3jky7gpyna" path="res://Assets/Puzzles/Panel-Sheet.png" id="1_uef7o"]
+[ext_resource type="Texture2D" uid="uid://sc4016yxv3ay" path="res://Assets/Puzzles/Panel-Sheet_n.png" id="2_ykpg8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rfxtd"]
+diffuse_texture = ExtResource("1_uef7o")
+normal_texture = ExtResource("2_ykpg8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8yko"]
 size = Vector2(20, 3)
 
+[sub_resource type="Gradient" id="Gradient_vnidt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6pjop"]
+gradient = SubResource("Gradient_vnidt")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.821101, 0.256881)
+
 [node name="Panel" type="Sprite2D"]
-texture = ExtResource("1_uef7o")
+texture = SubResource("CanvasTexture_rfxtd")
 hframes = 2
 script = ExtResource("1_ikb0n")
 
@@ -18,3 +32,8 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_i8yko")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.741188, 0.0364136, 0.0201965, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_6pjop")

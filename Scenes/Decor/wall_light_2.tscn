@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv6dhcb34dvqx"]
+
+[ext_resource type="Texture2D" uid="uid://dlo3x52m7kmpb" path="res://Assets/Decor/wall-light2.png" id="1_81odl"]
+[ext_resource type="Texture2D" uid="uid://dtehboj13terq" path="res://Assets/Decor/wall-light2_n.png" id="2_i5m87"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_huiaf"]
+diffuse_texture = ExtResource("1_81odl")
+normal_texture = ExtResource("2_i5m87")
+
+[sub_resource type="Gradient" id="Gradient_83h1k"]
+offsets = PackedFloat32Array(0, 0.75974)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lp5a3"]
+gradient = SubResource("Gradient_83h1k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.87156, 0.151376)
+
+[node name="WallLight2" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_huiaf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1.19209e-07, 2)
+scale = Vector2(2.5, 2.5)
+energy = 0.75
+texture = SubResource("GradientTexture2D_lp5a3")

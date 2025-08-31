@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://jht7nscsaad8"]
+[gd_scene load_steps=10 format=3 uid="uid://jht7nscsaad8"]
 
 [ext_resource type="Script" path="res://Scripts/OpenObejcts.gd" id="1_p10kp"]
 [ext_resource type="Texture2D" uid="uid://dw2fmpf2je0j4" path="res://Assets/Puzzles/CubeHolder-Sheet.png" id="1_v5o0w"]
+[ext_resource type="Texture2D" uid="uid://bwhibqgnvavhx" path="res://Assets/Puzzles/CubeHolder-Sheet_n.png" id="3_bfwii"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pujob"]
+diffuse_texture = ExtResource("1_v5o0w")
+normal_texture = ExtResource("3_bfwii")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyqka"]
 size = Vector2(25, 3)
@@ -39,11 +44,20 @@ _data = {
 "Active": SubResource("Animation_tc54v")
 }
 
+[sub_resource type="Gradient" id="Gradient_0irs8"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jgwpj"]
+gradient = SubResource("Gradient_0irs8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.866973, 0.188073)
+
 [node name="CubeHolder" type="Node2D"]
 script = ExtResource("1_p10kp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_v5o0w")
+texture = SubResource("CanvasTexture_pujob")
 hframes = 8
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -59,3 +73,9 @@ shape = SubResource("RectangleShape2D_xyqka")
 libraries = {
 "": SubResource("AnimationLibrary_2amfi")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.75, 0.75)
+color = Color(0.741188, 0.0364136, 0.0201965, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_jgwpj")

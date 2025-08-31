@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnhhrcokk0dhm"]
+[gd_scene load_steps=10 format=3 uid="uid://bnhhrcokk0dhm"]
 
 [ext_resource type="Texture2D" uid="uid://jgmv1y43fuv4" path="res://Assets/Puzzles/PressurePlater-Sheet.png" id="1_7p0eo"]
+[ext_resource type="Texture2D" uid="uid://dqecyv0bqcn0c" path="res://Assets/Puzzles/PressurePlater-Sheet_n.png" id="2_e3hsd"]
 [ext_resource type="Script" path="res://Scripts/pressure.gd" id="2_yfp60"]
 [ext_resource type="FontFile" uid="uid://0tf8qy53t5ie" path="res://Assets/Fonts/PixelArmy.ttf" id="3_uqb5m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_34m8g"]
+diffuse_texture = ExtResource("1_7p0eo")
+normal_texture = ExtResource("2_e3hsd")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_froos"]
 size = Vector2(29, 5)
@@ -10,8 +15,17 @@ size = Vector2(29, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3qaf"]
 size = Vector2(29, 2)
 
+[sub_resource type="Gradient" id="Gradient_vnidt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q24h7"]
+gradient = SubResource("Gradient_vnidt")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.866973, 0.188073)
+
 [node name="Pressure" type="Sprite2D"]
-texture = ExtResource("1_7p0eo")
+texture = SubResource("CanvasTexture_34m8g")
 hframes = 2
 script = ExtResource("2_yfp60")
 
@@ -42,6 +56,12 @@ theme_override_font_sizes/font_size = 12
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.75, 0.75)
+color = Color(0.741188, 0.0364136, 0.0201965, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_q24h7")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

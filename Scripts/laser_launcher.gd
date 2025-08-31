@@ -21,9 +21,13 @@ func _process(_delta: float) -> void:
 	
 	for i in objects:
 		if !i.active:
+			$Sprite2D.frame = 1
+			$PointLight2D.visible = false
 			return
 	
 	active = true
+	$PointLight2D.visible = true
+	$Sprite2D.frame = 0
 	
 	update_laser()
 

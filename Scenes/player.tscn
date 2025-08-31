@@ -476,3 +476,9 @@ texture = ExtResource("6_kdynd")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
+
+[node name="Dark" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Dark"]
+energy = 0.4
+blend_mode = 1

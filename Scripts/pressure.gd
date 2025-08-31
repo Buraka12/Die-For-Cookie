@@ -22,9 +22,11 @@ func _timeout() -> void:
 		if weight_object.weight >= demand and !active:
 			frame = 1
 			active = true
+			$PointLight2D.color = Color("00cc05")
 		elif weight_object.weight < demand and active:
 			frame = 0
 			active = false
+			$PointLight2D.color = Color("bd0905")
 	elif weight_object == null and active:
 		frame = 0
 		active = false

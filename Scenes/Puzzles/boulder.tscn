@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://08co3sia0abp"]
+[gd_scene load_steps=10 format=3 uid="uid://08co3sia0abp"]
 
 [ext_resource type="Script" path="res://Scripts/cube.gd" id="1_6d0w7"]
 [ext_resource type="Texture2D" uid="uid://dumcqy2bijth1" path="res://Assets/Puzzles/boulder.png" id="1_v42rr"]
 [ext_resource type="PackedScene" uid="uid://blmgllq4y7p7x" path="res://Scenes/Components/mass_area.tscn" id="3_0dpg6"]
+[ext_resource type="Texture2D" uid="uid://b0xyrkc55wh2l" path="res://Assets/Puzzles/boulder_n.png" id="3_7mkop"]
 [ext_resource type="PackedScene" uid="uid://c58wp21fdm1ms" path="res://Scenes/Components/grab_area.tscn" id="4_d44u7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_txagd"]
+diffuse_texture = ExtResource("1_v42rr")
+normal_texture = ExtResource("3_7mkop")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l86bx"]
 radius = 15.0
@@ -20,7 +25,7 @@ collision_mask = 11
 script = ExtResource("1_6d0w7")
 
 [node name="Boulder" type="Sprite2D" parent="."]
-texture = ExtResource("1_v42rr")
+texture = SubResource("CanvasTexture_txagd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l86bx")

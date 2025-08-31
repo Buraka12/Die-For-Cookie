@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dbcit5317dr25"]
+[gd_scene load_steps=26 format=4 uid="uid://dbcit5317dr25"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_1bga1"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_63m6r"]
@@ -17,6 +17,9 @@
 [ext_resource type="FontFile" uid="uid://lg7fhp7gjej" path="res://Assets/Fonts/videotype.ttf" id="15_3v5se"]
 [ext_resource type="PackedScene" uid="uid://duu5mim04jyqn" path="res://Scenes/Components/end_position.tscn" id="16_o25u7"]
 [ext_resource type="PackedScene" uid="uid://dih02itsvsh84" path="res://Scenes/Components/start_position.tscn" id="17_wamqe"]
+[ext_resource type="PackedScene" uid="uid://bv6dhcb34dvqx" path="res://Scenes/Decor/wall_light_2.tscn" id="18_0bcod"]
+[ext_resource type="PackedScene" uid="uid://cpkgqqslqnuuv" path="res://Scenes/Decor/light.tscn" id="19_t7jbc"]
+[ext_resource type="PackedScene" uid="uid://ds0yoto2887rf" path="res://Scenes/Decor/wall_light_1.tscn" id="20_s8c6n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u22mk"]
 
@@ -452,3 +455,39 @@ theme_override_font_sizes/font_size = 6
 text = "If a cube falls
 your head with
 enough speed, it will kill you"
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="WallLight2" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(2, 141)
+
+[node name="WallLight3" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(122, 93)
+
+[node name="WallLight4" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(291, 13)
+
+[node name="WallLight5" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(432, 62)
+
+[node name="WallLight6" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(711, 93)
+
+[node name="WallLight7" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(874, 61)
+
+[node name="WallLight9" parent="Lights" instance=ExtResource("18_0bcod")]
+position = Vector2(482, 253)
+
+[node name="Light" parent="Lights" instance=ExtResource("19_t7jbc")]
+position = Vector2(432, 156)
+
+[node name="Light2" parent="Lights" instance=ExtResource("19_t7jbc")]
+position = Vector2(617, 268)
+
+[node name="WallLight1" parent="Lights" instance=ExtResource("20_s8c6n")]
+position = Vector2(463, 338)
+
+[node name="WallLight8" parent="Lights" instance=ExtResource("20_s8c6n")]
+position = Vector2(433, 338)
+rotation = 3.14159

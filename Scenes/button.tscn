@@ -1,16 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmhxum0xpsgep"]
+[gd_scene load_steps=10 format=3 uid="uid://bmhxum0xpsgep"]
 
 [ext_resource type="Texture2D" uid="uid://derqufx766jop" path="res://Assets/Puzzles/Button-Sheet.png" id="1_paply"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="2_8j440"]
+[ext_resource type="Texture2D" uid="uid://bugw1ri06rtva" path="res://Assets/Puzzles/Button-Sheet_n.png" id="2_fpgfm"]
 [ext_resource type="PackedScene" uid="uid://b4t8n4eggopsp" path="res://Scenes/Components/interact_area.tscn" id="3_8ka0i"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_74hh0"]
+diffuse_texture = ExtResource("1_paply")
+normal_texture = ExtResource("2_fpgfm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34gjd"]
 size = Vector2(25, 18.5)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ed15"]
 
+[sub_resource type="Gradient" id="Gradient_3y7eq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_du6n6"]
+gradient = SubResource("Gradient_3y7eq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.715596, 0.298165)
+
 [node name="Button" type="Sprite2D"]
-texture = ExtResource("1_paply")
+texture = SubResource("CanvasTexture_74hh0")
 hframes = 2
 script = ExtResource("2_8j440")
 
@@ -27,6 +41,12 @@ physics_material_override = SubResource("PhysicsMaterial_7ed15")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, 1)
 polygon = PackedVector2Array(-11, 2, -2, -2, 2, -2, 10, 2)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.75, 0.75)
+color = Color(0.741176, 0.0352941, 0.0196078, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_du6n6")
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

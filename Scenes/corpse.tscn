@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://4hcg017hfqs2"]
+[gd_scene load_steps=12 format=3 uid="uid://4hcg017hfqs2"]
 
 [ext_resource type="Script" path="res://Scripts/cube.gd" id="1_qucsk"]
 [ext_resource type="PackedScene" uid="uid://c58wp21fdm1ms" path="res://Scenes/Components/grab_area.tscn" id="2_pkcgs"]
 [ext_resource type="Texture2D" uid="uid://bb3a0hm2fistx" path="res://Assets/Player/Corpse.png" id="2_wdjeq"]
+[ext_resource type="Texture2D" uid="uid://03cy6usdldja" path="res://Assets/Player/Corpse_n.png" id="3_4cvo5"]
 [ext_resource type="PackedScene" uid="uid://blmgllq4y7p7x" path="res://Scenes/Components/mass_area.tscn" id="4_do4g6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_th5vv"]
 friction = 0.3
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mkd2l"]
+diffuse_texture = ExtResource("2_wdjeq")
+normal_texture = ExtResource("3_4cvo5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwrml"]
 size = Vector2(49, 12)
@@ -28,7 +33,7 @@ freeze_mode = 1
 script = ExtResource("1_qucsk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_wdjeq")
+texture = SubResource("CanvasTexture_mkd2l")
 
 [node name="GrabArea" parent="." instance=ExtResource("2_pkcgs")]
 angular_damp_space_override = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://noa43hp6kavh"]
+[gd_scene load_steps=29 format=4 uid="uid://noa43hp6kavh"]
 
 [ext_resource type="Texture2D" uid="uid://bqkt44i2xgeqw" path="res://Assets/background/back.png" id="1_4f77t"]
 [ext_resource type="Texture2D" uid="uid://dhw4f52gnfjx4" path="res://Assets/background/front.png" id="2_alnxr"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://c8t3nokcmenfd" path="res://Scenes/level_transition.tscn" id="19_slyjh"]
 [ext_resource type="PackedScene" uid="uid://duu5mim04jyqn" path="res://Scenes/Components/end_position.tscn" id="20_p5pax"]
 [ext_resource type="PackedScene" uid="uid://dih02itsvsh84" path="res://Scenes/Components/start_position.tscn" id="21_jc6wn"]
+[ext_resource type="PackedScene" uid="uid://bv6dhcb34dvqx" path="res://Scenes/Decor/wall_light_2.tscn" id="21_l7d4q"]
+[ext_resource type="PackedScene" uid="uid://cpkgqqslqnuuv" path="res://Scenes/Decor/light.tscn" id="22_cbxfx"]
+[ext_resource type="PackedScene" uid="uid://ds0yoto2887rf" path="res://Scenes/Decor/wall_light_1.tscn" id="23_0cb0r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uimo5"]
 
@@ -435,3 +438,41 @@ objects = [NodePath("../Panel1")]
 [node name="LaserLauncher2" parent="Puzzles" instance=ExtResource("6_v0vaa")]
 position = Vector2(208, 332)
 rotation = -1.5708
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="WallLight2" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(-15, 237)
+
+[node name="WallLight8" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(100, 141)
+
+[node name="WallLight3" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(200, 125)
+
+[node name="WallLight4" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(290, 125)
+
+[node name="WallLight5" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(377, 125)
+
+[node name="WallLight6" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(918, 157)
+
+[node name="WallLight7" parent="Lights" instance=ExtResource("21_l7d4q")]
+position = Vector2(627, 125)
+
+[node name="Light" parent="Lights" instance=ExtResource("22_cbxfx")]
+position = Vector2(274, 252)
+
+[node name="Light2" parent="Lights" instance=ExtResource("22_cbxfx")]
+position = Vector2(274, 252)
+
+[node name="WallLight1" parent="Lights" instance=ExtResource("23_0cb0r")]
+position = Vector2(495, 227)
+
+[node name="WallLight10" parent="Lights" instance=ExtResource("23_0cb0r")]
+position = Vector2(847, 137)
+
+[node name="WallLight9" parent="Lights" instance=ExtResource("23_0cb0r")]
+position = Vector2(735, 227)

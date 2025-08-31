@@ -21,7 +21,9 @@ func _process(delta: float) -> void:
 		interaction()
 
 func interaction():
+	$PointLight2D.color = Color("00cc05")
 	$AnimationPlayer.play("Active")
 
 func deinteraction():
+	$PointLight2D.color = Color("bd0905")
 	$AnimationPlayer.play_backwards("Active")
